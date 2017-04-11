@@ -1,0 +1,14 @@
+Temp/
+Library/
+*.csproj
+*.suo
+*.sln
+*.apk
+*.user
+*.userprefs
+*.log
+*.log.meta
+.DS_Store
+.vs
+/bin/
+.idea/

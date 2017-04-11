@@ -1,0 +1,1993 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 33: {fileID: 3300000}
+  - 23: {fileID: 2300000}
+  - 114: {fileID: 11400000}
+  m_Layer: 0
+  m_Name: Afternoon Breeze
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.48938334, y: 0.32705295, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!23 &2300000
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 149baa1a994e2514e93319b54dee8273, type: 3}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedWireframeHidden: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &3300000
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Mesh: {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94bf6c798df5e2c489d582174519ece0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_text: Gently swaying in the afternoon breeze...
+  m_font: {fileID: 12800000, guid: 149baa1a994e2514e93319b54dee8273, type: 3}
+  m_font_data_file: {fileID: 0}
+  m_font_material: {fileID: 2100000, guid: 149baa1a994e2514e93319b54dee8273, type: 3}
+  m_px_offset: {x: 0, y: 0}
+  m_character_size: 0.49
+  m_display_axis: 0
+  m_text_anchor: 4
+  m_text_alignment: 0
+  m_line_height_factor: 1
+  m_animate_per: 0
+  m_time_type: 0
+  m_begin_delay: 0
+  m_max_width: 0
+  m_override_font_baseline: 0
+  m_font_baseline_override: 0
+  m_begin_on_start: 0
+  m_on_finish_action: 0
+  m_animation_speed_factor: 1
+  m_master_animations:
+  - m_letter_actions:
+    - m_offset_from_last: 0
+      m_action_type: 0
+      m_use_gradient_start: 0
+      m_start_colour:
+        m_progression: 0
+        m_progression_idx: 0
+        m_ease_type: 0
+        m_is_offset_from_last: 0
+        m_to_to_bool: 0
+        m_unique_randoms: 0
+        m_animate_per: 0
+        m_override_animate_per_option: 0
+        m_custom_ease_curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_values:
+        - {r: 1, g: 1, b: 1, a: 1}
+        m_from: {r: 1, g: 1, b: 1, a: 1}
+        m_to: {r: 1, g: 1, b: 1, a: 1}
+        m_to_to: {r: 1, g: 1, b: 1, a: 1}
+      m_start_vertex_colour:
+        m_progression: 0
+        m_progression_idx: -1
+        m_ease_type: 0
+        m_is_offset_from_last: 0
+        m_to_to_bool: 0
+        m_unique_randoms: 0
+        m_animate_per: 0
+        m_override_animate_per_option: 0
+        m_custom_ease_curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_values: []
+        m_from:
+          top_left: {r: 1, g: 1, b: 1, a: 1}
+          top_right: {r: 1, g: 1, b: 1, a: 1}
+          bottom_right: {r: 1, g: 1, b: 1, a: 1}
+          bottom_left: {r: 1, g: 1, b: 1, a: 1}
+        m_to:
+          top_left: {r: 1, g: 1, b: 1, a: 1}
+          top_right: {r: 1, g: 1, b: 1, a: 1}
+          bottom_right: {r: 1, g: 1, b: 1, a: 1}
+          bottom_left: {r: 1, g: 1, b: 1, a: 1}
+        m_to_to:
+          top_left: {r: 1, g: 1, b: 1, a: 1}
+          top_right: {r: 1, g: 1, b: 1, a: 1}
+          bottom_right: {r: 1, g: 1, b: 1, a: 1}
+          bottom_left: {r: 1, g: 1, b: 1, a: 1}
+      m_use_gradient_end: 0
+      m_end_colour:
+        m_progression: 0
+        m_progression_idx: 1
+        m_ease_type: 0
+        m_is_offset_from_last: 0
+        m_to_to_bool: 0
+        m_unique_randoms: 1
+        m_animate_per: 0
+        m_override_animate_per_option: 0
+        m_custom_ease_curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_values:
+        - {r: 1, g: 1, b: 1, a: 0.7871681}
+        - {r: 1, g: 1, b: 1, a: 0.76732284}
+        - {r: 1, g: 1, b: 1, a: 0.6246033}
+        - {r: 1, g: 1, b: 1, a: 0.79407346}
+        - {r: 1, g: 1, b: 1, a: 0.9496618}
+        - {r: 1, g: 1, b: 1, a: 0.6046859}
+        - {r: 1, g: 1, b: 1, a: 0.4513679}
+        - {r: 1, g: 1, b: 1, a: 0.4602456}
+        - {r: 1, g: 1, b: 1, a: 0.7523778}
+        - {r: 1, g: 1, b: 1, a: 0.6337913}
+        - {r: 1, g: 1, b: 1, a: 0.39503443}
+        - {r: 1, g: 1, b: 1, a: 0.8001274}
+        - {r: 1, g: 1, b: 1, a: 0.8867216}
+        - {r: 1, g: 1, b: 1, a: 0.48469186}
+        - {r: 1, g: 1, b: 1, a: 0.8355144}
+        - {r: 1, g: 1, b: 1, a: 0.47874284}
+        - {r: 1, g: 1, b: 1, a: 0.6146902}
+        - {r: 1, g: 1, b: 1, a: 0.9046139}
+        - {r: 1, g: 1, b: 1, a: 0.44778806}
+        - {r: 1, g: 1, b: 1, a: 0.44188696}
+        - {r: 1, g: 1, b: 1, a: 0.5066719}
+        - {r: 1, g: 1, b: 1, a: 0.7105056}
+        - {r: 1, g: 1, b: 1, a: 0.7506904}
+        - {r: 1, g: 1, b: 1, a: 0.66947705}
+        - {r: 1, g: 1, b: 1, a: 0.7429683}
+        - {r: 1, g: 1, b: 1, a: 0.67156327}
+        - {r: 1, g: 1, b: 1, a: 0.7779933}
+        - {r: 1, g: 1, b: 1, a: 0.6053771}
+        - {r: 1, g: 1, b: 1, a: 0.7902076}
+        - {r: 1, g: 1, b: 1, a: 0.5734756}
+        - {r: 1, g: 1, b: 1, a: 0.7710637}
+        - {r: 1, g: 1, b: 1, a: 0.6649802}
+        - {r: 1, g: 1, b: 1, a: 0.7185652}
+        - {r: 1, g: 1, b: 1, a: 0.9341388}
+        - {r: 1, g: 1, b: 1, a: 0.4087888}
+        - {r: 1, g: 1, b: 1, a: 0.5863458}
+        m_from: {r: 1, g: 1, b: 1, a: 1}
+        m_to: {r: 1, g: 1, b: 1, a: 0.3529412}
+        m_to_to: {r: 1, g: 1, b: 1, a: 1}
+      m_end_vertex_colour:
+        m_progression: 0
+        m_progression_idx: -1
+        m_ease_type: 0
+        m_is_offset_from_last: 0
+        m_to_to_bool: 0
+        m_unique_randoms: 0
+        m_animate_per: 0
+        m_override_animate_per_option: 0
+        m_custom_ease_curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_values: []
+        m_from:
+          top_left: {r: 1, g: 1, b: 1, a: 1}
+          top_right: {r: 1, g: 1, b: 1, a: 1}
+          bottom_right: {r: 1, g: 1, b: 1, a: 1}
+          bottom_left: {r: 1, g: 1, b: 1, a: 1}
+        m_to:
+          top_left: {r: 1, g: 1, b: 1, a: 1}
+          top_right: {r: 1, g: 1, b: 1, a: 1}
+          bottom_right: {r: 1, g: 1, b: 1, a: 1}
+          bottom_left: {r: 1, g: 1, b: 1, a: 1}
+        m_to_to:
+          top_left: {r: 1, g: 1, b: 1, a: 1}
+          top_right: {r: 1, g: 1, b: 1, a: 1}
+          bottom_right: {r: 1, g: 1, b: 1, a: 1}
+          bottom_left: {r: 1, g: 1, b: 1, a: 1}
+      m_position_axis_ease_data:
+        m_override_default: 0
+        m_x_ease: 0
+        m_y_ease: 0
+        m_z_ease: 0
+      m_start_pos:
+        m_progression: 0
+        m_progression_idx: 4
+        m_ease_type: 0
+        m_is_offset_from_last: 0
+        m_to_to_bool: 0
+        m_unique_randoms: 0
+        m_animate_per: 0
+        m_override_animate_per_option: 0
+        m_custom_ease_curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_values:
+        - {x: -15.054603, y: -1.6028568, z: 0}
+        - {x: -14.244503, y: -0.3781367, z: 0}
+        - {x: -13.614444, y: 0.40488315, z: 0}
+        - {x: -12.980445, y: 1.051712, z: 0}
+        - {x: -12.353793, y: 1.5606263, z: 0}
+        - {x: -11.85884, y: 1.8769616, z: 0}
+        - {x: -10.4428425, y: 2.4090407, z: 0}
+        - {x: -9.272999, y: 2.4925945, z: 0}
+        - {x: -8.064056, y: 2.3092642, z: 0}
+        - {x: -7.1289215, y: 2.017981, z: 0}
+        - {x: -6.314294, y: 1.6799798, z: 0}
+        - {x: -5.783837, y: 1.4253272, z: 0}
+        - {x: -4.920251, y: 0.96359015, z: 0}
+        - {x: -3.658218, y: 0.20987988, z: 0}
+        - {x: -3.1614199, y: -0.10513854, z: 0}
+        - {x: -1.9121342, y: -0.9251623, z: 0}
+        - {x: -1.1592193, y: -1.4299879, z: 0}
+        - {x: -0.32291844, y: -1.9917121, z: 0}
+        - {x: 1.027231, y: -2.8352845, z: 0}
+        - {x: 1.7556293, y: -3.238475, z: 0}
+        - {x: 2.4363072, y: -3.5719118, z: 0}
+        - {x: 3.3011036, y: -3.9183075, z: 0}
+        - {x: 4.2722073, y: -4.1703806, z: 0}
+        - {x: 5.2478266, y: -4.223213, z: 0}
+        - {x: 6.224324, y: -4.0045342, z: 0}
+        - {x: 7.1232786, y: -3.5101104, z: 0}
+        - {x: 7.890485, y: -2.8631334, z: 0}
+        - {x: 8.953475, y: -1.7114024, z: 0}
+        - {x: 9.581344, y: -0.95908284, z: 0}
+        - {x: 10.219503, y: -0.18337703, z: 0}
+        - {x: 10.891834, y: 0.5982126, z: 0}
+        - {x: 11.597278, y: 1.313052, z: 0}
+        - {x: 12.396946, y: 1.9164534, z: 0}
+        - {x: 13.107198, y: 2.1696804, z: 0}
+        - {x: 13.593739, y: 2.1424954, z: 0}
+        - {x: 14.048029, y: 1.9633524, z: 0}
+        m_from: {x: 0, y: 0, z: 0}
+        m_to: {x: 0, y: 0, z: 0}
+        m_to_to: {x: 0, y: 0, z: 0}
+        m_ease_curve_per_axis: 0
+        m_custom_ease_curve_y:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_custom_ease_curve_z:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_bezier_curve:
+          m_anchor_points:
+          - m_anchor_point: {x: -15.503859, y: -2.3925343, z: 0}
+            m_handle_point: {x: -11.220076, y: 5.522521, z: 0}
+          - m_anchor_point: {x: -0.5369977, y: -1.8487765, z: 0}
+            m_handle_point: {x: -6.8870597, y: 2.4231024, z: 0}
+          - m_anchor_point: {x: 10.28121, y: -0.108751535, z: 0}
+            m_handle_point: {x: 6.976192, y: -4.1019926, z: 0}
+          - m_anchor_point: {x: 17.075615, y: -0.7612611, z: 0}
+            m_handle_point: {x: 13.988098, y: 1.9880947, z: 0}
+        m_force_position_override: 0
+      m_end_pos:
+        m_progression: 0
+        m_progression_idx: 0
+        m_ease_type: 0
+        m_is_offset_from_last: 1
+        m_to_to_bool: 0
+        m_unique_randoms: 0
+        m_animate_per: 0
+        m_override_animate_per_option: 0
+        m_custom_ease_curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_values:
+        - {x: -15.054603, y: -1.6028568, z: 0}
+        - {x: -14.244503, y: -0.3781367, z: 0}
+        - {x: -13.614444, y: 0.40488315, z: 0}
+        - {x: -12.980445, y: 1.051712, z: 0}
+        - {x: -12.353793, y: 1.5606263, z: 0}
+        - {x: -11.85884, y: 1.8769616, z: 0}
+        - {x: -10.4428425, y: 2.4090407, z: 0}
+        - {x: -9.272999, y: 2.4925945, z: 0}
+        - {x: -8.064056, y: 2.3092642, z: 0}
+        - {x: -7.1289215, y: 2.017981, z: 0}
+        - {x: -6.314294, y: 1.6799798, z: 0}
+        - {x: -5.783837, y: 1.4253272, z: 0}
+        - {x: -4.920251, y: 0.96359015, z: 0}
+        - {x: -3.658218, y: 0.20987988, z: 0}
+        - {x: -3.1614199, y: -0.10513854, z: 0}
+        - {x: -1.9121342, y: -0.9251623, z: 0}
+        - {x: -1.1592193, y: -1.4299879, z: 0}
+        - {x: -0.32291844, y: -1.9917121, z: 0}
+        - {x: 1.027231, y: -2.8352845, z: 0}
+        - {x: 1.7556293, y: -3.238475, z: 0}
+        - {x: 2.4363072, y: -3.5719118, z: 0}
+        - {x: 3.3011036, y: -3.9183075, z: 0}
+        - {x: 4.2722073, y: -4.1703806, z: 0}
+        - {x: 5.2478266, y: -4.223213, z: 0}
+        - {x: 6.224324, y: -4.0045342, z: 0}
+        - {x: 7.1232786, y: -3.5101104, z: 0}
+        - {x: 7.890485, y: -2.8631334, z: 0}
+        - {x: 8.953475, y: -1.7114024, z: 0}
+        - {x: 9.581344, y: -0.95908284, z: 0}
+        - {x: 10.219503, y: -0.18337703, z: 0}
+        - {x: 10.891834, y: 0.5982126, z: 0}
+        - {x: 11.597278, y: 1.313052, z: 0}
+        - {x: 12.396946, y: 1.9164534, z: 0}
+        - {x: 13.107198, y: 2.1696804, z: 0}
+        - {x: 13.593739, y: 2.1424954, z: 0}
+        - {x: 14.048029, y: 1.9633524, z: 0}
+        m_from: {x: 0, y: 0, z: 0}
+        m_to: {x: 0, y: 0, z: 0}
+        m_to_to: {x: 0, y: 0, z: 0}
+        m_ease_curve_per_axis: 0
+        m_custom_ease_curve_y:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_custom_ease_curve_z:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_bezier_curve:
+          m_anchor_points:
+          - m_anchor_point: {x: -8, y: 0, z: 0}
+            m_handle_point: {x: -6, y: -4, z: 0}
+          - m_anchor_point: {x: 10.011898, y: -6.851348, z: 0}
+            m_handle_point: {x: 8.011898, y: -10.85135, z: 0}
+        m_force_position_override: 0
+      m_rotation_axis_ease_data:
+        m_override_default: 0
+        m_x_ease: 0
+        m_y_ease: 0
+        m_z_ease: 0
+      m_start_euler_rotation:
+        m_progression: 0
+        m_progression_idx: 0
+        m_ease_type: 0
+        m_is_offset_from_last: 0
+        m_to_to_bool: 0
+        m_unique_randoms: 0
+        m_animate_per: 0
+        m_override_animate_per_option: 0
+        m_custom_ease_curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_values:
+        - {x: -0.0000010694166, y: 0.0000055139953, z: 59.065495}
+        - {x: -0.0000018012532, y: -0.0000014714213, z: 53.633938}
+        - {x: 0.0000041172516, y: 0.0000050064077, z: 48.48488}
+        - {x: -0.00000045755897, y: 0.000003548742, z: 42.403458}
+        - {x: 0.0000016120996, y: 0.00000014535412, z: 35.50994}
+        - {x: -0.000004021905, y: -0.0000010721549, z: 29.526932}
+        - {x: 0.0000000516252, y: -0.00000066865493, z: 11.223489}
+        - {x: -0.0000042708366, y: 0.00000014074324, z: 357.3207}
+        - {x: -0.00000069085615, y: -0.00000052652786, z: 346.07706}
+        - {x: -0.000002709375, y: 0.0000017356938, z: 339.6743}
+        - {x: 0.0000022012941, y: -0.0000018994806, z: 335.4772}
+        - {x: 0.000005622742, y: -0.0000012903078, z: 333.31586}
+        - {x: -0.0000003592762, y: -0.0000006159435, z: 330.58585}
+        - {x: 0.0000051508287, y: -0.000005725342, z: 327.9757}
+        - {x: 0.0000027581266, y: 0.0000043350374, z: 327.30212}
+        - {x: 0.0000061239957, y: -0.0000030102028, z: 326.2923}
+        - {x: -0.0000030513866, y: 0.000004903265, z: 326.0724}
+        - {x: 0.00000076515414, y: -0.0000019610911, z: 326.4747}
+        - {x: -0.0000050919166, y: 0.000005234278, z: 329.8053}
+        - {x: 0.000004290986, y: -0.0000022769818, z: 332.3916}
+        - {x: -0.000000025301212, y: -0.00000047079976, z: 335.57034}
+        - {x: -0.0000017948367, y: 0.0000007704334, z: 341.14865}
+        - {x: -0.0000012466311, y: -0.00000021938011, z: 350.45206}
+        - {x: -0.000002896367, y: -0.00000032148955, z: 4.129541}
+        - {x: 0.0000048531656, y: 0.00000035882164, z: 21.153852}
+        - {x: 0.000005053156, y: 0.0000042271017, z: 35.50652}
+        - {x: 0.000003580293, y: 0.0000015349685, z: 43.92269}
+        - {x: 0.0000020110522, y: 0.0000028447591, z: 49.548714}
+        - {x: -0.0000042621687, y: -0.0000030162407, z: 50.527683}
+        - {x: 0.0000025992301, y: 0.00000048708597, z: 50.449604}
+        - {x: -0.0000019939343, y: -0.0000005461985, z: 47.74053}
+        - {x: 0.000002841277, y: -0.00000016332774, z: 42.36633}
+        - {x: -0.0000025672302, y: 0.00000027546943, z: 29.678196}
+        - {x: 0.000004165427, y: -0.00000034476162, z: 6.9416227}
+        - {x: -0.0000073461106, y: 0.0000015137236, z: 346.78787}
+        - {x: 0.00000548441, y: -0.000004144213, z: 331.4166}
+        m_from: {x: 0, y: 0, z: 0}
+        m_to: {x: 0, y: 0, z: 0}
+        m_to_to: {x: 0, y: 0, z: 0}
+        m_ease_curve_per_axis: 0
+        m_custom_ease_curve_y:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_custom_ease_curve_z:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+      m_end_euler_rotation:
+        m_progression: 0
+        m_progression_idx: 1
+        m_ease_type: 0
+        m_is_offset_from_last: 1
+        m_to_to_bool: 0
+        m_unique_randoms: 1
+        m_animate_per: 0
+        m_override_animate_per_option: 0
+        m_custom_ease_curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_values:
+        - {x: -0.0000010694166, y: 0.0000055139953, z: 43.53164}
+        - {x: -0.0000018012532, y: -0.0000014714213, z: 47.089405}
+        - {x: 0.0000041172516, y: 0.0000050064077, z: 39.085175}
+        - {x: -0.00000045755897, y: 0.000003548742, z: 22.566868}
+        - {x: 0.0000016120996, y: 0.00000014535412, z: 26.485886}
+        - {x: -0.000004021905, y: -0.0000010721549, z: 12.591122}
+        - {x: 0.0000000516252, y: -0.00000066865493, z: 4.845436}
+        - {x: -0.0000042708366, y: 0.00000014074324, z: 344.84067}
+        - {x: -0.00000069085615, y: -0.00000052652786, z: 338.67365}
+        - {x: -0.000002709375, y: 0.0000017356938, z: 327.6111}
+        - {x: 0.0000022012941, y: -0.0000018994806, z: 318.24167}
+        - {x: 0.000005622742, y: -0.0000012903078, z: 321.57986}
+        - {x: -0.0000003592762, y: -0.0000006159435, z: 322.37057}
+        - {x: 0.0000051508287, y: -0.000005725342, z: 313.2619}
+        - {x: 0.0000027581266, y: 0.0000043350374, z: 319.67642}
+        - {x: 0.0000061239957, y: -0.0000030102028, z: 309.1979}
+        - {x: -0.0000030513866, y: 0.000004903265, z: 315.1338}
+        - {x: 0.00000076515414, y: -0.0000019610911, z: 319.24582}
+        - {x: -0.0000050919166, y: 0.000005234278, z: 319.7335}
+        - {x: 0.000004290986, y: -0.0000022769818, z: 320.02933}
+        - {x: -0.000000025301212, y: -0.00000047079976, z: 329.40833}
+        - {x: -0.0000017948367, y: 0.0000007704334, z: 325.3905}
+        - {x: -0.0000012466311, y: -0.00000021938011, z: 331.62378}
+        - {x: -0.000002896367, y: -0.00000032148955, z: -6.568379}
+        - {x: 0.0000048531656, y: 0.00000035882164, z: 6.9916487}
+        - {x: 0.000005053156, y: 0.0000042271017, z: 30.342518}
+        - {x: 0.000003580293, y: 0.0000015349685, z: 26.786156}
+        - {x: 0.0000020110522, y: 0.0000028447591, z: 41.42661}
+        - {x: -0.0000042621687, y: -0.0000030162407, z: 30.871557}
+        - {x: 0.0000025992301, y: 0.00000048708597, z: 30.576914}
+        - {x: -0.0000019939343, y: -0.0000005461985, z: 35.264824}
+        - {x: 0.000002841277, y: -0.00000016332774, z: 25.077227}
+        - {x: -0.0000025672302, y: 0.00000027546943, z: 18.673664}
+        - {x: 0.000004165427, y: -0.00000034476162, z: -8.397919}
+        - {x: -0.0000073461106, y: 0.0000015137236, z: 334.11005}
+        - {x: 0.00000548441, y: -0.000004144213, z: 318.55865}
+        m_from: {x: 0, y: 0, z: -20}
+        m_to: {x: 0, y: 0, z: -5}
+        m_to_to: {x: 0, y: 0, z: 0}
+        m_ease_curve_per_axis: 0
+        m_custom_ease_curve_y:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_custom_ease_curve_z:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+      m_scale_axis_ease_data:
+        m_override_default: 0
+        m_x_ease: 0
+        m_y_ease: 0
+        m_z_ease: 0
+      m_start_scale:
+        m_progression: 0
+        m_progression_idx: 0
+        m_ease_type: 0
+        m_is_offset_from_last: 0
+        m_to_to_bool: 0
+        m_unique_randoms: 0
+        m_animate_per: 0
+        m_override_animate_per_option: 0
+        m_custom_ease_curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_values:
+        - {x: 1, y: 1, z: 1}
+        m_from: {x: 1, y: 1, z: 1}
+        m_to: {x: 1, y: 1, z: 1}
+        m_to_to: {x: 1, y: 1, z: 1}
+        m_ease_curve_per_axis: 0
+        m_custom_ease_curve_y:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_custom_ease_curve_z:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+      m_end_scale:
+        m_progression: 0
+        m_progression_idx: 0
+        m_ease_type: 0
+        m_is_offset_from_last: 0
+        m_to_to_bool: 0
+        m_unique_randoms: 0
+        m_animate_per: 0
+        m_override_animate_per_option: 0
+        m_custom_ease_curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_values:
+        - {x: 1, y: 1, z: 1}
+        m_from: {x: 1, y: 1, z: 1}
+        m_to: {x: 1, y: 1, z: 1}
+        m_to_to: {x: 1, y: 1, z: 1}
+        m_ease_curve_per_axis: 0
+        m_custom_ease_curve_y:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_custom_ease_curve_z:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+      m_force_same_start_time: 0
+      m_delay_progression:
+        m_progression: 0
+        m_progression_idx: 2
+        m_ease_type: 0
+        m_is_offset_from_last: 0
+        m_to_to_bool: 0
+        m_unique_randoms: 0
+        m_animate_per: 0
+        m_override_animate_per_option: 0
+        m_custom_ease_curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_values:
+        - 0
+        - 0.028571429
+        - 0.057142857
+        - 0.08571429
+        - 0.114285715
+        - 0.14285715
+        - 0.17142858
+        - 0.2
+        - 0.22857143
+        - 0.25714287
+        - 0.2857143
+        - 0.31428573
+        - 0.34285715
+        - 0.37142858
+        - 0.4
+        - 0.42857143
+        - 0.45714286
+        - 0.4857143
+        - 0.51428574
+        - 0.54285717
+        - 0.5714286
+        - 0.6
+        - 0.62857145
+        - 0.6571429
+        - 0.6857143
+        - 0.71428573
+        - 0.74285716
+        - 0.7714286
+        - 0.8
+        - 0.82857144
+        - 0.85714287
+        - 0.8857143
+        - 0.9142857
+        - 0.94285715
+        - 0.9714286
+        - 1
+        m_from: 0
+        m_to: 1
+        m_to_to: 0
+      m_duration_progression:
+        m_progression: 0
+        m_progression_idx: 1
+        m_ease_type: 0
+        m_is_offset_from_last: 0
+        m_to_to_bool: 0
+        m_unique_randoms: 1
+        m_animate_per: 0
+        m_override_animate_per_option: 0
+        m_custom_ease_curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_values:
+        - 1.2932454
+        - 1.1159008
+        - 1.2753654
+        - 1.1945738
+        - 1.1597407
+        - 1.0312126
+        - 1.1691384
+        - 1.2235317
+        - 1.3260744
+        - 1.1435001
+        - 1.3753462
+        - 1.3350763
+        - 1.3908958
+        - 1.0154207
+        - 1.3071437
+        - 1.060283
+        - 1.3059663
+        - 1.321235
+        - 1.2677677
+        - 1.2195605
+        - 1.3967125
+        - 1.4618986
+        - 1.2231933
+        - 1.244378
+        - 1.0520096
+        - 1.1658254
+        - 1.4690825
+        - 1.1665461
+        - 1.2962846
+        - 1.4121077
+        - 1.0578805
+        - 1.3595333
+        - 1.1452928
+        - 1.0196949
+        - 1.4949651
+        - 1.014621
+        m_from: 1
+        m_to: 1.5
+        m_to_to: 1
+      m_ease_type: 3
+      m_letter_anchor_start: 9
+      m_letter_anchor_end: 4
+      m_letter_anchor_2_way: 0
+      m_particle_effects: []
+      m_audio_effects: []
+      m_anchor_offset: {x: 0.5, y: 0, z: 0}
+      m_anchor_offset_end: {x: 0.5, y: 0, z: 0}
+    m_loop_cycles:
+    - m_start_action_idx: 0
+      m_end_action_idx: 0
+      m_number_of_loops: 0
+      m_loop_type: 1
+      m_delay_first_only: 1
+    m_letters_to_animate_option: 0
+    m_letters_to_animate: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f00000020000000210000002200000023000000
+    m_letters_to_animate_custom_idx: 1
+  m_text_datas:
+  - m_text_line_width: 36.210995
+    m_text_line_height: 2.891
+    m_total_text_width: 36.210995
+    m_total_text_height: 2.891
+    m_line_height_offset: 0
+    m_y_max: -0.5752599
+  m_number_of_words: 6
+  m_number_of_lines: 1
+  m_font_baseline: 64.74
+  m_letters:
+  - m_character: G
+    m_flipped: 0
+    m_offset_width: 1.911
+    m_width: 1.8130001
+    m_height: -2.6460001
+    m_base_vertices:
+    - {x: 1.8130001, y: 2.5970001, z: 0}
+    - {x: 0, y: 2.5970001, z: 0}
+    - {x: 0, y: -0.049000114, z: 0}
+    - {x: 1.8130001, y: -0.049000114, z: 0}
+    m_base_offset: {x: -18.056498, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -0.5752599
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 0
+      m_word_value: 0
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: e
+    m_flipped: 0
+    m_offset_width: 1.029
+    m_width: 0.931
+    m_height: -1.029
+    m_base_vertices:
+    - {x: 0.931, y: 1.0289999, z: 0}
+    - {x: 0, y: 1.0289999, z: 0}
+    - {x: 0, y: -0.00000008893967, z: 0}
+    - {x: 0.931, y: -0.00000008893967, z: 0}
+    m_base_offset: {x: -16.145496, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -2.14326
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 1
+      m_word_value: 0
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: n
+    m_flipped: 0
+    m_offset_width: 0.98
+    m_width: 0.882
+    m_height: -1.029
+    m_base_vertices:
+    - {x: 0.882, y: 1.0289999, z: 0}
+    - {x: 0, y: 1.0289999, z: 0}
+    - {x: 0, y: -0.00000008893967, z: 0}
+    - {x: 0.882, y: -0.00000008893967, z: 0}
+    m_base_offset: {x: -15.116497, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -2.14326
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 2
+      m_word_value: 0
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: t
+    m_flipped: 0
+    m_offset_width: 0.833
+    m_width: 0.735
+    m_height: -1.5680001
+    m_base_vertices:
+    - {x: 0.735, y: 1.568, z: 0}
+    - {x: 0, y: 1.568, z: 0}
+    - {x: 0, y: -0.00000008893967, z: 0}
+    - {x: 0.735, y: -0.00000008893967, z: 0}
+    m_base_offset: {x: -14.1364975, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -1.60426
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 3
+      m_word_value: 0
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: l
+    m_flipped: 0
+    m_offset_width: 0.49
+    m_width: 0.686
+    m_height: -2.45
+    m_base_vertices:
+    - {x: 0.686, y: 2.45, z: 0}
+    - {x: 0, y: 2.45, z: 0}
+    - {x: 0, y: -0.000000029335023, z: 0}
+    - {x: 0.686, y: -0.000000029335023, z: 0}
+    m_base_offset: {x: -13.303497, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -0.72225994
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 4
+      m_word_value: 0
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: y
+    m_flipped: 0
+    m_offset_width: 0.98
+    m_width: 0.882
+    m_height: -1.3230001
+    m_base_vertices:
+    - {x: 0.882, y: 1.0289999, z: 0}
+    - {x: 0, y: 1.0289999, z: 0}
+    - {x: 0, y: -0.29400012, z: 0}
+    - {x: 0.882, y: -0.29400012, z: 0}
+    m_base_offset: {x: -12.813498, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -2.14326
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 5
+      m_word_value: 0
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: s
+    m_flipped: 0
+    m_offset_width: 0.882
+    m_width: 0.78400004
+    m_height: -1.029
+    m_base_vertices:
+    - {x: 0.78400004, y: 1.0289999, z: 0}
+    - {x: 0, y: 1.0289999, z: 0}
+    - {x: 0, y: -0.00000008893967, z: 0}
+    - {x: 0.78400004, y: -0.00000008893967, z: 0}
+    m_base_offset: {x: -11.245498, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -2.14326
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 6
+      m_word_value: 1
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: w
+    m_flipped: 1
+    m_offset_width: 1.47
+    m_width: 1.372
+    m_height: -1.029
+    m_base_vertices:
+    - {x: 0, y: 1.0289999, z: 0}
+    - {x: 0, y: -0.00000008893967, z: 0}
+    - {x: 1.372, y: -0.00000008893967, z: 0}
+    - {x: 1.372, y: 1.0289999, z: 0}
+    m_base_offset: {x: -10.363498, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -2.14326
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 7
+      m_word_value: 1
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: a
+    m_flipped: 0
+    m_offset_width: 0.98
+    m_width: 0.882
+    m_height: -1.029
+    m_base_vertices:
+    - {x: 0.882, y: 1.0289999, z: 0}
+    - {x: 0, y: 1.0289999, z: 0}
+    - {x: 0, y: -0.00000008893967, z: 0}
+    - {x: 0.882, y: -0.00000008893967, z: 0}
+    m_base_offset: {x: -8.893497, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -2.14326
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 8
+      m_word_value: 1
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: y
+    m_flipped: 0
+    m_offset_width: 0.98
+    m_width: 0.882
+    m_height: -1.3230001
+    m_base_vertices:
+    - {x: 0.882, y: 1.0289999, z: 0}
+    - {x: 0, y: 1.0289999, z: 0}
+    - {x: 0, y: -0.29400012, z: 0}
+    - {x: 0.882, y: -0.29400012, z: 0}
+    m_base_offset: {x: -7.913498, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -2.14326
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 9
+      m_word_value: 1
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: i
+    m_flipped: 0
+    m_offset_width: 0.49
+    m_width: 0.686
+    m_height: -1.519
+    m_base_vertices:
+    - {x: 0.686, y: 1.519, z: 0}
+    - {x: 0, y: 1.519, z: 0}
+    - {x: 0, y: 0.00000003026962, z: 0}
+    - {x: 0.686, y: 0.00000003026962, z: 0}
+    m_base_offset: {x: -6.9334984, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -1.6532599
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 10
+      m_word_value: 1
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: n
+    m_flipped: 0
+    m_offset_width: 0.98
+    m_width: 0.882
+    m_height: -1.029
+    m_base_vertices:
+    - {x: 0.882, y: 1.0289999, z: 0}
+    - {x: 0, y: 1.0289999, z: 0}
+    - {x: 0, y: -0.00000008893967, z: 0}
+    - {x: 0.882, y: -0.00000008893967, z: 0}
+    m_base_offset: {x: -6.4434986, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -2.14326
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 11
+      m_word_value: 1
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: g
+    m_flipped: 0
+    m_offset_width: 0.98
+    m_width: 0.882
+    m_height: -1.3230001
+    m_base_vertices:
+    - {x: 0.882, y: 1.0289999, z: 0}
+    - {x: 0, y: 1.0289999, z: 0}
+    - {x: 0, y: -0.29400012, z: 0}
+    - {x: 0.882, y: -0.29400012, z: 0}
+    m_base_offset: {x: -5.463499, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -2.14326
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 12
+      m_word_value: 1
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: i
+    m_flipped: 0
+    m_offset_width: 0.49
+    m_width: 0.686
+    m_height: -1.519
+    m_base_vertices:
+    - {x: 0.686, y: 1.519, z: 0}
+    - {x: 0, y: 1.519, z: 0}
+    - {x: 0, y: 0.00000003026962, z: 0}
+    - {x: 0.686, y: 0.00000003026962, z: 0}
+    m_base_offset: {x: -3.8954992, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -1.6532599
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 13
+      m_word_value: 2
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: n
+    m_flipped: 0
+    m_offset_width: 0.98
+    m_width: 0.882
+    m_height: -1.029
+    m_base_vertices:
+    - {x: 0.882, y: 1.0289999, z: 0}
+    - {x: 0, y: 1.0289999, z: 0}
+    - {x: 0, y: -0.00000008893967, z: 0}
+    - {x: 0.882, y: -0.00000008893967, z: 0}
+    m_base_offset: {x: -3.4054995, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -2.14326
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 14
+      m_word_value: 2
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: t
+    m_flipped: 0
+    m_offset_width: 0.833
+    m_width: 0.735
+    m_height: -1.5680001
+    m_base_vertices:
+    - {x: 0.735, y: 1.568, z: 0}
+    - {x: 0, y: 1.568, z: 0}
+    - {x: 0, y: -0.00000008893967, z: 0}
+    - {x: 0.735, y: -0.00000008893967, z: 0}
+    m_base_offset: {x: -1.8374996, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -1.60426
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 15
+      m_word_value: 3
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: h
+    m_flipped: 0
+    m_offset_width: 0.98
+    m_width: 0.882
+    m_height: -2.45
+    m_base_vertices:
+    - {x: 0.882, y: 2.45, z: 0}
+    - {x: 0, y: 2.45, z: 0}
+    - {x: 0, y: -0.000000029335023, z: 0}
+    - {x: 0.882, y: -0.000000029335023, z: 0}
+    m_base_offset: {x: -1.0044994, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -0.72225994
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 16
+      m_word_value: 3
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: e
+    m_flipped: 0
+    m_offset_width: 1.029
+    m_width: 0.931
+    m_height: -1.029
+    m_base_vertices:
+    - {x: 0.931, y: 1.0289999, z: 0}
+    - {x: 0, y: 1.0289999, z: 0}
+    - {x: 0, y: -0.00000008893967, z: 0}
+    - {x: 0.931, y: -0.00000008893967, z: 0}
+    m_base_offset: {x: -0.024499893, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -2.14326
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 17
+      m_word_value: 3
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: a
+    m_flipped: 0
+    m_offset_width: 0.98
+    m_width: 0.882
+    m_height: -1.029
+    m_base_vertices:
+    - {x: 0.882, y: 1.0289999, z: 0}
+    - {x: 0, y: 1.0289999, z: 0}
+    - {x: 0, y: -0.00000008893967, z: 0}
+    - {x: 0.882, y: -0.00000008893967, z: 0}
+    m_base_offset: {x: 1.5924988, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -2.14326
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 18
+      m_word_value: 4
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: f
+    m_flipped: 0
+    m_offset_width: 0.686
+    m_width: 0.588
+    m_height: -2.744
+    m_base_vertices:
+    - {x: 0.588, y: 2.45, z: 0}
+    - {x: 0, y: 2.45, z: 0}
+    - {x: 0, y: -0.29399994, z: 0}
+    - {x: 0.588, y: -0.29399994, z: 0}
+    m_base_offset: {x: 2.5724983, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -0.72225994
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 19
+      m_word_value: 4
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: t
+    m_flipped: 0
+    m_offset_width: 0.833
+    m_width: 0.735
+    m_height: -1.5680001
+    m_base_vertices:
+    - {x: 0.735, y: 1.568, z: 0}
+    - {x: 0, y: 1.568, z: 0}
+    - {x: 0, y: -0.00000008893967, z: 0}
+    - {x: 0.735, y: -0.00000008893967, z: 0}
+    m_base_offset: {x: 3.2584991, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -1.60426
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 20
+      m_word_value: 4
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: e
+    m_flipped: 0
+    m_offset_width: 1.029
+    m_width: 0.931
+    m_height: -1.029
+    m_base_vertices:
+    - {x: 0.931, y: 1.0289999, z: 0}
+    - {x: 0, y: 1.0289999, z: 0}
+    - {x: 0, y: -0.00000008893967, z: 0}
+    - {x: 0.931, y: -0.00000008893967, z: 0}
+    m_base_offset: {x: 4.0914993, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -2.14326
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 21
+      m_word_value: 4
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: r
+    m_flipped: 0
+    m_offset_width: 0.98
+    m_width: 0.882
+    m_height: -1.029
+    m_base_vertices:
+    - {x: 0.882, y: 1.0289999, z: 0}
+    - {x: 0, y: 1.0289999, z: 0}
+    - {x: 0, y: -0.00000008893967, z: 0}
+    - {x: 0.882, y: -0.00000008893967, z: 0}
+    m_base_offset: {x: 5.1204987, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -2.14326
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 22
+      m_word_value: 4
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: n
+    m_flipped: 0
+    m_offset_width: 0.98
+    m_width: 0.882
+    m_height: -1.029
+    m_base_vertices:
+    - {x: 0.882, y: 1.0289999, z: 0}
+    - {x: 0, y: 1.0289999, z: 0}
+    - {x: 0, y: -0.00000008893967, z: 0}
+    - {x: 0.882, y: -0.00000008893967, z: 0}
+    m_base_offset: {x: 6.100498, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -2.14326
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 23
+      m_word_value: 4
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: o
+    m_flipped: 0
+    m_offset_width: 1.029
+    m_width: 0.931
+    m_height: -1.029
+    m_base_vertices:
+    - {x: 0.931, y: 1.0289999, z: 0}
+    - {x: 0, y: 1.0289999, z: 0}
+    - {x: 0, y: -0.00000008893967, z: 0}
+    - {x: 0.931, y: -0.00000008893967, z: 0}
+    m_base_offset: {x: 7.0804977, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -2.14326
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 24
+      m_word_value: 4
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: o
+    m_flipped: 0
+    m_offset_width: 1.029
+    m_width: 0.931
+    m_height: -1.029
+    m_base_vertices:
+    - {x: 0.931, y: 1.0289999, z: 0}
+    - {x: 0, y: 1.0289999, z: 0}
+    - {x: 0, y: -0.00000008893967, z: 0}
+    - {x: 0.931, y: -0.00000008893967, z: 0}
+    m_base_offset: {x: 8.109497, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -2.14326
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 25
+      m_word_value: 4
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: n
+    m_flipped: 0
+    m_offset_width: 0.98
+    m_width: 0.882
+    m_height: -1.029
+    m_base_vertices:
+    - {x: 0.882, y: 1.0289999, z: 0}
+    - {x: 0, y: 1.0289999, z: 0}
+    - {x: 0, y: -0.00000008893967, z: 0}
+    - {x: 0.882, y: -0.00000008893967, z: 0}
+    m_base_offset: {x: 9.138496, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -2.14326
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 26
+      m_word_value: 4
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: b
+    m_flipped: 0
+    m_offset_width: 0.98
+    m_width: 0.882
+    m_height: -2.548
+    m_base_vertices:
+    - {x: 0.882, y: 2.45, z: 0}
+    - {x: 0, y: 2.45, z: 0}
+    - {x: 0, y: -0.09800008, z: 0}
+    - {x: 0.882, y: -0.09800008, z: 0}
+    m_base_offset: {x: 10.706495, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -0.72225994
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 27
+      m_word_value: 5
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: r
+    m_flipped: 0
+    m_offset_width: 0.98
+    m_width: 0.882
+    m_height: -1.029
+    m_base_vertices:
+    - {x: 0.882, y: 1.0289999, z: 0}
+    - {x: 0, y: 1.0289999, z: 0}
+    - {x: 0, y: -0.00000008893967, z: 0}
+    - {x: 0.882, y: -0.00000008893967, z: 0}
+    m_base_offset: {x: 11.686495, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -2.14326
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 28
+      m_word_value: 5
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: e
+    m_flipped: 0
+    m_offset_width: 1.029
+    m_width: 0.931
+    m_height: -1.029
+    m_base_vertices:
+    - {x: 0.931, y: 1.0289999, z: 0}
+    - {x: 0, y: 1.0289999, z: 0}
+    - {x: 0, y: -0.00000008893967, z: 0}
+    - {x: 0.931, y: -0.00000008893967, z: 0}
+    m_base_offset: {x: 12.666494, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -2.14326
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 29
+      m_word_value: 5
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: e
+    m_flipped: 0
+    m_offset_width: 1.029
+    m_width: 0.931
+    m_height: -1.029
+    m_base_vertices:
+    - {x: 0.931, y: 1.0289999, z: 0}
+    - {x: 0, y: 1.0289999, z: 0}
+    - {x: 0, y: -0.00000008893967, z: 0}
+    - {x: 0.931, y: -0.00000008893967, z: 0}
+    m_base_offset: {x: 13.695494, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -2.14326
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 30
+      m_word_value: 5
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: z
+    m_flipped: 0
+    m_offset_width: 0.98
+    m_width: 0.882
+    m_height: -1.029
+    m_base_vertices:
+    - {x: 0.882, y: 1.0289999, z: 0}
+    - {x: 0, y: 1.0289999, z: 0}
+    - {x: 0, y: -0.00000008893967, z: 0}
+    - {x: 0.882, y: -0.00000008893967, z: 0}
+    m_base_offset: {x: 14.724493, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -2.14326
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 31
+      m_word_value: 5
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: e
+    m_flipped: 0
+    m_offset_width: 1.029
+    m_width: 0.931
+    m_height: -1.029
+    m_base_vertices:
+    - {x: 0.931, y: 1.0289999, z: 0}
+    - {x: 0, y: 1.0289999, z: 0}
+    - {x: 0, y: -0.00000008893967, z: 0}
+    - {x: 0.931, y: -0.00000008893967, z: 0}
+    m_base_offset: {x: 15.704493, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -2.14326
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 32
+      m_word_value: 5
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: .
+    m_flipped: 0
+    m_offset_width: 0.49
+    m_width: 0.39200002
+    m_height: -0.39200002
+    m_base_vertices:
+    - {x: 0.39200002, y: 0.34300008, z: 0}
+    - {x: 0, y: 0.34300008, z: 0}
+    - {x: 0, y: -0.048999935, z: 0}
+    - {x: 0.39200002, y: -0.048999935, z: 0}
+    m_base_offset: {x: 16.733492, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -2.8292599
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 33
+      m_word_value: 5
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: .
+    m_flipped: 0
+    m_offset_width: 0.49
+    m_width: 0.39200002
+    m_height: -0.39200002
+    m_base_vertices:
+    - {x: 0.39200002, y: 0.34300008, z: 0}
+    - {x: 0, y: 0.34300008, z: 0}
+    - {x: 0, y: -0.048999935, z: 0}
+    - {x: 0.39200002, y: -0.048999935, z: 0}
+    m_base_offset: {x: 17.223494, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -2.8292599
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 34
+      m_word_value: 5
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  - m_character: .
+    m_flipped: 0
+    m_offset_width: 0.49
+    m_width: 0.39200002
+    m_height: -0.39200002
+    m_base_vertices:
+    - {x: 0.39200002, y: 0.34300008, z: 0}
+    - {x: 0, y: 0.34300008, z: 0}
+    - {x: 0, y: -0.048999935, z: 0}
+    - {x: 0.39200002, y: -0.048999935, z: 0}
+    m_base_offset: {x: 17.713495, y: 0, z: 0}
+    m_text_anchoring_y_offset: -1.7267599
+    m_mesh: {fileID: 0}
+    m_x_offset: 0.049000002
+    m_y_offset: -2.8292599
+    m_base_offsets_setup: 1
+    m_progression_variables:
+      m_letter_value: 35
+      m_word_value: 5
+      m_line_value: 0
+    m_effect_manager_handle: {fileID: 11400000}
+    m_anim_state_vars:
+      m_active: 0
+      m_waiting_to_sync: 0
+      m_started_action: 0
+      m_break_delay: 0
+      m_timer_offset: 0
+      m_action_index: 0
+      m_reverse: 0
+      m_action_index_progress: 0
+      m_prev_action_index: -1
+      m_linear_progress: 0
+      m_action_progress: 0
+      m_active_loop_cycles: []
+  m_audio_sources: []
+  m_particle_emitters: []
+  m_particle_systems: []
+  m_effect_managers: []
+  m_current_font_data_file_name: 
+  m_current_font_name: AnchorSteamNF
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1
