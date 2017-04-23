@@ -1,0 +1,200 @@
+fileFormatVersion: 2
+guid: fecffc4d93bef6f41876193f15979038
+timeCreated: 1492960221
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: body
+    100002: Object01
+    100004: //RootNode
+    100006: weapon
+    100008: Bone01
+    100010: Bone03
+    100012: Bone04
+    100014: Bone05
+    100016: Bone06
+    100018: Bone07
+    100020: Bone08
+    100022: Bone09
+    100024: Bone10
+    100026: Bone11
+    100028: Bone13
+    100030: Bone19
+    100032: Bone20
+    100034: Bone22
+    100036: Bone23
+    100038: Bone25
+    100040: Bone26
+    100042: swordman
+    400000: body
+    400002: Object01
+    400004: //RootNode
+    400006: weapon
+    400008: Bone01
+    400010: Bone03
+    400012: Bone04
+    400014: Bone05
+    400016: Bone06
+    400018: Bone07
+    400020: Bone08
+    400022: Bone09
+    400024: Bone10
+    400026: Bone11
+    400028: Bone13
+    400030: Bone19
+    400032: Bone20
+    400034: Bone22
+    400036: Bone23
+    400038: Bone25
+    400040: Bone26
+    400042: swordman
+    2300000: body
+    2300002: Object01
+    2300004: weapon
+    2300006: swordman
+    3300000: body
+    3300002: Object01
+    3300004: weapon
+    3300006: swordman
+    4300000: body
+    4300002: Object01
+    4300004: weapon
+    4300006: swordman
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: swordman
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: '
+
+      Imported file ''swordman'' conversion failed: Required human bone ''Hips'' not
+      found
+
+
+'
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human:
+    - boneName: Bone13
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone22
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone23
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: swordman(Clone)
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Bone13
+      position: {x: 0.0015258439, y: 0.022948543, z: -0.0032981227}
+      rotation: {x: -0.1983505, y: 0.17246056, z: 0.7281038, w: 0.63307136}
+      scale: {x: 1, y: 1.0000002, z: 1}
+      transformModified: 1
+    - name: Bone22
+      position: {x: -0.0109958565, y: 0.000000002270937, z: 0}
+      rotation: {x: -0.065694876, y: -0.17873733, z: -0.13631782, w: 0.9721906}
+      scale: {x: 1.0000001, y: 1, z: 0.9999999}
+      transformModified: 1
+    - name: Bone23
+      position: {x: -0.011093055, y: -3.784895e-10, z: 0}
+      rotation: {x: 0.56766266, y: 0.5790535, z: -0.4299349, w: 0.397004}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1.0000002}
+      transformModified: 1
+    - name: Bone26
+      position: {x: -0.0026078513, y: 0.022948543, z: -0.0033450515}
+      rotation: {x: 0.75460863, y: 0.65611714, z: 0.006585836, w: 0.005726441}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Bone01
+      position: {x: -0.010995857, y: 0.000000002270937, z: -7.56979e-10}
+      rotation: {x: 0.003958945, y: 0.06149058, z: -0.06400522, w: 0.9960455}
+      scale: {x: 1, y: 0.99999994, z: 0.9999998}
+      transformModified: 1
+    - name: Bone25
+      position: {x: -0.01109305, y: 3.784895e-10, z: -7.56979e-10}
+      rotation: {x: 0.5943596, y: 0.5795264, z: 0.40821066, w: -0.37980235}
+      scale: {x: 1.0173335, y: 1.0009215, z: 1.0181973}
+      transformModified: 1
+    - name: swordman
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
