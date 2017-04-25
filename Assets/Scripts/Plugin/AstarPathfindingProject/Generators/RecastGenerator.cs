@@ -657,12 +657,12 @@ But this time, edit the setting named "Forward" to "Z forward" (not -Z as it is 
 							smesh.matrix = Matrix4x4.identity;
 							meshes.Add (smesh);
 						} else {
-							ExtraMesh smesh;
+							ExtraMesh smesh = new ExtraMesh();
 							for (int i=0;i<meshes.Count;i++) {
 								if (meshes[i].original == mesh) { smesh = meshes[i]; break; }
 							}
-							smesh.bounds.Encapsulate (filter.GetComponent<Renderer>().bounds);
-						}
+							smesh.bounds.Encapsulate(filter.GetComponent<Renderer>().bounds);
+                        }
 	#endif
 					} else {
 						//Only include it if it intersects with the graph

@@ -26,7 +26,7 @@ namespace Assets.Scripts.Role
 
         void Start()
         {
-            SosEventMgr.GetInstance().RegisterEvent(SosEventMgr.SosEventType.TALK, roleId, this);
+            //SosEventMgr.GetInstance().RegisterEvent(SosEventMgr.SosEventType.TALK, roleId, this);
         }
 
         void FixedUpdate()

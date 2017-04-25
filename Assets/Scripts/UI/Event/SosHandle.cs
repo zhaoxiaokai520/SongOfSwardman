@@ -66,65 +66,65 @@ public class SosHandle : MonoBehaviour
 
     void Update()
     {
-        ICollection<SosObject> targets = SosEventMgr.GetInstance().GetTargetList();
-        IEnumerator i = targets.GetEnumerator();
-        i.Reset();
+        //ICollection<SosObject> targets = SosEventMgr.GetInstance().GetTargetList();
+        //IEnumerator i = targets.GetEnumerator();
+        //i.Reset();
 
-        while (i.MoveNext())
-        {
-            SosObject obj = (SosObject)i.Current;
-            if ((obj.transform.position - transform.position).magnitude <= m_Radius)
-            {
-                mInInterestRegion = true;
-                break;
-            }
-            else
-            {
-                mInInterestRegion = false;
-            }
-        }
+        //while (i.MoveNext())
+        //{
+        //    SosObject obj = (SosObject)i.Current;
+        //    if ((obj.transform.position - transform.position).magnitude <= m_Radius)
+        //    {
+        //        mInInterestRegion = true;
+        //        break;
+        //    }
+        //    else
+        //    {
+        //        mInInterestRegion = false;
+        //    }
+        //}
 
-        if (mInInterestRegion)
-        {
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                //ICollection<Transform> targets = SosEventMgr.GetInstance().GetTargetList();
-                //IEnumerator i = targets.GetEnumerator();
-                i.Reset();
-                float angleOff = 0.0f;
-                while (i.MoveNext())
-                {
-                    SosObject player = (SosObject)i.Current;
-                    Transform playerTrans = player.transform;
-                    Debug.Log("SosHandle Update 1======================== " + transform.rotation.eulerAngles + " " + playerTrans.rotation.eulerAngles);
-                    //check if is inverse direction
-                    angleOff = (transform.rotation.eulerAngles.y - playerTrans.rotation.eulerAngles.y);
-                    if (angleOff > 90 || angleOff < -90)
-                    {
-                        //check who is after who.
-                        Vector3 playerToHost = transform.position - playerTrans.position;
-                        Quaternion quat = Quaternion.LookRotation(playerToHost);
-                        angleOff = quat.eulerAngles.y - transform.rotation.eulerAngles.y;
-                        if (angleOff > 90 || angleOff < -90)
-                        {
-                            Debug.Log("SosHandle Update 2========================");
-                        }
-                    }
-                    else
-                    {
-                        //if player is after eventHost, eventHost turn around
-                        Vector3 playerToHost = transform.position - playerTrans.position;
-                        Quaternion quat = Quaternion.LookRotation(playerToHost);
-                        angleOff = quat.eulerAngles.y - transform.rotation.eulerAngles.y;
-                        if (angleOff < 90 && angleOff > -90)
-                        {
-                            Debug.Log("SosHandle Update 3========================");
-                        }
-                    }
-                    //if player is back to eventHost, nothing happen
-                }
-            }
-        }
+        //if (mInInterestRegion)
+        //{
+        //    if (Input.GetKeyUp(KeyCode.Space))
+        //    {
+        //        //ICollection<Transform> targets = SosEventMgr.GetInstance().GetTargetList();
+        //        //IEnumerator i = targets.GetEnumerator();
+        //        i.Reset();
+        //        float angleOff = 0.0f;
+        //        while (i.MoveNext())
+        //        {
+        //            SosObject player = (SosObject)i.Current;
+        //            Transform playerTrans = player.transform;
+        //            Debug.Log("SosHandle Update 1======================== " + transform.rotation.eulerAngles + " " + playerTrans.rotation.eulerAngles);
+        //            //check if is inverse direction
+        //            angleOff = (transform.rotation.eulerAngles.y - playerTrans.rotation.eulerAngles.y);
+        //            if (angleOff > 90 || angleOff < -90)
+        //            {
+        //                //check who is after who.
+        //                Vector3 playerToHost = transform.position - playerTrans.position;
+        //                Quaternion quat = Quaternion.LookRotation(playerToHost);
+        //                angleOff = quat.eulerAngles.y - transform.rotation.eulerAngles.y;
+        //                if (angleOff > 90 || angleOff < -90)
+        //                {
+        //                    Debug.Log("SosHandle Update 2========================");
+        //                }
+        //            }
+        //            else
+        //            {
+        //                //if player is after eventHost, eventHost turn around
+        //                Vector3 playerToHost = transform.position - playerTrans.position;
+        //                Quaternion quat = Quaternion.LookRotation(playerToHost);
+        //                angleOff = quat.eulerAngles.y - transform.rotation.eulerAngles.y;
+        //                if (angleOff < 90 && angleOff > -90)
+        //                {
+        //                    Debug.Log("SosHandle Update 3========================");
+        //                }
+        //            }
+        //            //if player is back to eventHost, nothing happen
+        //        }
+        //    }
+        //}
     }
 
     private void DrawGizmosCircle(float yOff)

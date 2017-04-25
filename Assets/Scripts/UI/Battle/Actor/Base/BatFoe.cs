@@ -45,14 +45,16 @@ namespace Assets.Scripts.Battle.Actor
             ActorRoot hero = ActorMgr.instance.FindActor(30000001, Camp.Ally);
             Pathfinding.Path apath = seeker.StartPath(gameObject.transform.position, hero.pos);
             AstarPath.WaitForPath(apath);
-            for (int i = 0; i < apath.path.Count; i++)
+            List<Vector3> vecPath = apath.vectorPath;
+            for (int i = 0; i < vecPath.Count; i++)
             {
                 Vector3 pos = new Vector3();
-                pos.x = apath.path[i].position.x;
-                pos.y = apath.path[i].position.y;
-                pos.z = apath.path[i].position.z;
+                pos.x = vecPath[i].x;
+                pos.y = vecPath[i].y;
+                pos.z = vecPath[i].z;
                 //transform.position = AstarPath.active.GetNearest(pos, NNConstraint.None).clampedPosition;
-                DebugHelper.Log("============StartFight============== 2 " + apath.path[i].position + " " + AstarPath.active.GetNearest(pos, NNConstraint.None).clampedPosition);
+                transform.position = pos;
+                DebugHelper.Log("============StartFight============== 2 " + vecPath[i] + " " + AstarPath.active.GetNearest(pos, NNConstraint.None).clampedPosition);
                 yield return new WaitForSeconds(2.0f);
             }
 
