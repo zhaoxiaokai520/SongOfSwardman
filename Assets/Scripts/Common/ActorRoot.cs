@@ -8,7 +8,7 @@ namespace Assets.Scripts.Common
 {
     public enum Camp { Ally = 0, Enemy, Neutral, CampMax }
 
-    class ActorRoot : IEquatable<ActorRoot>
+    public class ActorRoot : IEquatable<ActorRoot>
     {
         public Vector3 pos;//position
         public Quaternion rot;//rotation

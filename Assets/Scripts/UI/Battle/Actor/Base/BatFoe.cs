@@ -14,17 +14,16 @@ namespace Assets.Scripts.Battle.Actor
     class BatFoe : SosObject
     {
         int evt = 10;
-        private ActorRoot _actorData;
 
         void Awake()
         {
-            _actorData = ActorRoot.Create(transform.position, transform.rotation, transform.forward, Camp.Enemy, gameId);
-            ActorMgr.instance.AddActor(_actorData);
+            
         }
 
         void Start()
         {
-            
+            _actorData = ActorRoot.Create(transform.position, transform.rotation, transform.forward, Camp.Enemy, gameId);
+            ActorMgr.instance.AddActor(_actorData);
         }
 
         void Update()

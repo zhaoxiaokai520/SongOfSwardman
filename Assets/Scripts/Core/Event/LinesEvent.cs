@@ -10,19 +10,19 @@ namespace Assets.Scripts.Event
     {
         List<string> lines = new List<string>();
 
-        public override void Trigger()
+        public void Trigger()
         {
 
         }
 
         //check condition
-        public override bool Check()
+        public bool Check()
         {
             return false;
         }
 
         //if a duration event, we update every frame
-        public override void Update()
+        public void Update()
         {
 
         }

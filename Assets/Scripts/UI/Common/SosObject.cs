@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,8 @@ namespace Assets.Scripts.Role
         //rule:player:1000 enemy:2000 serial:1000
         //sample:1000 0001
         public int gameId = 0;
-        protected int mInputLevel = 0;
+        protected int _inputLevel = 0;
+        protected ActorRoot _actorData;
 
         public int GetId()
         {
@@ -25,7 +27,7 @@ namespace Assets.Scripts.Role
 
         public int GetInputLevel()
         {
-            return mInputLevel;
+            return _inputLevel;
         }
     }
 }

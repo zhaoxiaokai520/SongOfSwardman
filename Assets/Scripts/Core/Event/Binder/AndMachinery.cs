@@ -5,7 +5,8 @@ using System.Text;
 
 namespace Assets.Scripts.Core.Event
 {
-    class AndBinder
+    class AndMachinery : EventMachinery
     {
+
     }
 }

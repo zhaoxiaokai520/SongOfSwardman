@@ -14,7 +14,7 @@ namespace Assets.Scripts.UI.Event
         public Tile tile1;
         public Tile tile2;
         int _state;
-        EventBinder _evtBinder;
+        EventMachinery _evtMachinery;
 
         private void Start()
         {
@@ -26,7 +26,7 @@ namespace Assets.Scripts.UI.Event
         {
             //tile1.onTread -= OnTileTread;
             //tile2.onTread -= OnTileTread;
-            _evtBinder.Recycle();
+            _evtMachinery.Recycle();
         }
 
         public void RecvOpenEvent(SosObject sender, SosEventArgs args)

@@ -6,11 +6,12 @@ using System;
 using Assets.Scripts.Role;
 using Assets.Scripts.Managers;
 using Assets.Scripts.Controller;
+using Assets.Scripts.Common;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
-public class TalkHandle : MonoBehaviour
+public class TalkGizmos : MonoBehaviour
 {
     public float shieldArea = 5;
 
@@ -20,27 +21,33 @@ public class TalkHandle : MonoBehaviour
     public Color m_Color = Color.green; // 线框颜色
     private bool mInInterestRegion = false;
     SosObject mHostObj = null;
+    ActorRoot _talker = null;
 
     void Awake()
     {
         mHostObj = transform.gameObject.GetComponent<SosObject>();
     }
 
-    public void OnDrawGizmos()
+    private void Start()
     {
-        Gizmos.color = Color.blue;
-        Vector3 pos = transform.position;
-        pos.y += 1;
-        //Gizmos.DrawSphere(pos, 0.3f);
-        //Gizmos.DrawLine(new Vector3(-100, 0, -100), new Vector3(100, 0, 100));
-        //DrawGizmosCircle(0.01f);
-
-#if UNITY_EDITOR
-        //Handles.color = Color.blue;
-        //Handles.ArrowCap(0, transform.position, transform.rotation, transform.localScale.z);
-        //Handles.Disc(transform.rotation, transform.position, Vector3.up, transform.localScale.z * 0.5f, false, 1);
-#endif
+        _talker = ActorMgr.instance.GetAvatar();
     }
+
+    //    public void OnDrawGizmos()
+    //    {
+    //        //Gizmos.color = Color.blue;
+    //        //Vector3 pos = transform.position;
+    //        //pos.y += 1;
+    //        //Gizmos.DrawSphere(pos, 0.3f);
+    //        //Gizmos.DrawLine(new Vector3(-100, 0, -100), new Vector3(100, 0, 100));
+    //        //DrawGizmosCircle(0.01f);
+
+    //#if UNITY_EDITOR
+    //        //Handles.color = Color.blue;
+    //        //Handles.ArrowCap(0, transform.position, transform.rotation, transform.localScale.z);
+    //        //Handles.Disc(transform.rotation, transform.position, Vector3.up, transform.localScale.z * 0.5f, false, 1);
+    //#endif
+    //    }
 
     public void OnDrawGizmosSelected()
     {
@@ -93,8 +100,17 @@ public class TalkHandle : MonoBehaviour
         //    }
         //}
 
-        if (mInInterestRegion)
+        if ((_talker.pos - transform.position).magnitude <= m_Radius)
         {
+            mInInterestRegion = true;
+        }
+        else
+        {
+            mInInterestRegion = false;
+        }
+
+        //if (mInInterestRegion)
+        //{
             //if (Input.GetKeyUp(KeyCode.Space))
             //{
             //    //ICollection<Transform> targets = SosEventMgr.GetInstance().GetTargetList();
@@ -144,7 +160,7 @@ public class TalkHandle : MonoBehaviour
             //        //if player is back to eventHost, nothing happen
             //    }
             //}
-        }
+        //}
     }
 
     private void DrawGizmosCircle(float yOff)

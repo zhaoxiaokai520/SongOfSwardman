@@ -64,5 +64,16 @@ namespace Assets.Scripts.Controller
 
             return null;
         }
+
+        public ActorRoot GetAvatar()
+        {
+            List<ActorRoot> actors = _actorRoots[(int)Camp.Ally];
+            if (actors.Count > 0)
+            {
+                return actors[0];
+            }
+
+            return null;
+        }
     }
 }

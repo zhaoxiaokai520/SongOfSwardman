@@ -14,9 +14,10 @@ namespace Assets.Scripts.Core.Event
     // and how sender event composite the final event(and, or, xor)
     // event enable logic not mix with the receive and make receive code not CHANGE with event bind change
     //ep. door open by a tile trode, then designer want door open by a monster dead.
-    class EventBinder
+    class EventMachinery
     {
         protected int _inputNum = 1;
+        Dictionary<MapEventId, MapEventId> _linkDic = new Dictionary<MapEventId, MapEventId>();
         Dictionary<MapEventId, InputEvent[]> _inputEventDic = new Dictionary<MapEventId, InputEvent[]>();
         Dictionary<MapEventId, OutputEvent> _outputEventDic = new Dictionary<MapEventId, OutputEvent>();
 
@@ -40,11 +41,11 @@ namespace Assets.Scripts.Core.Event
             }
         }
 
-        public InputEvent CreateInput(SosObject sender, EventArgs args, MapEventId evt, int idx = 0)
+        public InputEvent CreateInput(SosObject sender, SosEventArgs args, MapEventId evt)
         {
-            if (idx >= _inputNum)
+            if (args.idx < 0 || args.idx >= _inputNum)
             {
-                DebugHelper.LogError("EventBinder.AddInput error idx " + idx + " max = " + _inputNum);
+                DebugHelper.LogError("EventBinder.AddInput error idx " + args.idx + " max = " + _inputNum);
                 return null;
             }
 
@@ -53,10 +54,10 @@ namespace Assets.Scripts.Core.Event
                 _inputEventDic.Add(evt, new InputEvent[_inputNum]);
             }
 
-            InputEvent retEvent = new InputEvent((SosObject obj, SosEventArgs arg) => { });
-            _inputEventDic[evt][idx] = retEvent;
+            //InputEvent retEvent = new InputEvent(InputEventHandler);
+            _inputEventDic[evt][args.idx] = InputEventHandler;
 
-            return retEvent;
+            return InputEventHandler;
         }
 
         public void RmvInput(MapEventId evt, InputEvent input, int idx = 0)
@@ -73,15 +74,46 @@ namespace Assets.Scripts.Core.Event
             }
         }
 
+        public void LinkTo(MapEventId input, MapEventId output)
+        {
+            _linkDic[input] = output;
+        }
+
         public void InputEventHandler(SosObject sender, SosEventArgs args)
         {
-
+            MapEventId outEvt = _linkDic[args.evt];
+            if (_outputEventDic.ContainsKey(outEvt))
+            {
+                _outputEventDic[outEvt](sender, args);
+            }
         }
 
         //NOTE:Must be called !!
         public void Recycle()
         {
+            //clear output
+            Dictionary<MapEventId, OutputEvent>.Enumerator iter = _outputEventDic.GetEnumerator();
+            while (iter.MoveNext())
+            {
+                _outputEventDic[iter.Current.Key] = null;
+            }
 
+            iter.Dispose();
+            _outputEventDic.Clear();
+
+            //clear input
+            Dictionary<MapEventId, InputEvent[]>.Enumerator iter2 = _inputEventDic.GetEnumerator();
+            while (iter2.MoveNext())
+            {
+                InputEvent[] arr = _inputEventDic[iter2.Current.Key];
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    arr[i] = null;
+                }
+            }
+
+            iter2.Dispose();
+            _inputEventDic.Clear();
         }
     }
 }

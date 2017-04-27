@@ -13,16 +13,17 @@ namespace Assets.Scripts.Battle.Actor
     class BatHero : SosObject
     {
         public GameObject foeObj;
-        private ActorRoot _actorData;
 
         void Awake()
         {
-            _actorData = ActorRoot.Create(transform.position, transform.rotation, transform.forward, Camp.Ally, gameId);
-            ActorMgr.instance.AddActor(_actorData);
+
         }
 
         void Start()
         {
+            _actorData = ActorRoot.Create(transform.position, transform.rotation, transform.forward, Camp.Ally, gameId);
+            ActorMgr.instance.AddActor(_actorData);
+
             StartFight();
         }
 

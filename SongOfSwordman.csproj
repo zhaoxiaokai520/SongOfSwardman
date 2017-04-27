@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.4.4f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -136,8 +134,8 @@
     <Compile Include="Assets\Scripts\Common\SosDefines.cs" />
     <Compile Include="Assets\Scripts\Controller\ActorMgr.cs" />
     <Compile Include="Assets\Scripts\Controller\InputMgr.cs" />
-    <Compile Include="Assets\Scripts\Core\Event\Binder\AndBinder.cs" />
-    <Compile Include="Assets\Scripts\Core\Event\Binder\EventBinder.cs" />
+    <Compile Include="Assets\Scripts\Core\Event\Binder\AndMachinery.cs" />
+    <Compile Include="Assets\Scripts\Core\Event\Binder\EventMachinery.cs" />
     <Compile Include="Assets\Scripts\Core\Event\DoorAction.cs" />
     <Compile Include="Assets\Scripts\Core\Event\DoorEvent.cs" />
     <Compile Include="Assets\Scripts\Core\Event\LinesEvent.cs" />
@@ -274,7 +272,7 @@
     <Compile Include="Assets\Scripts\UI\Common\RoleDialog.cs" />
     <Compile Include="Assets\Scripts\UI\Common\SosObject.cs" />
     <Compile Include="Assets\Scripts\UI\Common\Talk\TalkDialog.cs" />
-    <Compile Include="Assets\Scripts\UI\Common\Talk\TalkHandler.cs" />
+    <Compile Include="Assets\Scripts\UI\Common\Talk\TalkGizmos.cs" />
     <Compile Include="Assets\Scripts\UI\Common\Talk\TalkInfo.cs" />
     <Compile Include="Assets\Scripts\UI\Event\SosEventAttr.cs" />
     <Compile Include="Assets\Scripts\UI\Event\SosHandle.cs" />
@@ -288,10 +286,12 @@
     <Compile Include="Assets\Scripts\UI\ImageEffects\ScreenSpaceAmbientOcclusion.cs" />
     <Compile Include="Assets\Scripts\UI\ImageEffects\TiltShift.cs" />
     <Compile Include="Assets\Scripts\UI\ImageEffects\VignetteAndChromaticAberration.cs" />
+    <Compile Include="Assets\Scripts\UI\Login\Login.cs" />
     <Compile Include="Assets\Scripts\UI\Role\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\UI\Role\Enemy\EnemyAttack.cs" />
     <Compile Include="Assets\Scripts\UI\Role\Enemy\EnemyHealth.cs" />
     <Compile Include="Assets\Scripts\UI\Role\Enemy\EnemyMovement.cs" />
+    <Compile Include="Assets\Scripts\UI\Role\NPC.cs" />
     <Compile Include="Assets\Scripts\UI\Role\Player\Player.cs" />
     <Compile Include="Assets\Scripts\UI\Role\Player\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\UI\Role\Player\PlayerMovement.cs" />
