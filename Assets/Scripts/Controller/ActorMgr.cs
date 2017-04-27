@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Assets.Scripts.Common;
+using Assets.Scripts.Event;
 
 namespace Assets.Scripts.Controller
 {
     class ActorMgr : Singleton<ActorMgr>
     {
         List<List<ActorRoot>> _actorRoots = new List<List<ActorRoot>>();
+
+        Dictionary<int, ActorConfig> _configDic = new Dictionary<int, ActorConfig>();
 
         public ActorMgr()
         {
@@ -74,6 +77,22 @@ namespace Assets.Scripts.Controller
             }
 
             return null;
+        }
+
+        public ActorConfig GetAvatarConfig()
+        {
+            if (_configDic.ContainsKey(10000001))
+            {
+                return _configDic[10000001];
+            }
+
+            return null;
+        }
+
+        public void LoadActorConfigs()
+        {
+            ActorConfig cfg = new ActorConfig();
+            _configDic.Add(10000001, cfg);
         }
     }
 }

@@ -23,7 +23,8 @@ namespace Assets.Scripts.Role
             playerRigidbody = GetComponent<Rigidbody>();
 
             //TODO: temporary code put here
-            TalkSystem.GetInstance().LoadTalkData();
+            TalkSystem.instance.LoadTalkData();
+            ActorMgr.instance.LoadActorConfigs();
 
             _actorData = ActorRoot.Create(transform.position, transform.rotation, transform.forward, Camp.Ally, gameId);
             ActorMgr.instance.AddActor(_actorData);

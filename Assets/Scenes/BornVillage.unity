@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18076311, g: 0.22666776, b: 0.30848116, a: 1}
+  m_IndirectSpecularColor: {r: 0.18053588, g: 0.22601774, b: 0.30718702, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -5462,7 +5462,7 @@ Prefab:
     - target: {fileID: 224000013171062312, guid: 860347ff5dab02a4299ff0bfcc85ca5c,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -17.984673
+      value: -14.780949
       objectReference: {fileID: 0}
     - target: {fileID: 224000013171062312, guid: 860347ff5dab02a4299ff0bfcc85ca5c,
         type: 2}
@@ -5487,22 +5487,22 @@ Prefab:
     - target: {fileID: 224000013283024966, guid: 860347ff5dab02a4299ff0bfcc85ca5c,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 549.9
+      value: 240.34444
       objectReference: {fileID: 0}
     - target: {fileID: 224000013283024966, guid: 860347ff5dab02a4299ff0bfcc85ca5c,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -17.984673
+      value: -14.780949
       objectReference: {fileID: 0}
     - target: {fileID: 224000013283024966, guid: 860347ff5dab02a4299ff0bfcc85ca5c,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 959.80005
+      value: 340.68887
       objectReference: {fileID: 0}
     - target: {fileID: 224000013283024966, guid: 860347ff5dab02a4299ff0bfcc85ca5c,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 35.969345
+      value: 29.561897
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 860347ff5dab02a4299ff0bfcc85ca5c, type: 2}
@@ -6234,7 +6234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753f081ba803ae1428f723ecb3482add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameId: 123412
+  gameId: 20000001
 --- !u!1 &1943004825
 GameObject:
   m_ObjectHideFlags: 0
@@ -6349,4 +6349,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753f081ba803ae1428f723ecb3482add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameId: 567834
+  gameId: 20000002
