@@ -1,11 +1,9 @@
-﻿using Assets.Scripts.Common;
-using Assets.Scripts.Controller;
-using Assets.Scripts.Event;
+﻿using Assets.Scripts.Controller;
+using Assets.Scripts.Core.Event;
 using Assets.Scripts.Role;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Assets.Scripts.UI.Base;
+using Assets.Scripts.Utility;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Assets.Scripts.UI.Role
@@ -13,6 +11,8 @@ namespace Assets.Scripts.UI.Role
     class NPC : SosObject
     {
         ActorConfig _configInfo;
+
+        private int _talkerId;
 
         private void Awake()
         {
@@ -26,7 +26,7 @@ namespace Assets.Scripts.UI.Role
 
         private void Start()
         {
-            SosEventMgr.instance.Subscribe(MapEventId.action, Talk);
+            SosEventMgr.instance.Subscribe(MapEventId.action, TalkAction);
             //TODO:change to npc config
             _configInfo = ActorMgr.instance.GetAvatarConfig();
         }
@@ -36,7 +36,7 @@ namespace Assets.Scripts.UI.Role
 
         }
 
-        public bool Talk(SosObject sender, SosEventArgs args)
+        public bool TalkAction(SosObject sender, SosEventArgs args)
         {
             if ((sender.transform.position - transform.position).magnitude <= _configInfo.talk_radius)
             {
@@ -44,7 +44,7 @@ namespace Assets.Scripts.UI.Role
                 int talkeeId = GetId();
 
                 SosObject player = sender;
-                DebugHelper.Log("TalkHandle Update 1======================== " + transform.rotation.eulerAngles + " " + player.transform.rotation.eulerAngles);
+                DebugHelper.Log("NPC.Talk 1======================== " + transform.rotation.eulerAngles + " " + player.transform.rotation.eulerAngles);
                 //check if is inverse direction
                 angleOff = (transform.rotation.eulerAngles.y - player.transform.rotation.eulerAngles.y);
                 if (angleOff > 90 || angleOff < -90)
@@ -55,11 +55,14 @@ namespace Assets.Scripts.UI.Role
                     angleOff = quat.eulerAngles.y - transform.rotation.eulerAngles.y;
                     if (angleOff > 90 || angleOff < -90)
                     {
-                        Debug.Log("TalkHandle Update 2========================");
+                        Debug.Log("NPC.Talk 2========================");
                         //InputMgr.GetInstance().SetLevel(10);
-                        Quaternion newRotation = Quaternion.LookRotation(player.transform.position - transform.position);
-                        gameObject.GetComponent<Rigidbody>().MoveRotation(newRotation);
-                        TalkDialog.GetInstance().ShowTalk(talkeeId, player.GetId());
+                        //Quaternion newRotation = Quaternion.LookRotation(player.transform.position - transform.position);
+                        //gameObject.GetComponent<Rigidbody>().MoveRotation(newRotation);
+                        transform.DOLookAt(player.transform.position, 0.2f);
+                        _talkerId = player.GetId();
+                        transform.DOLookAt(player.transform.position, 0.2f).OnComplete(OnLookAnimComplete);
+                        //TalkDialog.GetInstance().ShowTalk(talkeeId, player.GetId());
                     }
                 }
                 else
@@ -70,16 +73,23 @@ namespace Assets.Scripts.UI.Role
                     angleOff = quat.eulerAngles.y - transform.rotation.eulerAngles.y;
                     if (angleOff < 90 && angleOff > -90)
                     {
-                        Debug.Log("TalkHandle Update 3========================");
-                        Quaternion newRotation = Quaternion.LookRotation(player.transform.position - transform.position);
-                        gameObject.GetComponent<Rigidbody>().MoveRotation(newRotation);
-                        TalkDialog.GetInstance().ShowTalk(talkeeId, player.GetId());
+                        Debug.Log("NPC.Talk 3========================");
+                        //Quaternion newRotation = Quaternion.LookRotation(player.transform.position - transform.position);
+                        //gameObject.GetComponent<Rigidbody>().MoveRotation(newRotation);
+                        _talkerId = player.GetId();
+                        transform.DOLookAt(player.transform.position, 0.2f).OnComplete(OnLookAnimComplete);
+                        //TalkDialog.GetInstance().ShowTalk(talkeeId, player.GetId());
                     }
                 }
                 //if player is back to eventHost, nothing happen
             }
 
             return false;
+        }
+
+        void OnLookAnimComplete()
+        {
+            TalkDialog.GetInstance().ShowTalk(GetId(), _talkerId);
         }
     }
 }

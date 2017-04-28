@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using Assets.Scripts.UI.Base;
 
 namespace Assets.Scripts.Role
 {

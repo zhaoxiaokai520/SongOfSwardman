@@ -1,13 +1,11 @@
 ﻿using Assets.Scripts.Role;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
-using Assets.Scripts.Common;
 using Assets.Scripts.Controller;
 using Pathfinding;
 using System.Collections;
+using Assets.Scripts.UI.Base;
+using Assets.Scripts.Utility;
 
 namespace Assets.Scripts.Battle.Actor
 {

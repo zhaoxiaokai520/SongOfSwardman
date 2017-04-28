@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace Assets.Scripts.Event
+namespace Assets.Scripts.Core.Event
 {
     //role dialog saying lines
     public class LinesEvent : SosEvent

@@ -1,10 +1,6 @@
-﻿using Assets.Scripts.Event;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace Assets.Scripts.Common
+namespace Assets.Scripts.Core.Event
 {
     //role dialog saying lines
     public class TalkEvent : SosEvent

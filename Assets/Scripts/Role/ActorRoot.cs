@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-namespace Assets.Scripts.Common
+namespace Assets.Scripts.Role
 {
     public enum Camp { Ally = 0, Enemy, Neutral, CampMax }
 

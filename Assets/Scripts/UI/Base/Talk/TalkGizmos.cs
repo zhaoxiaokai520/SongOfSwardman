@@ -1,12 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
-using Assets.Scripts.Event;
-using System.Collections.Generic;
-using System;
 using Assets.Scripts.Role;
-using Assets.Scripts.Managers;
 using Assets.Scripts.Controller;
-using Assets.Scripts.Common;
+using Assets.Scripts.UI.Base;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-namespace Assets.Scripts.Common
+namespace Assets.Scripts.Utility
 {
     class DebugHelper
     {

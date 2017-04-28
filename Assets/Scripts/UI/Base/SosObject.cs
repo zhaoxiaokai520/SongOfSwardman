@@ -1,11 +1,7 @@
-﻿using Assets.Scripts.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Assets.Scripts.Role;
 using UnityEngine;
 
-namespace Assets.Scripts.Role
+namespace Assets.Scripts.UI.Base
 {
     public class SosObject : MonoBehaviour
     {

@@ -1,10 +1,5 @@
-﻿using Assets.Scripts.Event;
-using Assets.Scripts.Role;
-//using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
+﻿using Assets.Scripts.Core.Event;
+using Assets.Scripts.UI.Base;
 
 namespace Assets.Scripts.UI.Event
 {

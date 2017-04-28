@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Assets.Scripts.Common;
-using Assets.Scripts.Role;
+using Assets.Scripts.UI.Base;
 
-namespace Assets.Scripts.Event
+namespace Assets.Scripts.Core.Event
 {
     //public delegate void OnTriggerBegin(int senderId, int state);
     //public delegate void OnTriggerGoing(int senderId, int state);

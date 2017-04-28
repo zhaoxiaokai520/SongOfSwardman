@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 using TextFx;
 using System.Collections.Generic;
-using Assets.Scripts.Managers;
-using Assets.Scripts.Common;
+using Assets.Scripts.Data;
+using Assets.Scripts.Controller;
 
 public class TalkDialog : MonoSingleton<TalkDialog>
 {

@@ -1,7 +1,7 @@
-﻿using Assets.Scripts.Common;
-using Assets.Scripts.Controller;
-using Assets.Scripts.Event;
-using Assets.Scripts.Managers;
+﻿using Assets.Scripts.Controller;
+using Assets.Scripts.Data;
+using Assets.Scripts.Core.Event;
+using Assets.Scripts.UI.Base;
 using UnityEngine;
 
 namespace Assets.Scripts.Role

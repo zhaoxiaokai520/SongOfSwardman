@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Assets.Scripts.Event
+﻿namespace Assets.Scripts.Core.Event
 {
     public class DoorEvent : SosEvent
     {

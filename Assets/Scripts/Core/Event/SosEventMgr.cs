@@ -1,10 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using Assets.Scripts.Role;
+using Assets.Scripts.UI.Base;
 
-namespace Assets.Scripts.Event
+namespace Assets.Scripts.Core.Event
 {
     public class SosEventMgr : Singleton<SosEventMgr>
     {

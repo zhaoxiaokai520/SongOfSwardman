@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Assets.Scripts.Common;
-using Assets.Scripts.Event;
+using Assets.Scripts.Role;
+using Assets.Scripts.Utility;
 
 namespace Assets.Scripts.Controller
 {

@@ -1,12 +1,8 @@
 ﻿using Assets.Scripts.Role;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 using Assets.Scripts.Controller;
-using Assets.Scripts.Common;
 using Assets.Scripts.UI.Battle.Assist;
+using Assets.Scripts.UI.Base;
 
 namespace Assets.Scripts.Battle.Actor
 {
