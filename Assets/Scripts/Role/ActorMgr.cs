@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Assets.Scripts.Role;
 using Assets.Scripts.Utility;
 
-namespace Assets.Scripts.Controller
+namespace Assets.Scripts.Role
 {
     class ActorMgr : Singleton<ActorMgr>
     {

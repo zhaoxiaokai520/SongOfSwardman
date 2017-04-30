@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.4.4f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -128,7 +130,6 @@
     <Compile Include="Assets\Scripts\Battle\Assist\TargetSearcher.cs" />
     <Compile Include="Assets\Scripts\Battle\BattlePump.cs" />
     <Compile Include="Assets\Scripts\Battle\Command\SosCmd.cs" />
-    <Compile Include="Assets\Scripts\Controller\ActorMgr.cs" />
     <Compile Include="Assets\Scripts\Controller\InputMgr.cs" />
     <Compile Include="Assets\Scripts\Controller\SceneMgr.cs" />
     <Compile Include="Assets\Scripts\Core\Event\Binder\AndMachinery.cs" />
@@ -343,7 +344,11 @@
     <Compile Include="Assets\Scripts\Plugin\IntMath\VLine.cs" />
     <Compile Include="Assets\Scripts\Plugin\IntMath\VRect.cs" />
     <Compile Include="Assets\Scripts\Role\ActorConfig.cs" />
+    <Compile Include="Assets\Scripts\Role\ActorMgr.cs" />
     <Compile Include="Assets\Scripts\Role\ActorRoot.cs" />
+    <Compile Include="Assets\Scripts\System\Equip\EquipAttr.cs" />
+    <Compile Include="Assets\Scripts\System\Equip\HeroEquip.cs" />
+    <Compile Include="Assets\Scripts\System\Skill\HeroSkill.cs" />
     <Compile Include="Assets\Scripts\Test\CondHideAttr.cs" />
     <Compile Include="Assets\Scripts\UI\Audio\MixLevels.cs" />
     <Compile Include="Assets\Scripts\UI\Base\MainMenu.cs" />
