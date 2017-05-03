@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.4.4f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -346,9 +344,15 @@
     <Compile Include="Assets\Scripts\Role\ActorConfig.cs" />
     <Compile Include="Assets\Scripts\Role\ActorMgr.cs" />
     <Compile Include="Assets\Scripts\Role\ActorRoot.cs" />
-    <Compile Include="Assets\Scripts\System\Equip\EquipAttr.cs" />
-    <Compile Include="Assets\Scripts\System\Equip\HeroEquip.cs" />
-    <Compile Include="Assets\Scripts\System\Skill\HeroSkill.cs" />
+    <Compile Include="Assets\Scripts\Sys\AI\AICmd.cs" />
+    <Compile Include="Assets\Scripts\Sys\AI\AIItemCmd.cs" />
+    <Compile Include="Assets\Scripts\Sys\AI\AISkillCmd.cs" />
+    <Compile Include="Assets\Scripts\Sys\AI\BaseAICond.cs" />
+    <Compile Include="Assets\Scripts\Sys\AI\RoleAI.cs" />
+    <Compile Include="Assets\Scripts\Sys\Equip\EquipAttr.cs" />
+    <Compile Include="Assets\Scripts\Sys\Equip\HeroEquip.cs" />
+    <Compile Include="Assets\Scripts\Sys\Skill\HeroSkill.cs" />
+    <Compile Include="Assets\Scripts\Sys\Skill\SkillParam.cs" />
     <Compile Include="Assets\Scripts\Test\CondHideAttr.cs" />
     <Compile Include="Assets\Scripts\UI\Audio\MixLevels.cs" />
     <Compile Include="Assets\Scripts\UI\Base\MainMenu.cs" />
@@ -466,10 +470,12 @@
     <None Include="Assets\Plugins\TextFx\Shader\Text Shader.shader" />
     <None Include="Assets\Plugins\TextFx\Utilities\Boomlagoon\JSON\Readme.txt" />
     <None Include="Assets\Plugins\Textures and Sprites\SF UI\Background\LICENSE.txt" />
+    <None Include="Assets\RawRes\Equip.xml" />
     <None Include="Assets\RawRes\Fonts\Jupiter\LICENSE.txt" />
     <None Include="Assets\RawRes\Fonts\LuckiestGuy\LICENSE.txt" />
     <None Include="Assets\RawRes\NPC_1.xml" />
     <None Include="Assets\RawRes\NPC_2.xml" />
+    <None Include="Assets\RawRes\Skill.xml" />
     <None Include="Assets\Scenes\AstarPathfindingProject\Example8_PathTypes\SquareShader.shader" />
     <None Include="Assets\Scenes\AstarPathfindingProject\Materials\DiffuseAlwaysVisible.shader" />
     <None Include="Assets\Scenes\AstarPathfindingProject\Materials\Projector Light.shader" />

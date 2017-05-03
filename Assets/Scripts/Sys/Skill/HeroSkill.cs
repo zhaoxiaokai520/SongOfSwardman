@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 
-namespace Assets.Scripts.System.Skill
+namespace Assets.Scripts.Sys.Skill
 {
     class HeroSkill
     {
         public int skillId;
         public int skillType;
+        List<SkillParam> skillParams;
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Assets.Scripts.System.Equip
+namespace Assets.Scripts.Sys.Equip
 {
     class EquipAttr
     {

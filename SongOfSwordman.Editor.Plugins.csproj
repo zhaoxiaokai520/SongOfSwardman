@@ -191,10 +191,12 @@
     <None Include="Assets\Plugins\TextFx\Shader\Text Shader.shader" />
     <None Include="Assets\Plugins\TextFx\Utilities\Boomlagoon\JSON\Readme.txt" />
     <None Include="Assets\Plugins\Textures and Sprites\SF UI\Background\LICENSE.txt" />
+    <None Include="Assets\RawRes\Equip.xml" />
     <None Include="Assets\RawRes\Fonts\Jupiter\LICENSE.txt" />
     <None Include="Assets\RawRes\Fonts\LuckiestGuy\LICENSE.txt" />
     <None Include="Assets\RawRes\NPC_1.xml" />
     <None Include="Assets\RawRes\NPC_2.xml" />
+    <None Include="Assets\RawRes\Skill.xml" />
     <None Include="Assets\Scenes\AstarPathfindingProject\Example8_PathTypes\SquareShader.shader" />
     <None Include="Assets\Scenes\AstarPathfindingProject\Materials\DiffuseAlwaysVisible.shader" />
     <None Include="Assets\Scenes\AstarPathfindingProject\Materials\Projector Light.shader" />

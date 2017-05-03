@@ -1,7 +1,7 @@
-﻿using Assets.Scripts.System.Equip;
+﻿using Assets.Scripts.Sys.Equip;
 using System.Collections.Generic;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Sys
 {
     class HeroEquip
     {
