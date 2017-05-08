@@ -1,13 +1,12 @@
 //#define BLOCK_MULTI_TOUCH
 
-using Assets.Scripts.UI.Event;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.UI
+namespace Assets.SGUI
 {
-    public class UGUIJoystickScript : SGUIBase, IPointerDownHandler, IPointerUpHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
+    public class SGUIVirtualKeyboard : SGUIBase, IPointerDownHandler, IPointerUpHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         public bool m_isAxisMoveable = true;
 
@@ -28,17 +27,17 @@ namespace Assets.Scripts.UI
         [HideInInspector]
         public int m_onAxisChangedEventID;
 
-        public SosEventParam m_onAxisChangedEventParams;
+        public SGUIEventArgs m_onAxisChangedEventParams;
 
         [HideInInspector]
         public int m_onAxisDownEventID;
 
-        public SosEventParam m_onAxisDownEventParams;
+        public SGUIEventArgs m_onAxisDownEventParams;
 
         [HideInInspector]
         public int m_onAxisReleasedEventID;
 
-        public SosEventParam m_onAxisReleasedEventParams;
+        public SGUIEventArgs m_onAxisReleasedEventParams;
 
         private RectTransform m_axisRectTransform;
 

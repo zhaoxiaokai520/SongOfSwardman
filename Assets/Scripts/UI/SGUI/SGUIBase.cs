@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Assets.Scripts.UI
+namespace Assets.SGUI
 {
 	public class SGUIBase : MonoBehaviour
 	{
