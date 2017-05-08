@@ -7,5 +7,6 @@ namespace Assets.Scripts.Battle.Action
 {
     class NinjustuAction
     {
+
     }
 }

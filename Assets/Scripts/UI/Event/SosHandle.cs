@@ -1,9 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using Assets.Scripts.Event;
-using System.Collections.Generic;
-using System;
-using Assets.Scripts.Role;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif

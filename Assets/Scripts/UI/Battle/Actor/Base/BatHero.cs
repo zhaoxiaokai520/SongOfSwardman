@@ -1,28 +1,25 @@
 ﻿using Assets.Scripts.Role;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 using Assets.Scripts.Controller;
-using Assets.Scripts.Common;
 using Assets.Scripts.UI.Battle.Assist;
+using Assets.Scripts.UI.Base;
 
 namespace Assets.Scripts.Battle.Actor
 {
     class BatHero : SosObject
     {
         public GameObject foeObj;
-        private ActorRoot _actorData;
 
         void Awake()
         {
-            _actorData = ActorRoot.Create(transform.position, transform.rotation, transform.forward, Camp.Ally, gameId);
-            ActorMgr.instance.AddActor(_actorData);
+
         }
 
         void Start()
         {
+            _actorData = ActorRoot.Create(transform.position, transform.rotation, transform.forward, Camp.Ally, gameId);
+            ActorMgr.instance.AddActor(_actorData);
+
             StartFight();
         }
 

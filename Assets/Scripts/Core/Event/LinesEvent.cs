@@ -1,28 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace Assets.Scripts.Event
+namespace Assets.Scripts.Core.Event
 {
     //role dialog saying lines
     public class LinesEvent : SosEvent
     {
         List<string> lines = new List<string>();
 
-        public override void Trigger()
+        public void Trigger()
         {
 
         }
 
         //check condition
-        public override bool Check()
+        public bool Check()
         {
             return false;
         }
 
         //if a duration event, we update every frame
-        public override void Update()
+        public void Update()
         {
 
         }

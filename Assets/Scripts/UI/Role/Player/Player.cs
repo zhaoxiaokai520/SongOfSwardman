@@ -1,6 +1,7 @@
-﻿using Assets.Scripts.Common;
-using Assets.Scripts.Event;
-using Assets.Scripts.Managers;
+﻿using Assets.Scripts.Controller;
+using Assets.Scripts.Data;
+using Assets.Scripts.Core.Event;
+using Assets.Scripts.UI.Base;
 using UnityEngine;
 
 namespace Assets.Scripts.Role
@@ -21,7 +22,12 @@ namespace Assets.Scripts.Role
             anim = GetComponent<Animator>();
             playerRigidbody = GetComponent<Rigidbody>();
 
-            TalkSystem.GetInstance().LoadTalkData();
+            //TODO: temporary code put here
+            TalkSystem.instance.LoadTalkData();
+            ActorMgr.instance.LoadActorConfigs();
+
+            _actorData = ActorRoot.Create(transform.position, transform.rotation, transform.forward, Camp.Ally, gameId);
+            ActorMgr.instance.AddActor(_actorData);
         }
 
         void Start()
@@ -31,7 +37,7 @@ namespace Assets.Scripts.Role
 
         void FixedUpdate()
         {
-            if (InputMgr.GetInstance().GetLevel() > mInputLevel)
+            if (InputMgr.GetInstance().GetLevel() > _inputLevel)
             {
                 return;
             }
@@ -40,6 +46,18 @@ namespace Assets.Scripts.Role
             Move(h, v);
             Turning();
             Animating(h, v);
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                SosEventMgr.instance.Publish(MapEventId.action, this, SosEventArgs.EmptyEvt);
+            }
+
+            _actorData.pos = transform.position;
+            _actorData.rot = transform.rotation;
+            _actorData.fwd = transform.forward;
         }
 
         void Move(float h, float v)

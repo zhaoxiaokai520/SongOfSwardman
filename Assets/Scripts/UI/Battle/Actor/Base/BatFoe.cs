@@ -1,30 +1,27 @@
 ﻿using Assets.Scripts.Role;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
-using Assets.Scripts.Common;
 using Assets.Scripts.Controller;
 using Pathfinding;
 using System.Collections;
+using Assets.Scripts.UI.Base;
+using Assets.Scripts.Utility;
 
 namespace Assets.Scripts.Battle.Actor
 {
     class BatFoe : SosObject
     {
         int evt = 10;
-        private ActorRoot _actorData;
 
         void Awake()
         {
-            _actorData = ActorRoot.Create(transform.position, transform.rotation, transform.forward, Camp.Enemy, gameId);
-            ActorMgr.instance.AddActor(_actorData);
+            
         }
 
         void Start()
         {
-            
+            _actorData = ActorRoot.Create(transform.position, transform.rotation, transform.forward, Camp.Enemy, gameId);
+            ActorMgr.instance.AddActor(_actorData);
         }
 
         void Update()
