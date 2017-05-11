@@ -82,23 +82,11 @@
     <Reference Include="UnityEditor.Graphs">
       <HintPath>Library\UnityAssemblies\UnityEditor.Graphs.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.Android.Extensions">
-      <HintPath>Library\UnityAssemblies\UnityEditor.Android.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions">
-      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
       <HintPath>Library\UnityAssemblies\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
     <Reference Include="TextFxMenuItem">
       <HintPath>Assets\Plugins\TextFx\Editor\TextFxMenuItem.dll</HintPath>
@@ -164,18 +152,6 @@
     <Compile Include="Assets\Scripts\Editor\StarInspector.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Demos\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_akarami_blend.shader" />
-    <None Include="Assets\Demos\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eye.shader" />
-    <None Include="Assets\Demos\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eye_blend.shader" />
-    <None Include="Assets\Demos\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eyelash_blend.shader" />
-    <None Include="Assets\Demos\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />
-    <None Include="Assets\Demos\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_fuku_ds.shader" />
-    <None Include="Assets\Demos\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hada.shader" />
-    <None Include="Assets\Demos\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hada_blend.shader" />
-    <None Include="Assets\Demos\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hair.shader" />
-    <None Include="Assets\Demos\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hair_ds.shader" />
-    <None Include="Assets\Demos\UnityChan\Stage\Shader\AlphaMask.shader" />
-    <None Include="Assets\Demos\UnityChan\license.txt" />
     <None Include="Assets\Editor\AstarPathfindingProject\Editor\EditorAssets\Materials\Navmesh2.shader" />
     <None Include="Assets\Plugins\TextFx\AnimationConfigs\AnimationConfigIntros.txt" />
     <None Include="Assets\Plugins\TextFx\AnimationConfigs\AnimationConfigMains.txt" />
@@ -223,10 +199,12 @@
     <None Include="Assets\Plugins\TextFx\Shader\Text Shader.shader" />
     <None Include="Assets\Plugins\TextFx\Utilities\Boomlagoon\JSON\Readme.txt" />
     <None Include="Assets\Plugins\Textures and Sprites\SF UI\Background\LICENSE.txt" />
+    <None Include="Assets\RawRes\Equip.xml" />
     <None Include="Assets\RawRes\Fonts\Jupiter\LICENSE.txt" />
     <None Include="Assets\RawRes\Fonts\LuckiestGuy\LICENSE.txt" />
     <None Include="Assets\RawRes\NPC_1.xml" />
     <None Include="Assets\RawRes\NPC_2.xml" />
+    <None Include="Assets\RawRes\Skill.xml" />
     <None Include="Assets\Scenes\AstarPathfindingProject\Example8_PathTypes\SquareShader.shader" />
     <None Include="Assets\Scenes\AstarPathfindingProject\Materials\DiffuseAlwaysVisible.shader" />
     <None Include="Assets\Scenes\AstarPathfindingProject\Materials\Projector Light.shader" />

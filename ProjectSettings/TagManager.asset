@@ -19,7 +19,7 @@ TagManager:
   - Invisible
   - UI_Dialog
   - UI_Menu
-  - UI_vkb
+  - UI_Vkb
   - Player
   - Enemy
   - BatRole

@@ -8,6 +8,10 @@ namespace Assets.SGUI
 {
     public class SGUIVirtualJoystick : SGUIBase, IPointerDownHandler, IPointerUpHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
+        public Camera UICamera;
+        public GameObject stickObj;
+        public GameObject directKeyObj;
+
         public bool m_isAxisMoveable = true;
 
         public Vector2 m_axisScreenPositionOffsetMin;
@@ -127,6 +131,11 @@ namespace Assets.SGUI
             OnRadiusUpdate();
             OnRespondRadiusUpdate();
             RegisterListener();
+        }
+
+        void Start()
+        {
+            UICamera.cullingMask |= LayerMask.GetMask("UI_Vkb");
         }
 
         private void RegisterListener()

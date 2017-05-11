@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.4.4f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -63,12 +61,6 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
-    </Reference>
     <Reference Include="Pathfinding.ClipperLib">
       <HintPath>Assets\Scripts\Plugin\AstarPathfindingProject\Plugins\Clipper\Pathfinding.ClipperLib.dll</HintPath>
     </Reference>
@@ -89,12 +81,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Demos\UnityChan\Scripts\CameraController.cs" />
-    <Compile Include="Assets\Demos\UnityChan\Scripts\FaceUpdate.cs" />
-    <Compile Include="Assets\Demos\UnityChan\Scripts\IdleChanger.cs" />
-    <Compile Include="Assets\Demos\UnityChan\Scripts\SceneLoader.cs" />
-    <Compile Include="Assets\Demos\UnityChan\Scripts\ThirdPersonCamera.cs" />
-    <Compile Include="Assets\Demos\UnityChan\Scripts\UnityChanControlScriptWithRgidBody.cs" />
     <Compile Include="Assets\Scenes\AstarPathfindingProject\Example11_RVO\GroupController.cs" />
     <Compile Include="Assets\Scenes\AstarPathfindingProject\Example11_RVO\LightweightRVO.cs" />
     <Compile Include="Assets\Scenes\AstarPathfindingProject\Example11_RVO\RVOAgentPlacer.cs" />
@@ -136,12 +122,6 @@
     <Compile Include="Assets\Scripts\Battle\Assist\TargetSearcher.cs" />
     <Compile Include="Assets\Scripts\Battle\BattlePump.cs" />
     <Compile Include="Assets\Scripts\Battle\Command\SosCmd.cs" />
-    <Compile Include="Assets\Scripts\Common\ActorConfig.cs" />
-    <Compile Include="Assets\Scripts\Common\ActorRoot.cs" />
-    <Compile Include="Assets\Scripts\Common\DebugHelper.cs" />
-    <Compile Include="Assets\Scripts\Common\SmartReferencePool.cs" />
-    <Compile Include="Assets\Scripts\Common\SosDefines.cs" />
-    <Compile Include="Assets\Scripts\Controller\ActorMgr.cs" />
     <Compile Include="Assets\Scripts\Controller\InputMgr.cs" />
     <Compile Include="Assets\Scripts\Controller\SceneMgr.cs" />
     <Compile Include="Assets\Scripts\Core\Event\Binder\AndMachinery.cs" />
@@ -154,6 +134,7 @@
     <Compile Include="Assets\Scripts\Core\Event\SosEventMgr.cs" />
     <Compile Include="Assets\Scripts\Core\Event\TalkEvent.cs" />
     <Compile Include="Assets\Scripts\Data\TalkSystem.cs" />
+    <Compile Include="Assets\Scripts\Define\SosDefines.cs" />
     <Compile Include="Assets\Scripts\Plugin\AstarPathfindingProject\Core\AI\AIPath.cs" />
     <Compile Include="Assets\Scripts\Plugin\AstarPathfindingProject\Core\AI\NavmeshController.cs" />
     <Compile Include="Assets\Scripts\Plugin\AstarPathfindingProject\Core\AI\RichAI.cs" />
@@ -254,6 +235,96 @@
     <Compile Include="Assets\Scripts\Plugin\AstarPathfindingProject\Utilities\ProfileHelper.cs" />
     <Compile Include="Assets\Scripts\Plugin\AstarPathfindingProject\Utilities\UnityReferenceHelper.cs" />
     <Compile Include="Assets\Scripts\Plugin\AstarPathfindingProject\changelog.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\AutoPlay.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\AxisConstraint.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Color2.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Core\ABSSequentiable.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Core\DOTweenComponent.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Core\DOTweenSettings.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Core\Debugger.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Core\Delegates.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Core\Easing\Bounce.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Core\Easing\EaseCurve.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Core\Easing\EaseManager.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Core\Easing\Flash.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Core\Enums\FilterType.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Core\Enums\OperationType.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Core\Enums\SpecialStartupMode.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Core\Enums\UpdateMode.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Core\Enums\UpdateNotice.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Core\Extensions.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Core\SequenceCallback.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Core\Surrogates\ColorWrapper.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Core\Surrogates\QuaternionWrapper.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Core\Surrogates\Vector2Wrapper.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Core\Surrogates\Vector3Wrapper.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Core\Surrogates\Vector4Wrapper.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Core\TweenManager.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Core\TweenerCore.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Core\Utils.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\CustomPlugins\PureQuaternionPlugin.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\DOTween.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\DOVirtual.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Ease.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\EaseFactory.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\IDOTweenInit.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\LogBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\LoopType.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\PathMode.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\PathType.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Color2Plugin.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\ColorPlugin.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\ColorWrapperPlugin.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Core\ABSTweenPlugin.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Core\IPlugSetter.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Core\ITPlugin.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Core\ITweenPlugin.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Core\PathCore\ABSPathDecoder.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Core\PathCore\CatmullRomDecoder.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Core\PathCore\ControlPoint.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Core\PathCore\LinearDecoder.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Core\PathCore\Path.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Core\PluginsManager.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Core\SpecialPluginsUtils.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\DoublePlugin.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\FloatPlugin.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\IntPlugin.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\LongPlugin.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Options\ColorOptions.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Options\FloatOptions.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Options\NoOptions.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Options\PathOptions.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Options\QuaternionOptions.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Options\RectOptions.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Options\StringOptions.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Options\Vector3ArrayOptions.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Options\VectorOptions.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\PathPlugin.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\QuaternionPlugin.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\QuaternionWrapperPlugin.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\RectOffsetPlugin.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\RectPlugin.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\StringPlugin.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\UintPlugin.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\UlongPlugin.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Vector2Plugin.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Vector2WrapperPlugin.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Vector3ArrayPlugin.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Vector3Plugin.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Vector3WrapperPlugin.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Vector4Plugin.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Plugins\Vector4WrapperPlugin.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\RotateMode.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\ScrambleMode.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Sequence.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\ShortcutExtensions.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Tween.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\TweenExtensions.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\TweenParams.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\TweenSettingsExtensions.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\TweenType.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\Tweener.cs" />
+    <Compile Include="Assets\Scripts\Plugin\DOTween\UpdateType.cs" />
     <Compile Include="Assets\Scripts\Plugin\IntMath\AcosLookupTable.cs" />
     <Compile Include="Assets\Scripts\Plugin\IntMath\Atan2LookupTable.cs" />
     <Compile Include="Assets\Scripts\Plugin\IntMath\IntMath.cs" />
@@ -264,8 +335,27 @@
     <Compile Include="Assets\Scripts\Plugin\IntMath\VInt3.cs" />
     <Compile Include="Assets\Scripts\Plugin\IntMath\VLine.cs" />
     <Compile Include="Assets\Scripts\Plugin\IntMath\VRect.cs" />
+    <Compile Include="Assets\Scripts\Role\ActorConfig.cs" />
+    <Compile Include="Assets\Scripts\Role\ActorMgr.cs" />
+    <Compile Include="Assets\Scripts\Role\ActorRoot.cs" />
+    <Compile Include="Assets\Scripts\Sys\AI\AICmd.cs" />
+    <Compile Include="Assets\Scripts\Sys\AI\AIItemCmd.cs" />
+    <Compile Include="Assets\Scripts\Sys\AI\AISkillCmd.cs" />
+    <Compile Include="Assets\Scripts\Sys\AI\BaseAICond.cs" />
+    <Compile Include="Assets\Scripts\Sys\AI\RoleAI.cs" />
+    <Compile Include="Assets\Scripts\Sys\Equip\EquipAttr.cs" />
+    <Compile Include="Assets\Scripts\Sys\Equip\HeroEquip.cs" />
+    <Compile Include="Assets\Scripts\Sys\Skill\HeroSkill.cs" />
+    <Compile Include="Assets\Scripts\Sys\Skill\SkillParam.cs" />
     <Compile Include="Assets\Scripts\Test\CondHideAttr.cs" />
     <Compile Include="Assets\Scripts\UI\Audio\MixLevels.cs" />
+    <Compile Include="Assets\Scripts\UI\Base\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\Base\MonoSingleton.cs" />
+    <Compile Include="Assets\Scripts\UI\Base\RoleDialog.cs" />
+    <Compile Include="Assets\Scripts\UI\Base\SosObject.cs" />
+    <Compile Include="Assets\Scripts\UI\Base\Talk\TalkDialog.cs" />
+    <Compile Include="Assets\Scripts\UI\Base\Talk\TalkGizmos.cs" />
+    <Compile Include="Assets\Scripts\UI\Base\Talk\TalkInfo.cs" />
     <Compile Include="Assets\Scripts\UI\Battle\Actor\Base\BatFoe.cs" />
     <Compile Include="Assets\Scripts\UI\Battle\Actor\Base\BatHero.cs" />
     <Compile Include="Assets\Scripts\UI\Battle\Actor\Goblin.cs" />
@@ -277,13 +367,6 @@
     <Compile Include="Assets\Scripts\UI\Camera\CameraCtrl.cs" />
     <Compile Include="Assets\Scripts\UI\Camera\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\UI\Camera\CurveFactory.cs" />
-    <Compile Include="Assets\Scripts\UI\Common\MainMenu.cs" />
-    <Compile Include="Assets\Scripts\UI\Common\MonoSingleton.cs" />
-    <Compile Include="Assets\Scripts\UI\Common\RoleDialog.cs" />
-    <Compile Include="Assets\Scripts\UI\Common\SosObject.cs" />
-    <Compile Include="Assets\Scripts\UI\Common\Talk\TalkDialog.cs" />
-    <Compile Include="Assets\Scripts\UI\Common\Talk\TalkGizmos.cs" />
-    <Compile Include="Assets\Scripts\UI\Common\Talk\TalkInfo.cs" />
     <Compile Include="Assets\Scripts\UI\Event\SosEventAttr.cs" />
     <Compile Include="Assets\Scripts\UI\Event\SosHandle.cs" />
     <Compile Include="Assets\Scripts\UI\Event\Tile.cs" />
@@ -306,32 +389,27 @@
     <Compile Include="Assets\Scripts\UI\Role\Player\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\UI\Role\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\UI\Role\Player\PlayerShooting.cs" />
+    <Compile Include="Assets\Scripts\UI\SGUI\SGUIBase.cs" />
+    <Compile Include="Assets\Scripts\UI\SGUI\SGUIDebug.cs" />
+    <Compile Include="Assets\Scripts\UI\SGUI\SGUIEvent.cs" />
+    <Compile Include="Assets\Scripts\UI\SGUI\SGUIEventMgr.cs" />
+    <Compile Include="Assets\Scripts\UI\SGUI\SGUIVirtualJoystick.cs" />
     <Compile Include="Assets\Scripts\UI\Test\AnimCurveTutor.cs" />
     <Compile Include="Assets\Scripts\UI\Test\Star.cs" />
     <Compile Include="Assets\Scripts\Utility\Attributs.cs" />
     <Compile Include="Assets\Scripts\Utility\AutoSingletonAttribute.cs" />
     <Compile Include="Assets\Scripts\Utility\CRC32.cs" />
+    <Compile Include="Assets\Scripts\Utility\DebugHelper.cs" />
     <Compile Include="Assets\Scripts\Utility\MonoXml\MiniParser.cs" />
     <Compile Include="Assets\Scripts\Utility\MonoXml\SecurityParser.cs" />
     <Compile Include="Assets\Scripts\Utility\MonoXml\SmallXmlParser.cs" />
     <Compile Include="Assets\Scripts\Utility\RandomGenerator.cs" />
     <Compile Include="Assets\Scripts\Utility\Singleton.cs" />
+    <Compile Include="Assets\Scripts\Utility\SmartReferencePool.cs" />
     <Compile Include="Assets\Scripts\Utility\Utils.cs" />
     <Compile Include="Assets\Scripts\Utility\filemanager.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Demos\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_akarami_blend.shader" />
-    <None Include="Assets\Demos\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eye.shader" />
-    <None Include="Assets\Demos\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eye_blend.shader" />
-    <None Include="Assets\Demos\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eyelash_blend.shader" />
-    <None Include="Assets\Demos\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />
-    <None Include="Assets\Demos\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_fuku_ds.shader" />
-    <None Include="Assets\Demos\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hada.shader" />
-    <None Include="Assets\Demos\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hada_blend.shader" />
-    <None Include="Assets\Demos\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hair.shader" />
-    <None Include="Assets\Demos\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hair_ds.shader" />
-    <None Include="Assets\Demos\UnityChan\Stage\Shader\AlphaMask.shader" />
-    <None Include="Assets\Demos\UnityChan\license.txt" />
     <None Include="Assets\Editor\AstarPathfindingProject\Editor\EditorAssets\Materials\Navmesh2.shader" />
     <None Include="Assets\Plugins\TextFx\AnimationConfigs\AnimationConfigIntros.txt" />
     <None Include="Assets\Plugins\TextFx\AnimationConfigs\AnimationConfigMains.txt" />
@@ -379,10 +457,12 @@
     <None Include="Assets\Plugins\TextFx\Shader\Text Shader.shader" />
     <None Include="Assets\Plugins\TextFx\Utilities\Boomlagoon\JSON\Readme.txt" />
     <None Include="Assets\Plugins\Textures and Sprites\SF UI\Background\LICENSE.txt" />
+    <None Include="Assets\RawRes\Equip.xml" />
     <None Include="Assets\RawRes\Fonts\Jupiter\LICENSE.txt" />
     <None Include="Assets\RawRes\Fonts\LuckiestGuy\LICENSE.txt" />
     <None Include="Assets\RawRes\NPC_1.xml" />
     <None Include="Assets\RawRes\NPC_2.xml" />
+    <None Include="Assets\RawRes\Skill.xml" />
     <None Include="Assets\Scenes\AstarPathfindingProject\Example8_PathTypes\SquareShader.shader" />
     <None Include="Assets\Scenes\AstarPathfindingProject\Materials\DiffuseAlwaysVisible.shader" />
     <None Include="Assets\Scenes\AstarPathfindingProject\Materials\Projector Light.shader" />
