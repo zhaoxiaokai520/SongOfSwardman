@@ -57,6 +57,7 @@ namespace Assets.Scripts.Core.Event
         dummy = -1,
         talk = 1,
         action,
+        cancel,
         trap,
         door,
         itemshop,

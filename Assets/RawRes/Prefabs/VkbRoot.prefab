@@ -431,11 +431,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6845b365290b7834e9738e4b3620f081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_indexInlist: 0
-  m_widgets: []
+  gameId: 0
   UICamera: {fileID: 0}
   stickObj: {fileID: 1000010974427588}
   directKeyObj: {fileID: 1000010515244192}
+  AKey: {fileID: 114000011554114570}
+  BKey: {fileID: 114000010181088622}
   m_isAxisMoveable: 1
   m_axisScreenPositionOffsetMin: {x: 0, y: 0}
   m_axisScreenPositionOffsetMax: {x: 0, y: 0}

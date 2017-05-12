@@ -394,7 +394,7 @@
     <Compile Include="Assets\Scripts\UI\SGUI\SGUIBase.cs" />
     <Compile Include="Assets\Scripts\UI\SGUI\SGUIDebug.cs" />
     <Compile Include="Assets\Scripts\UI\SGUI\SGUIEventMgr.cs" />
-    <Compile Include="Assets\Scripts\UI\SGUI\SGUIVirtualJoystick.cs" />
+    <Compile Include="Assets\Scripts\UI\Base\VirtualJoystick.cs" />
     <Compile Include="Assets\Scripts\UI\SGUI\SGUIEvent.cs" />
     <Compile Include="Assets\Scripts\UI\Test\AnimCurveTutor.cs" />
     <Compile Include="Assets\Scripts\UI\Test\Star.cs" />

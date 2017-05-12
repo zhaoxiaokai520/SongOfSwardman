@@ -1,16 +1,20 @@
 //#define BLOCK_MULTI_TOUCH
 
+using Assets.Scripts.Core.Event;
+using Assets.Scripts.UI.Base;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Assets.SGUI
 {
-    public class SGUIVirtualJoystick : SGUIBase, IPointerDownHandler, IPointerUpHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
+    public class VirtualJoystick : SosObject, IPointerDownHandler, IPointerUpHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         public Camera UICamera;
         public GameObject stickObj;
         public GameObject directKeyObj;
+        public Button AKey;
+        public Button BKey;
 
         public bool m_isAxisMoveable = true;
 
@@ -84,53 +88,58 @@ namespace Assets.SGUI
             }
         }
 
-        public override void Initialize()
+        //        public override void Initialize()
+        //        {
+        //            if (m_isInitialized)
+        //            {
+        //                return;
+        //            }
+        //            base.Initialize();
+        //            m_axisRectTransform = gameObject.transform.FindChild("Axis") as RectTransform;
+        //            if (m_axisRectTransform != null)
+        //            {
+        //                m_axisRectTransform.anchoredPosition = Vector2.zero;
+        //                //m_axisOriginalScreenPosition = UGUIUtility.WorldToScreenPoint(m_belongedFormScript.GetCamera(), m_axisRectTransform.position);
+        //                m_axisImage = m_axisRectTransform.gameObject.GetComponent<Image>();
+        //                m_cursorRectTransform = m_axisRectTransform.FindChild("Cursor") as RectTransform;
+        //                if (m_cursorRectTransform != null)
+        //                {
+        //                    m_cursorRectTransform.anchoredPosition = Vector2.zero;
+        //                    m_cursorImage = m_cursorRectTransform.gameObject.GetComponent<Image>();
+        //                }
+        //                m_JoyBG = m_axisRectTransform.FindChild("BG") as RectTransform;
+        //                AxisFadeout();
+        //                m_axisCanvasGroup = m_axisRectTransform.gameObject.GetComponent<CanvasGroup>();
+        //                if (m_axisCanvasGroup == null)
+        //                {
+        //                    m_axisCanvasGroup = m_axisRectTransform.gameObject.AddComponent<CanvasGroup>();
+        //                }
+        //            }
+        //            m_borderRectTransform = gameObject.transform.FindChild("Axis/Border") as RectTransform;
+        //            if (m_borderRectTransform != null)
+        //            {
+        //                m_borderCanvasGroup = m_borderRectTransform.gameObject.GetComponent<CanvasGroup>();
+        //                if (m_borderCanvasGroup == null)
+        //                {
+        //                    m_borderCanvasGroup = m_borderRectTransform.gameObject.AddComponent<CanvasGroup>();
+        //                }
+        //                HideBorder();
+        //            }
+
+        //            SetAllDisplay(false);
+        //            //m_joystickUp = false;
+        //#if BLOCK_MULTI_TOUCH
+        //            m_onEventFingerID = S_Empty_EventID;
+        //#endif
+        //            OnCanMoveUpdate();
+        //            OnRadiusUpdate();
+        //            OnRespondRadiusUpdate();
+        //            addListener();
+        //        }
+
+        private void Awake()
         {
-            if (m_isInitialized)
-            {
-                return;
-            }
-            base.Initialize();
-            m_axisRectTransform = gameObject.transform.FindChild("Axis") as RectTransform;
-            if (m_axisRectTransform != null)
-            {
-                m_axisRectTransform.anchoredPosition = Vector2.zero;
-                //m_axisOriginalScreenPosition = UGUIUtility.WorldToScreenPoint(m_belongedFormScript.GetCamera(), m_axisRectTransform.position);
-                m_axisImage = m_axisRectTransform.gameObject.GetComponent<Image>();
-                m_cursorRectTransform = m_axisRectTransform.FindChild("Cursor") as RectTransform;
-                if (m_cursorRectTransform != null)
-                {
-                    m_cursorRectTransform.anchoredPosition = Vector2.zero;
-                    m_cursorImage = m_cursorRectTransform.gameObject.GetComponent<Image>();
-                }
-                m_JoyBG = m_axisRectTransform.FindChild("BG") as RectTransform;
-                AxisFadeout();
-                m_axisCanvasGroup = m_axisRectTransform.gameObject.GetComponent<CanvasGroup>();
-                if (m_axisCanvasGroup == null)
-                {
-                    m_axisCanvasGroup = m_axisRectTransform.gameObject.AddComponent<CanvasGroup>();
-                }
-            }
-            m_borderRectTransform = gameObject.transform.FindChild("Axis/Border") as RectTransform;
-            if (m_borderRectTransform != null)
-            {
-                m_borderCanvasGroup = m_borderRectTransform.gameObject.GetComponent<CanvasGroup>();
-                if (m_borderCanvasGroup == null)
-                {
-                    m_borderCanvasGroup = m_borderRectTransform.gameObject.AddComponent<CanvasGroup>();
-                }
-                HideBorder();
-            }
-            
-            SetAllDisplay(false);
-            //m_joystickUp = false;
-#if BLOCK_MULTI_TOUCH
-            m_onEventFingerID = S_Empty_EventID;
-#endif
-            OnCanMoveUpdate();
-            OnRadiusUpdate();
-            OnRespondRadiusUpdate();
-            RegisterListener();
+            addListener();
         }
 
         void Start()
@@ -138,39 +147,9 @@ namespace Assets.SGUI
             UICamera.cullingMask |= LayerMask.GetMask("UI_Vkb");
         }
 
-        private void RegisterListener()
+        private void OnDestroy()
         {
-            //EventBump.instance.AddEventHandler(GameSettings.s_mainJoystickCanMove, OnCanMoveUpdate);
-            //EventBump.instance.AddEventHandler(GameSettings.s_MainJoystickRadius, OnRadiusUpdate);
-            //EventBump.instance.AddEventHandler(GameSettings.s_mainJoystickRespondRadius, OnRespondRadiusUpdate);
-        }
-
-        private void RemoveListener()
-        {
-            //EventBump.instance.RemoveEventHandler(GameSettings.s_mainJoystickCanMove, OnCanMoveUpdate);
-            //EventBump.instance.RemoveEventHandler(GameSettings.s_MainJoystickRadius, OnRadiusUpdate);
-            //EventBump.instance.RemoveEventHandler(GameSettings.s_mainJoystickRespondRadius, OnRespondRadiusUpdate);
-        }
-
-        private void OnCanMoveUpdate()
-        {
-            //m_isAxisMoveable = GameSettings.MainJoyStickCanMove;
-        }
-
-        private void OnRadiusUpdate()
-        {
-            //SetJoyStickRadius(GameSettings.MainJoystickRadius);
-        }
-
-        private void OnRespondRadiusUpdate()
-        {
-            //m_cursorRespondMinRadius = GameSettings.MainJoystickRespondRadius;
-        }
-
-        public override void Close()
-        {
-            base.Close();
-            RemoveListener();
+            rmvListener();
         }
 
         private void Update()
@@ -190,6 +169,51 @@ namespace Assets.SGUI
                 UpdateAxisPosition();
             }
         }
+
+        void addListener()
+        {
+            if (null != AKey)
+            {
+                AKey.onClick.AddListener(OnAKeyClicked);
+            }
+            if (null != BKey)
+            {
+                BKey.onClick.AddListener(OnBVKeyClicked);
+            }
+        }
+
+        void rmvListener()
+        {
+            if (null != AKey)
+            {
+                AKey.onClick.RemoveListener(OnAKeyClicked);
+            }
+            if (null != BKey)
+            {
+                BKey.onClick.RemoveListener(OnBVKeyClicked);
+            }
+        }
+
+        private void OnCanMoveUpdate()
+        {
+            //m_isAxisMoveable = GameSettings.MainJoyStickCanMove;
+        }
+
+        private void OnRadiusUpdate()
+        {
+            //SetJoyStickRadius(GameSettings.MainJoystickRadius);
+        }
+
+        private void OnRespondRadiusUpdate()
+        {
+            //m_cursorRespondMinRadius = GameSettings.MainJoystickRespondRadius;
+        }
+
+        //public override void Close()
+        //{
+        //    base.Close();
+        //    rmvListener();
+        //}
 
         public void OnPointerDown(PointerEventData eventData)
         {
@@ -506,36 +530,14 @@ namespace Assets.SGUI
             }
         }
 
-        private int getTouchCount()
+        void OnAKeyClicked()
         {
 
-            int count = 0;
-#if (UNITY_STANDALONE||UNITY_EDITOR)
-            {
-                if (Input.GetMouseButton(0) || Input.GetMouseButtonUp(0))
-                {
-                    count = 1;
-                    if (Input.GetKey(KeyCode.LeftAlt) ||  Input.GetKey(KeyCode.LeftControl) )
-                        count = 2;
-                    if (Input.GetKeyUp(KeyCode.LeftAlt) || Input.GetKeyUp(KeyCode.LeftControl))
-                        count = 2;
-                }
+        }
 
-                else if (Input.GetMouseButton(1) || Input.GetMouseButtonUp(1))
-                {
-                    count = 1;
-                    if (Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.LeftControl))
-                        count = 2;
-                    if (Input.GetKeyUp(KeyCode.LeftAlt) || Input.GetKeyUp(KeyCode.LeftControl))
-                        count = 2;
-                }
-
-            }
-#else
-            count = Input.touchCount;
-#endif
-
-            return count;
+        void OnBVKeyClicked()
+        {
+            SosEventMgr.instance.Publish(MapEventId.cancel, this, SosEventArgs.EmptyEvt);
         }
     }
 }
