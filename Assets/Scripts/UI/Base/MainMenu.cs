@@ -2,6 +2,7 @@
 
 public class MainMenu : MonoBehaviour {
     public GameObject MenuGroup;
+    public GameObject ScrollGroup;
     public GameObject StatusBtn;
     public GameObject ItemBtn;
     public GameObject EquipBtn;
@@ -17,7 +18,7 @@ public class MainMenu : MonoBehaviour {
     // Use this for initialization
     void Start () {
         mClickAudio = MenuGroup.GetComponent<AudioSource>();
-
+        UICamera.cullingMask |= LayerMask.GetMask("UI_Menu");
     }
 	
 	// Update is called once per frame
@@ -30,14 +31,18 @@ public class MainMenu : MonoBehaviour {
             if (isMenuOpened)
             {
                 //int mask = LayerMask.GetMask("UI_Menu");
-                UICamera.cullingMask |= LayerMask.GetMask("UI_Menu");
+                //UICamera.cullingMask |= LayerMask.GetMask("UI_Menu");
+                MenuGroup.SetActive(true);
+                isMenuOpened = true;
                 //Debug.Log("MenuController.update() enable menu ==============");
                 mClickAudio.Play();
             }
             else
             {
+                MenuGroup.SetActive(false);
+                isMenuOpened = false;
                 //int mask = LayerMask.GetMask("UI_Menu");
-                UICamera.cullingMask &= ~LayerMask.GetMask("UI_Menu");
+                //UICamera.cullingMask &= ~LayerMask.GetMask("UI_Menu");
                 //Debug.Log("MenuController.update() disable menu --------------");
             }
         }
