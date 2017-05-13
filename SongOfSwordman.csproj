@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.4.4f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -358,6 +356,8 @@
     <Compile Include="Assets\Scripts\UI\Base\Talk\TalkDialog.cs" />
     <Compile Include="Assets\Scripts\UI\Base\Talk\TalkGizmos.cs" />
     <Compile Include="Assets\Scripts\UI\Base\Talk\TalkInfo.cs" />
+    <Compile Include="Assets\Scripts\UI\Base\UIUtils.cs" />
+    <Compile Include="Assets\Scripts\UI\Base\VirtualJoystick.cs" />
     <Compile Include="Assets\Scripts\UI\Battle\Actor\Base\BatFoe.cs" />
     <Compile Include="Assets\Scripts\UI\Battle\Actor\Base\BatHero.cs" />
     <Compile Include="Assets\Scripts\UI\Battle\Actor\Goblin.cs" />
@@ -393,9 +393,9 @@
     <Compile Include="Assets\Scripts\UI\Role\Player\PlayerShooting.cs" />
     <Compile Include="Assets\Scripts\UI\SGUI\SGUIBase.cs" />
     <Compile Include="Assets\Scripts\UI\SGUI\SGUIDebug.cs" />
-    <Compile Include="Assets\Scripts\UI\SGUI\SGUIEventMgr.cs" />
-    <Compile Include="Assets\Scripts\UI\Base\VirtualJoystick.cs" />
     <Compile Include="Assets\Scripts\UI\SGUI\SGUIEvent.cs" />
+    <Compile Include="Assets\Scripts\UI\SGUI\SGUIEventMgr.cs" />
+    <Compile Include="Assets\Scripts\UI\SGUI\SGUIRectEventDetector.cs" />
     <Compile Include="Assets\Scripts\UI\Test\AnimCurveTutor.cs" />
     <Compile Include="Assets\Scripts\UI\Test\Star.cs" />
     <Compile Include="Assets\Scripts\Utility\Attributs.cs" />

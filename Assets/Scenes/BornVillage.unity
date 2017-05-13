@@ -5134,6 +5134,44 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 286101050}
   m_Mesh: {fileID: 0}
+--- !u!1 &397698187 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000011184502534, guid: 7f14d4686fb60cd40823f341dca9e841,
+    type: 2}
+  m_PrefabInternal: {fileID: 941013157}
+--- !u!114 &397698188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 397698187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a61e0ba492746d4f808cf0e077f7e55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &397698189
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 397698187}
 --- !u!1001 &411757268
 Prefab:
   m_ObjectHideFlags: 0
@@ -5413,7 +5451,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -5573,7 +5611,7 @@ Prefab:
     - target: {fileID: 224000013171062312, guid: 860347ff5dab02a4299ff0bfcc85ca5c,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -57.452103
+      value: -50.890938
       objectReference: {fileID: 0}
     - target: {fileID: 224000013171062312, guid: 860347ff5dab02a4299ff0bfcc85ca5c,
         type: 2}
@@ -5598,22 +5636,22 @@ Prefab:
     - target: {fileID: 224000013283024966, guid: 860347ff5dab02a4299ff0bfcc85ca5c,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 296.02704
+      value: 265.5791
       objectReference: {fileID: 0}
     - target: {fileID: 224000013283024966, guid: 860347ff5dab02a4299ff0bfcc85ca5c,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -57.452103
+      value: -50.890938
       objectReference: {fileID: 0}
     - target: {fileID: 224000013283024966, guid: 860347ff5dab02a4299ff0bfcc85ca5c,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 452.05408
+      value: 391.1582
       objectReference: {fileID: 0}
     - target: {fileID: 224000013283024966, guid: 860347ff5dab02a4299ff0bfcc85ca5c,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 114.904205
+      value: 101.781876
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 860347ff5dab02a4299ff0bfcc85ca5c, type: 2}
@@ -5793,6 +5831,40 @@ Prefab:
       propertyPath: UICamera
       value: 
       objectReference: {fileID: 1789020592}
+    - target: {fileID: 1000010974427588, guid: 7f14d4686fb60cd40823f341dca9e841, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000010470848060, guid: 7f14d4686fb60cd40823f341dca9e841,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011391767414, guid: 7f14d4686fb60cd40823f341dca9e841,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011208984512, guid: 7f14d4686fb60cd40823f341dca9e841,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000013905114798, guid: 7f14d4686fb60cd40823f341dca9e841,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011470083246, guid: 7f14d4686fb60cd40823f341dca9e841,
+        type: 2}
+      propertyPath: axisMaxOffset.x
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011470083246, guid: 7f14d4686fb60cd40823f341dca9e841,
+        type: 2}
+      propertyPath: axisMaxOffset.y
+      value: 64
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f14d4686fb60cd40823f341dca9e841, type: 2}
   m_IsPrefabParent: 0
@@ -6103,7 +6175,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -6569,7 +6641,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}

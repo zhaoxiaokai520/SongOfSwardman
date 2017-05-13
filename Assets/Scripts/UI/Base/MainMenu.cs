@@ -95,7 +95,7 @@ public class MainMenu : MonoBehaviour {
     {
         _setMenuOpen(false);
         isMenuOpened = false;
-        return false;
+        return true;
     }
 
     void _setMenuOpen(bool open)
