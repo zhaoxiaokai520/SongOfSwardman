@@ -28,6 +28,9 @@ namespace Assets.SGUI
         private Vector2 axisCurrScrPos;
         private CanvasScaler canvasScaler;
 
+        private AudioSource AKeyAudioSrc;
+        private AudioSource BKeyAudioSrc;
+
         private void Awake()
         {
             addListener();
@@ -39,6 +42,8 @@ namespace Assets.SGUI
             axisRectTransform = stickObj.GetComponent<RectTransform>();
             cursorRectTransform = stickObj.transform.FindChild("Cursor") as RectTransform;
             canvasScaler = this.transform.parent.gameObject.GetComponent<CanvasScaler>();
+            AKeyAudioSrc = AKey.GetComponent<AudioSource>();
+            BKeyAudioSrc = BKey.GetComponent<AudioSource>();
         }
 
         private void OnDestroy()
@@ -68,7 +73,7 @@ namespace Assets.SGUI
             }
             if (null != BKey)
             {
-                BKey.onClick.AddListener(OnBVKeyClicked);
+                BKey.onClick.AddListener(OnBKeyClicked);
             }
         }
 
@@ -80,7 +85,7 @@ namespace Assets.SGUI
             }
             if (null != BKey)
             {
-                BKey.onClick.RemoveListener(OnBVKeyClicked);
+                BKey.onClick.RemoveListener(OnBKeyClicked);
             }
         }
 
@@ -155,12 +160,13 @@ namespace Assets.SGUI
 
         void OnAKeyClicked()
         {
-
+            AKeyAudioSrc.Play();
         }
 
-        void OnBVKeyClicked()
+        void OnBKeyClicked()
         {
             SosEventMgr.instance.Publish(MapEventId.cancel, this, SosEventArgs.EmptyEvt);
+            BKeyAudioSrc.Play();
         }
 
         private void UpdateAxis(Vector2 axis, bool flag = true)

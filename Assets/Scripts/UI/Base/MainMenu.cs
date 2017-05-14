@@ -17,6 +17,7 @@ public class MainMenu : MonoBehaviour {
 
     private AudioSource mClickAudio;
 
+
     private bool isMenuOpened = false;
     private void Awake()
     {
@@ -25,7 +26,7 @@ public class MainMenu : MonoBehaviour {
     // Use this for initialization
     void Start () {
         //default show scroll hide menu
-        mClickAudio = MenuGroup.GetComponent<AudioSource>();
+        mClickAudio = GetComponent<AudioSource>();
         UICamera.cullingMask |= LayerMask.GetMask("UI_Menu");
     }
 

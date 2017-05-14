@@ -1,6 +1,6 @@
 ﻿using Assets.Scripts.Role;
 using UnityEngine;
-using Assets.Scripts.Controller;
+using Assets.Scripts.Mgr;
 using Assets.Scripts.UI.Battle.Assist;
 using Assets.Scripts.UI.Base;
 

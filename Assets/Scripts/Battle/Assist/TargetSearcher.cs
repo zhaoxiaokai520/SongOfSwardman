@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Assets.Scripts.Controller;
+using Assets.Scripts.Mgr;
 using Assets.Scripts.Role;
 
 namespace Assets.Scripts.UI.Battle.Assist

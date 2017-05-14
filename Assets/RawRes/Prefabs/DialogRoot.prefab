@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 224000010788971124}
   - 114: {fileID: 114000011038698596}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - 222: {fileID: 222000010818596840}
   - 114: {fileID: 114000010143364532}
   - 114: {fileID: 114000012667498488}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Msg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - 222: {fileID: 222000010721715450}
   - 114: {fileID: 114000010023480356}
   - 114: {fileID: 114000010601741854}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -2037,6 +2037,8 @@ MonoBehaviour:
   UICamera: {fileID: 0}
   message: {fileID: 114000010023480356}
   msg: {fileID: 114000012667498488}
+  clickAudio: {fileID: 8300000, guid: 6a8f251695f754436b1e1089d68baff2, type: 3}
+  talkEndAudio: {fileID: 8300000, guid: 47b02a2c2292b47fba44eb73dc8a73be, type: 3}
 --- !u!114 &114000012097146464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2085,7 +2087,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 12
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1

@@ -3,7 +3,9 @@ using UnityEngine.UI;
 using TextFx;
 using System.Collections.Generic;
 using Assets.Scripts.Data;
-using Assets.Scripts.Controller;
+using Assets.Scripts.Mgr;
+using Assets.Scripts.Utility;
+using Assets.Scripts.Mgr;
 
 public class TalkDialog : MonoSingleton<TalkDialog>
 {
@@ -11,7 +13,8 @@ public class TalkDialog : MonoSingleton<TalkDialog>
     public Camera UICamera;
     public TextFxUGUI message;
     public Text msg;
-    private AudioSource mClickAudio;
+    public AudioClip clickAudio;
+    public AudioClip talkEndAudio;
     //private int mInputLevel = 10;
     private List<string> mCachedTexts = new List<string>();//for too many word that cant display once all in dialog
 
@@ -28,7 +31,14 @@ public class TalkDialog : MonoSingleton<TalkDialog>
 
     // Use this for initialization
     void Start () {
-        mClickAudio = DialogGroup.GetComponent<AudioSource>();
+        //mClickAudio = DialogGroup.GetComponent<AudioSource>();
+
+        //mTalkEndAudio = (AudioClip)Resources.Load(Application.dataPath + "/RawRes/Audio/Sound/Slide_Sharp_01.mp3", typeof(AudioClip));
+
+        //string url = "file://" + Application.streamingAssetsPath + "/Audio/Sounds/Slide_Sharp_01.mp3";
+        //DebugHelper.Log(url);
+        //WWW www = WWW.LoadFromCacheOrDownload(url, 3);
+        //mTalkEndAudio = www.audioClip;
     }
 	
 	// Update is called once per frame
@@ -82,6 +92,8 @@ public class TalkDialog : MonoSingleton<TalkDialog>
         if (message.text.Equals(""))
         {
             HideTalk();
+            //talkEndAudio.Play();
+            AudioMgr.instance.PlayAudioClip(talkEndAudio, gameObject);
         }
         else
         {
@@ -89,7 +101,7 @@ public class TalkDialog : MonoSingleton<TalkDialog>
             UICamera.cullingMask |= LayerMask.GetMask("UI_Dialog");
             Debug.Log("TalkDialog.ShowTalk() enable dialog ============== " + message.text);
             //message.AnimationManager.PlayAnimation();
-            mClickAudio.Play();
+            AudioMgr.instance.PlayAudioClip(clickAudio, gameObject);
         }
     }
 

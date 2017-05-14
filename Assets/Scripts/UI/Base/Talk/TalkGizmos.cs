@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using Assets.Scripts.Role;
-using Assets.Scripts.Controller;
+using Assets.Scripts.Mgr;
 using Assets.Scripts.UI.Base;
 #if UNITY_EDITOR
 using UnityEditor;

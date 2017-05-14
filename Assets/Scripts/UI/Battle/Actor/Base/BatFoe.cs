@@ -1,7 +1,7 @@
 ﻿using Assets.Scripts.Role;
 using System.Collections.Generic;
 using UnityEngine;
-using Assets.Scripts.Controller;
+using Assets.Scripts.Mgr;
 using Pathfinding;
 using System.Collections;
 using Assets.Scripts.UI.Base;

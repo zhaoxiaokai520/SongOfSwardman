@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.Controller;
+﻿using Assets.Scripts.Mgr;
 using Assets.Scripts.Core.Event;
 using Assets.Scripts.Role;
 using Assets.Scripts.UI.Base;
