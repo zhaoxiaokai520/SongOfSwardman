@@ -2,6 +2,7 @@
 
 using Assets.Scripts.Core.Event;
 using Assets.Scripts.UI.Base;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -22,7 +23,7 @@ namespace Assets.SGUI
         public float cursorMaxOffsetRadius = 120f;
 
         private RectTransform axisRectTransform;
-        private RectTransform cursorRectTransform;
+        //private RectTransform cursorRectTransform;
         private Vector2 axisOrigScrPos;
         private Vector2 axisTargetScrPos;
         private Vector2 axisCurrScrPos;
@@ -30,8 +31,9 @@ namespace Assets.SGUI
 
         private AudioSource AKeyAudioSrc;
         private AudioSource BKeyAudioSrc;
+        private GameObject _indicateCursor;//move direction circle cursor
 
-        private void Awake()
+        private void Awake() 
         {
             addListener();
         }
@@ -40,7 +42,7 @@ namespace Assets.SGUI
         {
             UICamera.cullingMask |= LayerMask.GetMask("UI_Vkb");
             axisRectTransform = stickObj.GetComponent<RectTransform>();
-            cursorRectTransform = stickObj.transform.FindChild("Cursor") as RectTransform;
+            _indicateCursor = stickObj.transform.FindChild("Cursor").gameObject;
             canvasScaler = this.transform.parent.gameObject.GetComponent<CanvasScaler>();
             AKeyAudioSrc = AKey.GetComponent<AudioSource>();
             BKeyAudioSrc = BKey.GetComponent<AudioSource>();
@@ -113,49 +115,28 @@ namespace Assets.SGUI
         public void OnPointerDown(PointerEventData eventData)
         {
             stickObj.SetActive(true);
-            MoveAxis(eventData.position, true);
+            _showAxis(eventData.position);
         }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            MoveAxis(eventData.position, false);
+            _indicateCursor.transform.position = Vector3.zero;
+            _moveCursor(eventData.position);
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-            MoveAxis(eventData.position, false);
+            _moveCursor(eventData.position);
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
+            _playResetCursorAnim(eventData.position);
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
             stickObj.SetActive(false);
-        }
-
-        public void ResetAxis(bool flag = true)
-        {
-            //m_axisRectTransform.anchoredPosition = Vector2.zero;
-            //m_cursorRectTransform.anchoredPosition = Vector2.zero;
-            ////m_axisOriginalScreenPosition = UGUIUtility.WorldToScreenPoint(m_belongedFormScript.GetCamera(), m_axisRectTransform.position);
-            //m_axisCurrentScreenPosition = Vector2.zero;
-            //m_axisTargetScreenPosition = Vector2.zero;
-            //UpdateAxis(Vector2.zero, flag);
-            //AxisFadeout();
-            //SetAllDisplay(false);
-        }
-
-        public void DisableJoyStick()
-        {
-            //ResetAxis(false);
-            gameObject.SetActive(false);
-        }
-
-        public void OnEnableJoyStick()
-        {
-            //gameObject.SetActive(true);
         }
 
         void OnAKeyClicked()
@@ -169,94 +150,39 @@ namespace Assets.SGUI
             BKeyAudioSrc.Play();
         }
 
-        private void UpdateAxis(Vector2 axis, bool flag = true)
-        {
-
-        }
-
-        private void DispatchOnAxisChangedEvent()
-        {
-            //m_onAxisChangedEventID = (int)kUIEventID.Battle_OnAxisChanged;
-            //if (m_onAxisChangedEventID != (int)kUIEventID.None)
-            //{
-            //    UGUIEvent uIEvent = UGUIEventManager.instance.GetUIEvent();
-            //    uIEvent.m_eventID = m_onAxisChangedEventID;
-            //    uIEvent.m_eventParams = m_onAxisChangedEventParams;
-            //    uIEvent.m_srcFormScript = m_belongedFormScript;
-            //    uIEvent.m_srcWidgetBelongedListScript = m_belongedListScript;
-            //    uIEvent.m_srcWidgetIndexInBelongedList = m_indexInlist;
-            //    uIEvent.m_srcWidget = gameObject;
-            //    uIEvent.m_srcWidgetScript = this;
-            //    uIEvent.m_pointerEventData = null;
-            //    DispatchUIEvent(uIEvent);
-            //}
-        }
-
-        private void DispatchOnAxisDownEvent()
-        {
-            //if (m_onAxisDownEventID != (int)kUIEventID.None)
-            //{
-            //    UGUIEvent uIEvent = UGUIEventManager.instance.GetUIEvent();
-            //    uIEvent.m_eventID = m_onAxisDownEventID;
-            //    uIEvent.m_eventParams = m_onAxisDownEventParams;
-            //    uIEvent.m_srcFormScript = m_belongedFormScript;
-            //    uIEvent.m_srcWidgetBelongedListScript = m_belongedListScript;
-            //    uIEvent.m_srcWidgetIndexInBelongedList = m_indexInlist;
-            //    uIEvent.m_srcWidget = gameObject;
-            //    uIEvent.m_srcWidgetScript = this;
-            //    uIEvent.m_pointerEventData = null;
-            //    DispatchUIEvent(uIEvent);
-            //}
-        }
-
-        private void DispatchOnAxisReleasedEvent()
-        {
-            //if (m_onAxisReleasedEventID != (int)kUIEventID.None)
-            //{
-            //    UGUIEvent uIEvent = UGUIEventManager.instance.GetUIEvent();
-            //    uIEvent.m_eventID = m_onAxisReleasedEventID;
-            //    uIEvent.m_eventParams = m_onAxisReleasedEventParams;
-            //    uIEvent.m_srcFormScript = m_belongedFormScript;
-            //    uIEvent.m_srcWidgetBelongedListScript = m_belongedListScript;
-            //    uIEvent.m_srcWidgetIndexInBelongedList = m_indexInlist;
-            //    uIEvent.m_srcWidget = gameObject;
-            //    uIEvent.m_srcWidgetScript = this;
-            //    uIEvent.m_pointerEventData = null;
-            //    DispatchUIEvent(uIEvent);
-            //}
-        }
-
-        private void MoveAxis(Vector2 position, bool isDown)
+        //show axis under finger
+        private void _showAxis(Vector2 position)
         {
             //axisRectTransform.position = position;
-            axisCurrScrPos = ClampAixsPos(position);
+            axisCurrScrPos = _clampAixsPos(position);
             axisRectTransform.position = UIUtils.ScreenToWorldPoint(UICamera, axisCurrScrPos, axisRectTransform.position.z);
             axisRectTransform.position = new Vector3(axisRectTransform.position.x, axisRectTransform.position.y, axisRectTransform.position.z);
         }
 
-        private void UpdateAxisPosition()
+        private void _moveCursor(Vector2 position)
         {
-            //if (m_axisCurrentScreenPosition != m_axisTargetScreenPosition)
-            //{
-            //    Vector2 vector = m_axisTargetScreenPosition - m_axisCurrentScreenPosition;
-            //    Vector2 vector2 = (m_axisTargetScreenPosition - m_axisCurrentScreenPosition) / 10;
-            //    if (vector.sqrMagnitude <= 1f)
-            //    {
-            //        m_axisCurrentScreenPosition = m_axisTargetScreenPosition;
-            //    }
-            //    else
-            //    {
-            //        m_axisCurrentScreenPosition += vector2;
-            //    }
-            //    //m_axisRectTransform.position = UGUIUtility.ScreenToWorldPoint(m_belongedFormScript.GetCamera(), m_axisCurrentScreenPosition, m_axisRectTransform.position.z);
-            //}
+            //axisRectTransform.position = position;
+            axisCurrScrPos = _clampAixsPos(position);
+            axisRectTransform.position = UIUtils.ScreenToWorldPoint(UICamera, axisCurrScrPos, axisRectTransform.position.z);
+            axisRectTransform.position = new Vector3(axisRectTransform.position.x, axisRectTransform.position.y, axisRectTransform.position.z);
         }
 
-        private Vector2 ClampAixsPos(Vector2 pos)
+        private Vector2 _clampAixsPos(Vector2 pos)
         {
             pos.x = Mathf.Clamp(pos.x, axisOrigScrPos.x + UIUtils.ChangeLocalToScreen(axisMinOffset.x, canvasScaler), axisOrigScrPos.x + UIUtils.ChangeLocalToScreen(axisMaxOffset.x, canvasScaler));
             pos.y = Mathf.Clamp(pos.y, axisOrigScrPos.y + UIUtils.ChangeLocalToScreen(axisMinOffset.y, canvasScaler), axisOrigScrPos.y + UIUtils.ChangeLocalToScreen(axisMaxOffset.y, canvasScaler));
             return pos;
+        }
+
+        private void _playResetCursorAnim(Vector2 pos)
+        {
+            //_indicateCursor.transform.position = Vector3.zero;
+            _indicateCursor.transform.DOMove(Vector3.zero, 0.1f, false).OnComplete(onResetCursorComplete);
+        }
+
+        void onResetCursorComplete()
+        {
+            stickObj.SetActive(false);
         }
     }
 }

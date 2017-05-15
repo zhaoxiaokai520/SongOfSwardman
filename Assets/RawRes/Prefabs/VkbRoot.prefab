@@ -713,7 +713,7 @@ MonoBehaviour:
   AKey: {fileID: 114000012119300732}
   BKey: {fileID: 114000010181088622}
   axisMinOffset: {x: 48, y: 48}
-  axisMaxOffset: {x: 160, y: 240}
+  axisMaxOffset: {x: 160, y: 180}
   cursorDeadZoneRadius: 10
   cursorMaxOffsetRadius: 24
 --- !u!114 &114000011554114570
@@ -1320,7 +1320,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010769073958}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.000027642873}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -1502,8 +1502,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 71.6, y: 101.46}
-  m_SizeDelta: {x: 160, y: 240}
+  m_AnchoredPosition: {x: 69, y: 78}
+  m_SizeDelta: {x: 164, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000013350559040
 RectTransform:
