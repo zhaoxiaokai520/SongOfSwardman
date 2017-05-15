@@ -715,7 +715,7 @@ MonoBehaviour:
   axisMinOffset: {x: 48, y: 48}
   axisMaxOffset: {x: 160, y: 180}
   cursorDeadZoneRadius: 10
-  cursorMaxOffsetRadius: 24
+  cursorMaxOffsetRadius: 40
 --- !u!114 &114000011554114570
 MonoBehaviour:
   m_ObjectHideFlags: 1

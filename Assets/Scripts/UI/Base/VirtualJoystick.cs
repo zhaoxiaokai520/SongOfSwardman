@@ -2,6 +2,7 @@
 
 using Assets.Scripts.Core.Event;
 using Assets.Scripts.UI.Base;
+using Assets.Scripts.Utility;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -19,19 +20,22 @@ namespace Assets.SGUI
 
         public Vector2 axisMinOffset;
         public Vector2 axisMaxOffset;
-        public float cursorDeadZoneRadius = 15;
-        public float cursorMaxOffsetRadius = 120f;
+        public float cursorDeadZoneRadius = 10;
+        public float cursorMaxOffsetRadius = 40f;
 
         private RectTransform axisRectTransform;
-        //private RectTransform cursorRectTransform;
+        private RectTransform cursorRectTransform;
+        private GameObject _indicateCursor;//move direction circle cursor
         private Vector2 axisOrigScrPos;
         private Vector2 axisTargetScrPos;
         private Vector2 axisCurrScrPos;
+        private Vector2 cursorCurrScrPos;
         private CanvasScaler canvasScaler;
 
         private AudioSource AKeyAudioSrc;
         private AudioSource BKeyAudioSrc;
-        private GameObject _indicateCursor;//move direction circle cursor
+
+        
 
         private void Awake() 
         {
@@ -43,6 +47,7 @@ namespace Assets.SGUI
             UICamera.cullingMask |= LayerMask.GetMask("UI_Vkb");
             axisRectTransform = stickObj.GetComponent<RectTransform>();
             _indicateCursor = stickObj.transform.FindChild("Cursor").gameObject;
+            cursorRectTransform = _indicateCursor.GetComponent<RectTransform>();
             canvasScaler = this.transform.parent.gameObject.GetComponent<CanvasScaler>();
             AKeyAudioSrc = AKey.GetComponent<AudioSource>();
             BKeyAudioSrc = BKey.GetComponent<AudioSource>();
@@ -116,12 +121,14 @@ namespace Assets.SGUI
         {
             stickObj.SetActive(true);
             _showAxis(eventData.position);
+            //cursorRectTransform.position = Vector3.zero;
+            //_moveCursor(Vector2.zero);
+            cursorRectTransform.anchoredPosition = Vector2.zero;
         }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            _indicateCursor.transform.position = Vector3.zero;
-            _moveCursor(eventData.position);
+            //_moveCursor(eventData.position);
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -131,7 +138,7 @@ namespace Assets.SGUI
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            _playResetCursorAnim(eventData.position);
+            //_playResetCursorAnim(eventData.position);
         }
 
         public void OnPointerUp(PointerEventData eventData)
@@ -155,16 +162,24 @@ namespace Assets.SGUI
         {
             //axisRectTransform.position = position;
             axisCurrScrPos = _clampAixsPos(position);
+            float keepZ = axisRectTransform.position.z;
             axisRectTransform.position = UIUtils.ScreenToWorldPoint(UICamera, axisCurrScrPos, axisRectTransform.position.z);
-            axisRectTransform.position = new Vector3(axisRectTransform.position.x, axisRectTransform.position.y, axisRectTransform.position.z);
+            axisRectTransform.position = new Vector3(axisRectTransform.position.x, axisRectTransform.position.y, keepZ);
+            //anchored position is based on parent archor, this will be left bottom and not what we want
+            //axisRectTransform.anchoredPosition = new Vector3(position.x, position.y, keepZ);
         }
 
         private void _moveCursor(Vector2 position)
         {
             //axisRectTransform.position = position;
-            axisCurrScrPos = _clampAixsPos(position);
-            axisRectTransform.position = UIUtils.ScreenToWorldPoint(UICamera, axisCurrScrPos, axisRectTransform.position.z);
-            axisRectTransform.position = new Vector3(axisRectTransform.position.x, axisRectTransform.position.y, axisRectTransform.position.z);
+            //cursorCurrScrPos = _clampCursorPos(position);
+            cursorCurrScrPos = position - axisCurrScrPos;
+            DebugHelper.Log("_moveCursor " + position + " axis = " + axisCurrScrPos);
+            float keepZ = cursorRectTransform.position.z;//z changed after screenToWorldPoint
+            float x = UIUtils.ChangeLocalToScreen(cursorCurrScrPos.x, canvasScaler);
+            float y = UIUtils.ChangeLocalToScreen(cursorCurrScrPos.y, canvasScaler);
+            cursorRectTransform.anchoredPosition = _clampCursorPos(new Vector2(x, y));
+            //cursorRectTransform.position = new Vector3(cursorRectTransform.position.x, cursorRectTransform.position.y, keepZ);
         }
 
         private Vector2 _clampAixsPos(Vector2 pos)
@@ -174,10 +189,26 @@ namespace Assets.SGUI
             return pos;
         }
 
+        private Vector2 _clampCursorPos(Vector2 pos)
+        {
+            //no need to change to screen position
+            //pos.x = Mathf.Clamp(pos.x, UIUtils.ChangeLocalToScreen(cursorDeadZoneRadius, canvasScaler), UIUtils.ChangeLocalToScreen(cursorMaxOffsetRadius, canvasScaler));
+            //pos.y = Mathf.Clamp(pos.y, UIUtils.ChangeLocalToScreen(cursorDeadZoneRadius, canvasScaler), UIUtils.ChangeLocalToScreen(cursorMaxOffsetRadius, canvasScaler));
+            //return pos;
+
+            DebugHelper.Log("_clampCursorPos " + pos);
+            if (pos.magnitude > cursorMaxOffsetRadius)
+            {
+                pos = pos / pos.magnitude * cursorMaxOffsetRadius;
+            }
+
+            return pos;
+        }
+
         private void _playResetCursorAnim(Vector2 pos)
         {
             //_indicateCursor.transform.position = Vector3.zero;
-            _indicateCursor.transform.DOMove(Vector3.zero, 0.1f, false).OnComplete(onResetCursorComplete);
+            cursorRectTransform.DOMove(Vector3.zero, 0.1f, false).OnComplete(onResetCursorComplete);
         }
 
         void onResetCursorComplete()
