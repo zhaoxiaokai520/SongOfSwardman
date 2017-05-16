@@ -3,6 +3,7 @@ using Assets.Scripts.Data;
 using Assets.Scripts.Core.Event;
 using Assets.Scripts.UI.Base;
 using UnityEngine;
+using Assets.Scripts.Utility;
 
 namespace Assets.Scripts.Role
 {
@@ -11,7 +12,9 @@ namespace Assets.Scripts.Role
         public float speed = 6f;
         Vector3 movement;
         Animator anim;
+        Vector2 moveOffset;
         Rigidbody playerRigidbody;
+        bool virtualEvent = false;
         int floorMask;
         float camRayLength = 100f;
         string roleId = "99";
@@ -33,6 +36,12 @@ namespace Assets.Scripts.Role
         void Start()
         {
             //SosEventMgr.GetInstance().RegisterEvent(SosEventMgr.SosEventType.TALK, roleId, this);
+            SosEventMgr.instance.Subscribe(UIEventId.move, OnRecvMoveEvent);
+        }
+
+        private void OnDestroy()
+        {
+            SosEventMgr.instance.Unsubscribe(UIEventId.move, OnRecvMoveEvent);
         }
 
         void FixedUpdate()
@@ -41,11 +50,23 @@ namespace Assets.Scripts.Role
             {
                 return;
             }
-            float h = Input.GetAxisRaw("Horizontal");
-            float v = Input.GetAxisRaw("Vertical");
-            Move(h, v);
-            Turning();
-            Animating(h, v);
+            
+
+            if (virtualEvent)
+            {
+                Move(moveOffset.x, moveOffset.y);
+                Turning();
+                Animating(moveOffset.x, moveOffset.y);
+                virtualEvent = false;
+            }
+            else
+            {
+                float h = Input.GetAxisRaw("Horizontal");
+                float v = Input.GetAxisRaw("Vertical");
+                Move(h, v);
+                Turning();
+                Animating(h, v);
+            }
         }
 
         private void Update()
@@ -90,6 +111,16 @@ namespace Assets.Scripts.Role
         public string GetRoleId()
         {
             return roleId;
+        }
+
+        private bool OnRecvMoveEvent(SosObject sender, SosEventArgs args)
+        {     
+            TouchEventArgs tearg = (TouchEventArgs)args;
+            DebugHelper.Log("OnRecvMoveEvent " + tearg.movePos);
+            //Move(tearg.movePos.x, tearg.movePos.y);
+            moveOffset.Set(tearg.movePos.x, tearg.movePos.y);
+            virtualEvent = true;
+            return true;
         }
     }
 }

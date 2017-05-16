@@ -122,7 +122,6 @@
     <Compile Include="Assets\Scripts\Battle\Assist\TargetSearcher.cs" />
     <Compile Include="Assets\Scripts\Battle\BattlePump.cs" />
     <Compile Include="Assets\Scripts\Battle\Command\SosCmd.cs" />
-    <Compile Include="Assets\Scripts\Controller\InputMgr.cs" />
     <Compile Include="Assets\Scripts\Controller\SceneMgr.cs" />
     <Compile Include="Assets\Scripts\Core\Event\Binder\AndMachinery.cs" />
     <Compile Include="Assets\Scripts\Core\Event\Binder\EventMachinery.cs" />
@@ -135,6 +134,9 @@
     <Compile Include="Assets\Scripts\Core\Event\TalkEvent.cs" />
     <Compile Include="Assets\Scripts\Data\TalkSystem.cs" />
     <Compile Include="Assets\Scripts\Define\SosDefines.cs" />
+    <Compile Include="Assets\Scripts\Mgr\AudioMgr.cs" />
+    <Compile Include="Assets\Scripts\Mgr\InputMgr.cs" />
+    <Compile Include="Assets\Scripts\Mgr\SceneMgr.cs" />
     <Compile Include="Assets\Scripts\Plugin\AstarPathfindingProject\Core\AI\AIPath.cs" />
     <Compile Include="Assets\Scripts\Plugin\AstarPathfindingProject\Core\AI\NavmeshController.cs" />
     <Compile Include="Assets\Scripts\Plugin\AstarPathfindingProject\Core\AI\RichAI.cs" />

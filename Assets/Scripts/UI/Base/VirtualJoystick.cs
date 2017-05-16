@@ -178,7 +178,13 @@ namespace Assets.SGUI
             float keepZ = cursorRectTransform.position.z;//z changed after screenToWorldPoint
             float x = UIUtils.ChangeLocalToScreen(cursorCurrScrPos.x, canvasScaler);
             float y = UIUtils.ChangeLocalToScreen(cursorCurrScrPos.y, canvasScaler);
-            cursorRectTransform.anchoredPosition = _clampCursorPos(new Vector2(x, y));
+            Vector2 apos = _clampCursorPos(new Vector2(x, y));
+            if (apos.magnitude > cursorDeadZoneRadius)
+            {
+                cursorRectTransform.anchoredPosition = apos;
+                SosEventMgr.instance.Publish(UIEventId.move, this, new TouchEventArgs(apos.x, apos.y));
+            }
+            
             //cursorRectTransform.position = new Vector3(cursorRectTransform.position.x, cursorRectTransform.position.y, keepZ);
         }
 
@@ -197,6 +203,11 @@ namespace Assets.SGUI
             //return pos;
 
             DebugHelper.Log("_clampCursorPos " + pos);
+            //if (pos.magnitude < cursorDeadZoneRadius)
+            //{
+            //    pos = Vector2.zero;
+            //}
+            //else 
             if (pos.magnitude > cursorMaxOffsetRadius)
             {
                 pos = pos / pos.magnitude * cursorMaxOffsetRadius;

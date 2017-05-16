@@ -1,5 +1,6 @@
 ﻿using System;
 using Assets.Scripts.UI.Base;
+using UnityEngine;
 
 namespace Assets.Scripts.Core.Event
 {
@@ -8,8 +9,8 @@ namespace Assets.Scripts.Core.Event
     //public delegate void OnTriggerEnd(int senderId, int state);
 
     // directional event
-    public delegate void InputEvent(SosObject sender, SosEventArgs args);
-    public delegate void OutputEvent(SosObject sender, SosEventArgs args);
+    public delegate void InputEvent(SosObject sender, MachineryEventArgs args);
+    public delegate void OutputEvent(SosObject sender, MachineryEventArgs args);
 
     //broadcast consumable event
     // return: whether is consumed or not, if yes, no other subscriber can get it.
@@ -66,7 +67,7 @@ namespace Assets.Scripts.Core.Event
 
     public enum UIEventId
     {
-        showItem = 1,
+        move = 1,
         showMenu,
         itemChanged,
     };
@@ -80,14 +81,39 @@ namespace Assets.Scripts.Core.Event
     public class SosEventArgs : EventArgs
     {
         public MapEventId evt;
-        public int idx;
 
         public SosEventArgs()
         {
-            idx = 0;
             evt = MapEventId.dummy;
         }
 
         public static readonly SosEventArgs EmptyEvt;
+    }
+
+    public class MachineryEventArgs : SosEventArgs
+    {
+        public int idx;
+
+        public MachineryEventArgs()
+        {
+            idx = 0;
+        }
+
+        public static readonly MachineryEventArgs EmptyEvent;
+    }
+
+    public class TouchEventArgs : SosEventArgs
+    {
+        public Vector2 movePos;
+
+        public TouchEventArgs()
+        {
+            movePos = Vector2.zero;
+        }
+
+        public TouchEventArgs(float x, float y)
+        {
+            movePos = new Vector2(x, y);
+        }
     }
 }

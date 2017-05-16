@@ -38,7 +38,7 @@ namespace Assets.Scripts.Core.Event
             }
         }
 
-        public InputEvent CreateInput(SosObject sender, SosEventArgs args, MapEventId evt)
+        public InputEvent CreateInput(SosObject sender, MachineryEventArgs args, MapEventId evt)
         {
             if (args.idx < 0 || args.idx >= _inputNum)
             {
@@ -76,7 +76,7 @@ namespace Assets.Scripts.Core.Event
             _linkDic[input] = output;
         }
 
-        public void InputEventHandler(SosObject sender, SosEventArgs args)
+        public void InputEventHandler(SosObject sender, MachineryEventArgs args)
         {
             MapEventId outEvt = _linkDic[args.evt];
             if (_outputEventDic.ContainsKey(outEvt))

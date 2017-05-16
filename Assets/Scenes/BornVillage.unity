@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18053588, g: 0.22601774, b: 0.30718702, a: 1}
+  m_IndirectSpecularColor: {r: 0.18076311, g: 0.22666776, b: 0.30848116, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1139,7 +1139,8 @@ Prefab:
       propertyPath: m_Name
       value: Zombunny2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000011842458620, guid: 4d20acc99e2cb8a498d2e7cb5cd4bd5b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4d20acc99e2cb8a498d2e7cb5cd4bd5b, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1042396832
@@ -1345,7 +1346,13 @@ Prefab:
       propertyPath: m_Name
       value: Zombunny1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114000010830637508, guid: 4d20acc99e2cb8a498d2e7cb5cd4bd5b,
+        type: 2}
+      propertyPath: gameId
+      value: 20000001
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114000011842458620, guid: 4d20acc99e2cb8a498d2e7cb5cd4bd5b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4d20acc99e2cb8a498d2e7cb5cd4bd5b, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1272740591
