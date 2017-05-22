@@ -75,6 +75,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Plugins\Dynamic Flickering Light\FlickeringLight.cs" />
+    <Compile Include="Assets\Plugins\Electricity\Scripts\LightningBolt.cs" />
+    <Compile Include="Assets\Plugins\Lava_Flowing_Shader\Scripts\ScrollingUVs_Layers.cs" />
+    <Compile Include="Assets\Plugins\PocketRPG Trails\Scripts\Effects\WeaponTrail.cs" />
+    <Compile Include="Assets\Plugins\PocketRPG Trails\Scripts\Entities\BladeMaster.cs" />
+    <Compile Include="Assets\Plugins\PocketRPG Trails\Scripts\Utility\AnimationController.cs" />
     <Compile Include="Assets\Plugins\TextFx\Legacy Content\Demo Scenes\Scripts\BasicsSceneManager.cs" />
     <Compile Include="Assets\Plugins\TextFx\Legacy Content\Demo Scenes\Scripts\PointsTextManager.cs" />
     <Compile Include="Assets\Plugins\TextFx\Legacy Content\Demo Scenes\Scripts\RuntimeDynamicSceneManager.cs" />
@@ -156,6 +162,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Editor\AstarPathfindingProject\Editor\EditorAssets\Materials\Navmesh2.shader" />
+    <None Include="Assets\Plugins\Dynamic Flickering Light\readme.txt" />
+    <None Include="Assets\Plugins\Electricity\Shaders\lightning.shader" />
+    <None Include="Assets\Plugins\Lava_Flowing_Shader\ReadMe.txt" />
+    <None Include="Assets\Plugins\Lava_Flowing_Shader\Shaders\Diffuse_Lava_Distort.shader" />
+    <None Include="Assets\Plugins\Lava_Flowing_Shader\Shaders\Unlit_Lava_Distort.shader" />
+    <None Include="Assets\Plugins\Lava_Flowing_Shader\Shaders\Unlit_Lava_Distort_Transparent.shader" />
+    <None Include="Assets\Plugins\Lava_Flowing_Shader\Shaders\Unlit_Lava_Simple.shader" />
     <None Include="Assets\Plugins\TextFx\AnimationConfigs\AnimationConfigIntros.txt" />
     <None Include="Assets\Plugins\TextFx\AnimationConfigs\AnimationConfigMains.txt" />
     <None Include="Assets\Plugins\TextFx\AnimationConfigs\AnimationConfigOutros.txt" />
@@ -222,6 +235,7 @@
     <None Include="Assets\Scripts\Plugin\AstarPathfindingProject\Readme.txt" />
     <None Include="Assets\Scripts\Plugin\AstarPathfindingProject\Readme_upgrading.txt" />
     <None Include="Assets\Scripts\Plugin\AstarPathfindingProject\link.xml" />
+    <None Include="Assets\Scripts\Shader\BloodBall.shader" />
     <None Include="Assets\Scripts\Shader\BloomEffect.shader" />
     <None Include="Assets\Scripts\Shader\ChromaticAberrationShader.shader" />
     <None Include="Assets\Scripts\Shader\ColorCorrectionCurves.shader" />

@@ -1,4 +1,4 @@
-﻿Shader "BloomEffect"
+﻿Shader "Custom/BloomEffect"
 {
 	Properties
 	{
