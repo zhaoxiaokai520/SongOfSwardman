@@ -12,7 +12,7 @@ namespace Assets.Scripts.UI.Event
         {
             if (null != onTread)
             {
-                onTread(this, SosEventArgs.EmptyEvt);
+                onTread(this, MachineryEventArgs.EmptyEvent);
             }
         }
     }

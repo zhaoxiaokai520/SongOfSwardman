@@ -1,7 +1,11 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Core.Event;
+using Assets.Scripts.UI.Base;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour {
     public GameObject MenuGroup;
+    public GameObject ScrollGroup;
     public GameObject StatusBtn;
     public GameObject ItemBtn;
     public GameObject EquipBtn;
@@ -13,33 +17,32 @@ public class MainMenu : MonoBehaviour {
 
     private AudioSource mClickAudio;
 
+
     private bool isMenuOpened = false;
+    private void Awake()
+    {
+        addListener();
+    }
     // Use this for initialization
     void Start () {
-        mClickAudio = MenuGroup.GetComponent<AudioSource>();
-
+        //default show scroll hide menu
+        mClickAudio = GetComponent<AudioSource>();
+        UICamera.cullingMask |= LayerMask.GetMask("UI_Menu");
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    private void OnDestroy()
+    {
+        rmvListener();
+    }
+
+    // Update is called once per frame
+    void Update () {
         if (Input.GetKeyUp(KeyCode.M))
         {
             //MenuGroup.SetActive(!MenuGroup.activeSelf);
             isMenuOpened = !isMenuOpened;
             //int uimask = LayerMask.GetMask("UI_Menu");
-            if (isMenuOpened)
-            {
-                //int mask = LayerMask.GetMask("UI_Menu");
-                UICamera.cullingMask |= LayerMask.GetMask("UI_Menu");
-                //Debug.Log("MenuController.update() enable menu ==============");
-                mClickAudio.Play();
-            }
-            else
-            {
-                //int mask = LayerMask.GetMask("UI_Menu");
-                UICamera.cullingMask &= ~LayerMask.GetMask("UI_Menu");
-                //Debug.Log("MenuController.update() disable menu --------------");
-            }
+            _setMenuOpen(isMenuOpened);
         }
         else if (Input.GetKeyUp(KeyCode.N))
         {
@@ -63,5 +66,57 @@ public class MainMenu : MonoBehaviour {
     void OnEnable()
     {
 
+    }
+
+    void addListener()
+    {
+        GameObject btnObj = ScrollGroup.transform.Find("Scroll").gameObject;
+        Button btn = btnObj.GetComponent<Button>();
+        btn.onClick.AddListener(OnScrollClicked);
+
+        SosEventMgr.instance.Subscribe(MapEventId.cancel, OnCancelClicked);
+    }
+
+    void rmvListener()
+    {
+        GameObject btnObj = ScrollGroup.transform.Find("Scroll").gameObject;
+        Button btn = btnObj.GetComponent<Button>();
+        btn.onClick.RemoveListener(OnScrollClicked);
+
+        SosEventMgr.instance.Unsubscribe(MapEventId.cancel, OnCancelClicked);
+    }
+
+    void OnScrollClicked()
+    {
+        _setMenuOpen(true);
+        isMenuOpened = true;
+    }
+
+    bool OnCancelClicked(SosObject sender, SosEventArgs args)
+    {
+        _setMenuOpen(false);
+        isMenuOpened = false;
+        return true;
+    }
+
+    void _setMenuOpen(bool open)
+    {
+        if (open)
+        {
+            //int mask = LayerMask.GetMask("UI_Menu");
+            //UICamera.cullingMask |= LayerMask.GetMask("UI_Menu");
+            MenuGroup.SetActive(true);
+            ScrollGroup.SetActive(false);
+            //Debug.Log("MenuController.update() enable menu ==============");
+            mClickAudio.Play();
+        }
+        else
+        {
+            MenuGroup.SetActive(false);
+            ScrollGroup.SetActive(true);
+            //int mask = LayerMask.GetMask("UI_Menu");
+            //UICamera.cullingMask &= ~LayerMask.GetMask("UI_Menu");
+            //Debug.Log("MenuController.update() disable menu --------------");
+        }
     }
 }

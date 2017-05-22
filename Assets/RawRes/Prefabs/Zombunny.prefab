@@ -22,8 +22,8 @@ GameObject:
   - 95: {fileID: 95000011705009310}
   - 54: {fileID: 54000012856843722}
   - 136: {fileID: 136000012689252122}
-  - 114: {fileID: 114000012029831532}
-  - 114: {fileID: 114000010615792534}
+  - 114: {fileID: 114000011842458620}
+  - 114: {fileID: 114000010830637508}
   m_Layer: 15
   m_Name: Zombunny
   m_TagString: Untagged
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 1000010855814908}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: be66986effd141b4992d2d78be127139, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2cd6bf77cac24414c8e134b0c0e7aed3, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -106,7 +106,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 0
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114000010615792534
+--- !u!114 &114000010830637508
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -114,15 +114,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000010855814908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88f6918e996c0624987ed59c226a3bd7, type: 3}
+  m_Script: {fileID: 11500000, guid: 753f081ba803ae1428f723ecb3482add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldArea: 1.5
-  m_Transform: {fileID: 0}
-  m_Radius: 1.5
-  m_Theta: 0.1
-  m_Color: {r: 0, g: 1, b: 0, a: 1}
---- !u!114 &114000012029831532
+  gameId: 20000002
+--- !u!114 &114000011842458620
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -130,7 +126,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000010855814908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44089da693c68e24993228c0cea087e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 753f081ba803ae1428f723ecb3482add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameId: 20000001
