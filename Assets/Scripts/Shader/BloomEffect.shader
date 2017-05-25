@@ -1,4 +1,6 @@
-﻿Shader "Custom/BloomEffect"
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Custom/BloomEffect"
 {
 	Properties
 	{
@@ -44,7 +46,7 @@
 	v2f_withMaxCoords vertMax(appdata_img v)
 	{
 		v2f_withMaxCoords o;
-		o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+		o.pos = UnityObjectToClipPos(v.vertex);
 		o.uv2[0] = v.texcoord + _MainTex_TexelSize.xy * half2(1.5, 1.5);
 		o.uv2[1] = v.texcoord + _MainTex_TexelSize.xy * half2(-1.5, 1.5);
 		o.uv2[2] = v.texcoord + _MainTex_TexelSize.xy * half2(-1.5, -1.5);
@@ -56,7 +58,7 @@
 	v2f_withBlurCoordsSGX vertBlurHorizontalSGX(appdata_img v)
 	{
 		v2f_withBlurCoordsSGX o;
-		o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+		o.pos = UnityObjectToClipPos(v.vertex);
 		half2 netFilterWidth = _MainTex_TexelSize.xy * half2(1.0, 0.0) * _Parameter.x;
 
 		o.offs[0] = v.texcoord + netFilterWidth;
@@ -73,7 +75,7 @@
 	v2f_withBlurCoordsSGX vertBlurVerticalSGX(appdata_img v)
 	{
 		v2f_withBlurCoordsSGX o;
-		o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+		o.pos = UnityObjectToClipPos(v.vertex);
 		half2 netFilterWidth = _MainTex_TexelSize.xy * half2(0.0, 1.0) * _Parameter.x;
 
 		o.offs[0] = v.texcoord + netFilterWidth;
@@ -92,7 +94,7 @@
 	v2f_simple vertBloom(appdata_img v)
 	{
 		v2f_simple o;
-		o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+		o.pos = UnityObjectToClipPos(v.vertex);
 		o.uv = v.texcoord.xyxy;
 		#if SHADER_API_D3D9
 		if (_MainTex_TexelSize.y < 0.0)

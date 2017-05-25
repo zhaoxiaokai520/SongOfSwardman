@@ -46,7 +46,7 @@ namespace Assets.SGUI
         {
             UICamera.cullingMask |= LayerMask.GetMask("UI_Vkb");
             axisRectTransform = stickObj.GetComponent<RectTransform>();
-            _indicateCursor = stickObj.transform.FindChild("Cursor").gameObject;
+            _indicateCursor = stickObj.transform.Find("Cursor").gameObject;
             cursorRectTransform = _indicateCursor.GetComponent<RectTransform>();
             canvasScaler = this.transform.parent.gameObject.GetComponent<CanvasScaler>();
             AKeyAudioSrc = AKey.GetComponent<AudioSource>();

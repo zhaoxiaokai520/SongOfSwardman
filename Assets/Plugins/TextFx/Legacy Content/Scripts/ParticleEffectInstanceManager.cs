@@ -198,7 +198,7 @@ namespace TextFx.LegacyContent
 						m_stopped_effect_particle_count=0;
 						for(int idx=0; idx < old_num_particles; idx++)
 						{
-							if(m_particles_array[idx].lifetime > 0.05f)
+							if(m_particles_array[idx].remainingLifetime > 0.05f)
 							{
 								temp_array[m_stopped_effect_particle_count] = m_particles_array[idx];
 								m_stopped_effect_particle_count++;
