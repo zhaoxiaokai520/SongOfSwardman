@@ -19,7 +19,7 @@ namespace Assets.Scripts.Core.Event
         }
 
         //if a duration event, we update every frame
-        public void Update()
+        public void UpdateEvent()
         {
 
         }

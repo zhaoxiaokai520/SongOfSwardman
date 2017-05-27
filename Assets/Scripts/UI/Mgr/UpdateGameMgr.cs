@@ -14,6 +14,23 @@ namespace Assets.Scripts.UI.Mgr
         List<IUpdateSub> _updateObjectList;
         List<ILateUpdateSub> _LateUpdateObjectList;
 
+        void Awake()
+        {
+            Init();
+        }
+
+        void Start()
+        {
+            
+        }
+
+        void Init()
+        {
+            _fixedUpdateObjectList = new List<IFixedUpdateSub>();
+            _updateObjectList = new List<IUpdateSub>();
+            _LateUpdateObjectList = new List<ILateUpdateSub>();
+        }
+
         void FixedUpdate()
         {
             float delta = Time.deltaTime;
