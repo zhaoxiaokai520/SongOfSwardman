@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.UI.Mgr;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace Assets.Scripts.Core
 {
     //game director, game framework, drive game loop to run
     // the lowest level of game application hierarchy
-    class BattlePump : MonoBehaviour
+    class BattlePump : IUpdateSub, ILateUpdateSub
     {
         private static BattlePump _sInstance = null;
         private bool _initialized = false;
@@ -32,7 +33,7 @@ namespace Assets.Scripts.Core
 
         }
 
-        private void Update()
+        public void UpdateSub(float delta)
         {
             if (_initialized)
             {
@@ -40,12 +41,12 @@ namespace Assets.Scripts.Core
             }
         }
 
-        private void LateUpdate()
+        public void LateUpdateSub(float delta)
         {
 
         }
 
-        private void OnDestroy()
+        public void DestroySub()
         {
 
         }

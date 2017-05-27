@@ -173,12 +173,10 @@
     <Compile Include="Assets\Editor\AstarPathfindingProject\Editor\RVOSquareObstacleEditor.cs" />
     <Compile Include="Assets\Editor\AstarPathfindingProject\Editor\SeekerEditor.cs" />
     <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
-    <Compile Include="Assets\Editor\SosEventHandles.cs" />
     <Compile Include="Assets\Editor\VignetteAndChromaticAberrationEditor.cs" />
     <Compile Include="Assets\Scripts\Editor\AlphaNumericSort.cs" />
     <Compile Include="Assets\Scripts\Editor\CondHidePropDrawer.cs" />
     <Compile Include="Assets\Scripts\Editor\GUIHierarchy.cs" />
-    <Compile Include="Assets\Scripts\Editor\SosEventSense.cs" />
     <Compile Include="Assets\Scripts\Editor\StarInspector.cs" />
   </ItemGroup>
   <ItemGroup>
