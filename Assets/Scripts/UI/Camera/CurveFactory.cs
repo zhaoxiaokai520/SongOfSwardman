@@ -1,9 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
-public class CurveFactory : MonoBehaviour
-{
+using Assets.Scripts.UI.Mgr;
 
-    public void Update()
+public class CurveFactory : MonoBehaviour, IUpdateSub
+{
+	void Start()
+	{
+		UpdateGameMgr.instance.Register (this);
+	}
+
+	void OnDestory()
+	{
+		UpdateGameMgr.instance.Unregister (this);
+	}
+
+	public void UpdateSub(float delta)
     {
 
     }

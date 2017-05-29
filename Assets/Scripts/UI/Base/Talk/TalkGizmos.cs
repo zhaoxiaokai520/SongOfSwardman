@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using Assets.Scripts.Role;
 using Assets.Scripts.Mgr;
+using Assets.Scripts.UI.Mgr;
 using Assets.Scripts.UI.Base;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
-public class TalkGizmos : MonoBehaviour
+public class TalkGizmos : MonoBehaviour, IUpdateSub
 {
     public float shieldArea = 5;
 
@@ -26,7 +27,13 @@ public class TalkGizmos : MonoBehaviour
     private void Start()
     {
         _talker = ActorMgr.instance.GetAvatar();
+		UpdateGameMgr.instance.Register (this);
     }
+
+	void OnDestory()
+	{
+		UpdateGameMgr.instance.Unregister (this);
+	}
 
     //    public void OnDrawGizmos()
     //    {
@@ -74,7 +81,7 @@ public class TalkGizmos : MonoBehaviour
         }
     }
 
-    void Update()
+	public void UpdateSub(float delta)
     {
         //ICollection<SosObject> targets = SosEventMgr.GetInstance().GetTargetList();
         //ICollection<SosObject> targets = ActorMgr.instance.Actors;

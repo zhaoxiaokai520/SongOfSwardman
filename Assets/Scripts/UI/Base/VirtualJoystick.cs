@@ -7,10 +7,13 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Assets.Scripts.UI.Mgr;
 
 namespace Assets.SGUI
 {
-    public class VirtualJoystick : SosObject, IPointerDownHandler, IPointerUpHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
+    public class VirtualJoystick : SosObject, 
+		IPointerDownHandler, IPointerUpHandler, IBeginDragHandler, IDragHandler, IEndDragHandler,
+		IUpdateSub
     {
         public Camera UICamera;
         public GameObject stickObj;
@@ -51,14 +54,16 @@ namespace Assets.SGUI
             canvasScaler = this.transform.parent.gameObject.GetComponent<CanvasScaler>();
             AKeyAudioSrc = AKey.GetComponent<AudioSource>();
             BKeyAudioSrc = BKey.GetComponent<AudioSource>();
+			UpdateGameMgr.instance.Register(this);
         }
 
         private void OnDestroy()
         {
             rmvListener();
+			UpdateGameMgr.instance.Unregister(this);
         }
 
-        private void Update()
+		public void UpdateSub(float delta)
         {
             //if (getTouchCount() <= 0 && m_onEventFingerID != S_Disable_EventID && m_onEventFingerID != S_Empty_EventID)
             //{

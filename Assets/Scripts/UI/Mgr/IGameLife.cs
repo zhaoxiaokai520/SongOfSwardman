@@ -23,9 +23,4 @@ namespace Assets.Scripts.UI.Mgr
     {
         void FixedUpdateSub(float delta);
     }
-
-    public interface IDestorySub
-    {
-        void DestorySub(float delta);
-    }
 }

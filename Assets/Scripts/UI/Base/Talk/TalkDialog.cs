@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using TextFx;
+//using TextFx;
 using System.Collections.Generic;
 using Assets.Scripts.Data;
 using Assets.Scripts.Mgr;
@@ -11,7 +11,7 @@ public class TalkDialog : MonoSingleton<TalkDialog>
 {
     public GameObject DialogGroup;
     public Camera UICamera;
-    public TextFxUGUI message;
+    public Text message;
     public Text msg;
     public AudioClip clickAudio;
     public AudioClip talkEndAudio;
@@ -89,7 +89,7 @@ public class TalkDialog : MonoSingleton<TalkDialog>
         isDialogOpened = true;
         message.text = TalkSystem.GetInstance().GetTalk(talkeeId, talkerId);
         msg.text = message.text;
-        if (message.text.Equals(""))
+		if (msg.text.Equals(""))
         {
             HideTalk();
             //talkEndAudio.Play();
@@ -116,22 +116,22 @@ public class TalkDialog : MonoSingleton<TalkDialog>
     public void ShowText(string text, int showStyle = 0)
     {
         //seperate text for long text
-        message.font.RequestCharactersInTexture(text);
+		msg.font.RequestCharactersInTexture(text);
         CharacterInfo characterInfo;
         float width = 0f;
         for (int i = 0; i < text.Length; i++)
         {
-            message.font.GetCharacterInfo(text[i], out characterInfo);
+			msg.font.GetCharacterInfo(text[i], out characterInfo);
             width += characterInfo.advance;
         }
 
-        message.text = text;
-        message.AnimationManager.PlayAnimation();
+		msg.text = text;
+        //message.AnimationManager.PlayAnimation();
     }
 
     public void UpdateText(string text, int updateStyle = 0)
     {
-        message.text = text;
-        message.AnimationManager.PlayAnimation();
+		msg.text = text;
+        //message.AnimationManager.PlayAnimation();
     }
 }

@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
-using TextFx;
+//using TextFx;
+using UnityEngine.UI;
 using System.Collections.Generic;
+using Assets.Scripts.UI.Mgr;
 
-public class RoleDialog : MonoBehaviour {
+public class RoleDialog : MonoBehaviour, IUpdateSub {
     public GameObject DialogGroup;
     public Camera UICamera;
-    public TextFxUGUI message;
+    public Text message;
     private AudioSource mClickAudio;
     private List<string> mCachedTexts = new List<string>();//for too many word that cant display once all in dialog
 
@@ -17,10 +19,17 @@ public class RoleDialog : MonoBehaviour {
     // Use this for initialization
     void Start () {
         mClickAudio = DialogGroup.GetComponent<AudioSource>();
+
+		UpdateGameMgr.instance.Register(this);
     }
+
+	void OnDestory()
+	{
+		UpdateGameMgr.instance.Unregister(this);
+	}
 	
 	// Update is called once per frame
-	void Update () {
+	public void UpdateSub (float delta) {
         if (Input.GetKeyUp(KeyCode.K))
         {
             isDialogOpened = !isDialogOpened;
@@ -30,7 +39,7 @@ public class RoleDialog : MonoBehaviour {
                 //int mask = LayerMask.GetMask("UI_Dialog");
                 UICamera.cullingMask |= LayerMask.GetMask("UI_Dialog");
                 //Debug.Log("MenuController.update() enable dialog ==============");
-                message.AnimationManager.PlayAnimation();
+                //message.AnimationManager.PlayAnimation();
                 //message.text = "aaaaaaaaaa";
                 mClickAudio.Play();
             }
@@ -69,12 +78,12 @@ public class RoleDialog : MonoBehaviour {
         }
 
         message.text = text;
-        message.AnimationManager.PlayAnimation();
+        //message.AnimationManager.PlayAnimation();
     }
 
     public void UpdateText(string text, int updateStyle = 0)
     {
         message.text = text;
-        message.AnimationManager.PlayAnimation();
+        //message.AnimationManager.PlayAnimation();
     }
 }

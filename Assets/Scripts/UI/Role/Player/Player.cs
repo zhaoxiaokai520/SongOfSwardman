@@ -4,10 +4,11 @@ using Assets.Scripts.Core.Event;
 using Assets.Scripts.UI.Base;
 using UnityEngine;
 using Assets.Scripts.Utility;
+using Assets.Scripts.UI.Mgr;
 
 namespace Assets.Scripts.Role
 {
-    public class Player : SosObject
+    public class Player : SosObject, IUpdateSub, IFixedUpdateSub
     {
         public float speed = 6f;
         Vector3 movement;
@@ -37,20 +38,23 @@ namespace Assets.Scripts.Role
         {
             //SosEventMgr.GetInstance().RegisterEvent(SosEventMgr.SosEventType.TALK, roleId, this);
             SosEventMgr.instance.Subscribe(UIEventId.move, OnRecvMoveEvent);
+			UpdateGameMgr.instance.Register(this);
         }
 
         private void OnDestroy()
         {
-            SosEventMgr.instance.Unsubscribe(UIEventId.move, OnRecvMoveEvent);
+			SosEventMgr.instance.Unsubscribe(UIEventId.move, OnRecvMoveEvent);
+			//TODO OPTIONAL:UpdateGameMgr instance is null when stop editor running, 
+			//Object.FindObjectByType failed of MonoSingleton
+			UpdateGameMgr.instance.Unregister(this);
         }
 
-        void FixedUpdate()
+		public void FixedUpdateSub(float delta)
         {
             if (InputMgr.GetInstance().GetLevel() > _inputLevel)
             {
                 return;
             }
-            
 
             if (virtualEvent)
             {
@@ -69,7 +73,7 @@ namespace Assets.Scripts.Role
             }
         }
 
-        private void Update()
+		public void UpdateSub(float delta)
         {
             if (Input.GetKeyUp(KeyCode.Space))
             {

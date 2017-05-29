@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.UI.Mgr;
 
-public class CameraCtrl : MonoBehaviour {
+public class CameraCtrl : MonoBehaviour, IUpdateSub, IFixedUpdateSub {
     public Transform target;
     public float smoothing = 5f;
 
@@ -46,6 +47,7 @@ public class CameraCtrl : MonoBehaviour {
     }
 
     Vector3 offset;
+
     // Use this for initialization
     void Start () {
         offset = transform.position - target.position;
@@ -53,10 +55,17 @@ public class CameraCtrl : MonoBehaviour {
         mTrailMove.Clear();
         mTrailRotate.Clear();
         mTrailShake.Clear();
+
+		UpdateGameMgr.instance.Register(this);
     }
+
+	void OnDestory()
+	{
+		UpdateGameMgr.instance.Unregister(this);
+	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	public void FixedUpdateSub (float delta) {
         if (0 == mTrailMove.Count && 0 == mTrailRotate.Count)
         {
             Vector3 targetCamPos = target.position + offset;
@@ -64,7 +73,7 @@ public class CameraCtrl : MonoBehaviour {
         }
 	}
 
-    void Update()
+	public void UpdateSub(float delta)
     {
         if (0 < mTrailMove.Count)
         {

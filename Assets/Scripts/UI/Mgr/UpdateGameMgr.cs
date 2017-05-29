@@ -8,14 +8,15 @@ using UnityEngine;
 
 namespace Assets.Scripts.UI.Mgr
 {
-    class UpdateGameMgr : MonoBehaviour
+	class UpdateGameMgr : MonoSingleton<UpdateGameMgr>
     {
         List<IFixedUpdateSub> _fixedUpdateObjectList;
         List<IUpdateSub> _updateObjectList;
-        List<ILateUpdateSub> _LateUpdateObjectList;
+        List<ILateUpdateSub> _lateUpdateObjectList;
 
-        void Awake()
+        protected override void Awake()
         {
+			base.Awake ();
             Init();
         }
 
@@ -24,11 +25,20 @@ namespace Assets.Scripts.UI.Mgr
             
         }
 
-        void Init()
+		void OnDestory()
+		{
+			base.OnDestroy();
+			_fixedUpdateObjectList.Clear();
+			_updateObjectList.Clear();
+			_lateUpdateObjectList.Clear();
+		}
+
+		protected override void Init()
         {
+			base.Init ();
             _fixedUpdateObjectList = new List<IFixedUpdateSub>();
             _updateObjectList = new List<IUpdateSub>();
-            _LateUpdateObjectList = new List<ILateUpdateSub>();
+			_lateUpdateObjectList = new List<ILateUpdateSub>();
         }
 
         void FixedUpdate()
@@ -58,13 +68,68 @@ namespace Assets.Scripts.UI.Mgr
         void LateUpdate()
         {
             float delta = Time.deltaTime;
-            for (int i = 0; i < _LateUpdateObjectList.Count; i++)
+			for (int i = 0; i < _lateUpdateObjectList.Count; i++)
             {
-                if (null != _LateUpdateObjectList[i])
+				if (null != _lateUpdateObjectList[i])
                 {
-                    _LateUpdateObjectList[i].LateUpdateSub(delta);
+					_lateUpdateObjectList[i].LateUpdateSub(delta);
                 }
             }
         }
+
+		public void Register(System.Object ilife)
+		{
+			IFixedUpdateSub ifus = ilife as IFixedUpdateSub;
+			if (null != ifus) 
+			{
+				if (!_fixedUpdateObjectList.Contains(ifus)) 
+				{
+					_fixedUpdateObjectList.Add(ifus);
+				}
+			}
+
+			IUpdateSub ius = ilife as IUpdateSub;
+			if (null != ius) 
+			{
+				if (!_updateObjectList.Contains(ius))
+				{
+					_updateObjectList.Add(ius);
+				}
+			}
+
+			ILateUpdateSub ilus = ilife as ILateUpdateSub;
+			if (null != ilus) 
+			{
+				if (!_lateUpdateObjectList.Contains(ilus)) 
+				{
+					_lateUpdateObjectList.Add(ilus);
+				}
+			}
+		}
+
+		public void Unregister(System.Object ilife)
+		{
+			if (null != ilife as IFixedUpdateSub) 
+			{
+//				for (int i = 0; i < _fixedUpdateObjectList.Count; i++) 
+//				{
+//					if (ilife == _fixedUpdateObjectList [i]) 
+//					{
+//						_fixedUpdateObjectList.re
+//					}
+//				}
+				_fixedUpdateObjectList.Remove(ilife as IFixedUpdateSub);
+			}
+
+			if (null != ilife as IUpdateSub) 
+			{
+				_updateObjectList.Remove(ilife as IUpdateSub);
+			}
+
+			if (null != ilife as ILateUpdateSub) 
+			{
+				_lateUpdateObjectList.Remove(ilife as ILateUpdateSub);
+			}
+		}
     }
 }

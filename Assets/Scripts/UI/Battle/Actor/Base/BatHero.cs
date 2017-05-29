@@ -3,6 +3,7 @@ using UnityEngine;
 using Assets.Scripts.Mgr;
 using Assets.Scripts.UI.Battle.Assist;
 using Assets.Scripts.UI.Base;
+using Assets.Scripts.UI.Mgr;
 
 namespace Assets.Scripts.Battle.Actor
 {
@@ -19,16 +20,22 @@ namespace Assets.Scripts.Battle.Actor
         {
             _actorData = ActorRoot.Create(transform.position, transform.rotation, transform.forward, Camp.Ally, gameId);
             ActorMgr.instance.AddActor(_actorData);
+			UpdateGameMgr.instance.Register(this);
 
             StartFight();
         }
+
+		void OnDestory()
+		{
+			UpdateGameMgr.instance.Unregister(this);
+		}
 
         void StartFight()
         {
             TargetSearcher.instance.GetTarget(_actorData);
         }
 
-        void Update()
+		public void UpdateSub(float delta)
         {
             //foeObj.transform.RotateAround(transform.position, new Vector3(0, 0, 1), 10f * Time.deltaTime);
             //foeObj.transform.RotateAround(Vector3.zero, new Vector3(1, 0, 0), 10f * Time.deltaTime);

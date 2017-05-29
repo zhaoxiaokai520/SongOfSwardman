@@ -2,8 +2,9 @@
 using Assets.Scripts.UI.Base;
 using UnityEngine;
 using UnityEngine.UI;
+using Assets.Scripts.UI.Mgr;
 
-public class MainMenu : MonoBehaviour {
+public class MainMenu : MonoBehaviour, IUpdateSub {
     public GameObject MenuGroup;
     public GameObject ScrollGroup;
     public GameObject StatusBtn;
@@ -28,15 +29,17 @@ public class MainMenu : MonoBehaviour {
         //default show scroll hide menu
         mClickAudio = GetComponent<AudioSource>();
         UICamera.cullingMask |= LayerMask.GetMask("UI_Menu");
+		UpdateGameMgr.instance.Register(this);
     }
 
     private void OnDestroy()
     {
         rmvListener();
+		UpdateGameMgr.instance.Unregister(this);
     }
 
     // Update is called once per frame
-    void Update () {
+	public void UpdateSub (float delta) {
         if (Input.GetKeyUp(KeyCode.M))
         {
             //MenuGroup.SetActive(!MenuGroup.activeSelf);

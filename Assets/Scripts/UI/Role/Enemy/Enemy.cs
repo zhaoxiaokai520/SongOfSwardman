@@ -1,18 +1,24 @@
 ﻿using Assets.Scripts.UI.Base;
+using Assets.Scripts.UI.Mgr;
 
 namespace Assets.Scripts.Role
 {
-    public class Enemy : SosObject
+    public class Enemy : SosObject, IUpdateSub
     {
 
         // Use this for initialization
-        void Start()
-        {
+		void Start()
+		{
+			UpdateGameMgr.instance.Register (this);
+		}
 
-        }
+		void OnDestory()
+		{
+			UpdateGameMgr.instance.Unregister (this);
+		}
 
         // Update is called once per frame
-        void Update()
+		public void UpdateSub(float delta)
         {
 
         }

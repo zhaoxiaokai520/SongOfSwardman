@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.UI.Mgr;
 
 namespace CompleteProject
 {
-    public class CameraFollow : MonoBehaviour
+    public class CameraFollow : MonoBehaviour, IFixedUpdateSub
     {
         public Transform target;            // The position that that camera will be following.
         public float smoothing = 5f;        // The speed with which the camera will be following.
@@ -16,10 +17,15 @@ namespace CompleteProject
         {
             // Calculate the initial offset.
             offset = transform.position - target.position;
+			UpdateGameMgr.instance.Register(this);
         }
 
+		void OnDestory()
+		{
+			UpdateGameMgr.instance.Unregister(this);
+		}
 
-        void FixedUpdate ()
+		public void FixedUpdateSub (float delta)
         {
             // Create a postion the camera is aiming for based on the offset from the target.
             Vector3 targetCamPos = target.position + offset;

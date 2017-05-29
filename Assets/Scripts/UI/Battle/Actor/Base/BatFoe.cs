@@ -6,6 +6,7 @@ using Pathfinding;
 using System.Collections;
 using Assets.Scripts.UI.Base;
 using Assets.Scripts.Utility;
+using Assets.Scripts.UI.Mgr;
 
 namespace Assets.Scripts.Battle.Actor
 {
@@ -22,9 +23,15 @@ namespace Assets.Scripts.Battle.Actor
         {
             _actorData = ActorRoot.Create(transform.position, transform.rotation, transform.forward, Camp.Enemy, gameId);
             ActorMgr.instance.AddActor(_actorData);
+			UpdateGameMgr.instance.Register(this);
         }
 
-        void Update()
+		void OnDestory()
+		{
+			UpdateGameMgr.instance.Unregister(this);
+		}
+
+		public void UpdateSub(float delta)
         {
             evt = evt - 1;
             if (1 == evt)

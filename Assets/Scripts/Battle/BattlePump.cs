@@ -30,8 +30,18 @@ namespace Assets.Scripts.Core
 
         private void Start()
         {
-
+			UpdateGameMgr.instance.Register(this);
         }
+
+		void OnDestory()
+		{
+			UpdateGameMgr.instance.Unregister(this);
+		}
+
+		public void FixedUpdateSub(float delta)
+		{
+			
+		}
 
         public void UpdateSub(float delta)
         {
@@ -42,11 +52,6 @@ namespace Assets.Scripts.Core
         }
 
         public void LateUpdateSub(float delta)
-        {
-
-        }
-
-        public void DestroySub()
         {
 
         }
