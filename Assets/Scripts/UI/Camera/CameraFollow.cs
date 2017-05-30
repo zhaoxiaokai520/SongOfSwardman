@@ -9,14 +9,15 @@ namespace CompleteProject
         public Transform target;            // The position that that camera will be following.
         public float smoothing = 5f;        // The speed with which the camera will be following.
 
-
+		Transform _cachedTransform;
         Vector3 offset;                     // The initial offset from the target.
-
+		Vector3 targetCamPos;
 
         void Start ()
         {
             // Calculate the initial offset.
-            offset = transform.position - target.position;
+			_cachedTransform = transform;
+			offset = _cachedTransform.position - target.position;
 			UpdateGameMgr.instance.Register(this);
         }
 
@@ -28,10 +29,10 @@ namespace CompleteProject
 		public void FixedUpdateSub (float delta)
         {
             // Create a postion the camera is aiming for based on the offset from the target.
-            Vector3 targetCamPos = target.position + offset;
+            targetCamPos = target.position + offset;
 
             // Smoothly interpolate between the camera's current position and it's target position.
-            transform.position = Vector3.Lerp (transform.position, targetCamPos, smoothing * Time.deltaTime);
+			_cachedTransform.position = Vector3.Lerp (_cachedTransform.position, targetCamPos, smoothing * Time.deltaTime);
         }
     }
 }

@@ -15,6 +15,7 @@ namespace Assets.Scripts.Role
         Animator anim;
         Vector2 moveOffset;
         Rigidbody playerRigidbody;
+		Transform _cachedTransform;
         bool virtualEvent = false;
         int floorMask;
         float camRayLength = 100f;
@@ -30,7 +31,9 @@ namespace Assets.Scripts.Role
             TalkSystem.instance.LoadTalkData();
             ActorMgr.instance.LoadActorConfigs();
 
-            _actorData = ActorRoot.Create(transform.position, transform.rotation, transform.forward, Camp.Ally, gameId);
+			_cachedTransform = transform;
+
+			_actorData = ActorRoot.Create(_cachedTransform.position, _cachedTransform.rotation, _cachedTransform.forward, Camp.Ally, gameId);
             ActorMgr.instance.AddActor(_actorData);
         }
 
@@ -80,16 +83,16 @@ namespace Assets.Scripts.Role
                 SosEventMgr.instance.Publish(MapEventId.action, this, SosEventArgs.EmptyEvt);
             }
 
-            _actorData.pos = transform.position;
-            _actorData.rot = transform.rotation;
-            _actorData.fwd = transform.forward;
+			_actorData.pos = _cachedTransform.position;
+			_actorData.rot = _cachedTransform.rotation;
+			_actorData.fwd = _cachedTransform.forward;
         }
 
         void Move(float h, float v)
         {
             movement.Set(h, 0f, v);
             movement = movement.normalized * speed * Time.deltaTime;
-            playerRigidbody.MovePosition(transform.position + movement);
+			playerRigidbody.MovePosition(_cachedTransform.position + movement);
         }
 
         void Turning()

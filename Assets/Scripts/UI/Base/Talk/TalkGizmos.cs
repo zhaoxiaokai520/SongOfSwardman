@@ -11,7 +11,7 @@ public class TalkGizmos : MonoBehaviour, IUpdateSub
 {
     public float shieldArea = 5;
 
-    public Transform m_Transform;
+    public Transform _cachedTransform;
     public float m_Radius = 2; // 圆环的半径
     public float m_Theta = 0.1f; // 值越低圆环越平滑
     public Color m_Color = Color.green; // 线框颜色
@@ -28,6 +28,7 @@ public class TalkGizmos : MonoBehaviour, IUpdateSub
     {
         _talker = ActorMgr.instance.GetAvatar();
 		UpdateGameMgr.instance.Register (this);
+		_cachedTransform = transform;
     }
 
 	void OnDestory()
@@ -55,26 +56,26 @@ public class TalkGizmos : MonoBehaviour, IUpdateSub
     {
         //Debug.Log("OnDrawGizmosSelected begin");
         Gizmos.color = Color.blue;
-        Vector3 pos = transform.position;
+		Vector3 pos = _cachedTransform.position;
         pos.y += 1;
         //Gizmos.DrawSphere(pos, 0.3f);
         //Gizmos.DrawLine(new Vector3(-100, 0, -100), new Vector3(100, 0, 100));
         DrawGizmosCircle(0.01f);
         if (mInInterestRegion)
         {
-            Vector3 spos = transform.position;
+			Vector3 spos = _cachedTransform.position;
             spos.x -= m_Radius;
             spos.y += 0.01f;
-            Vector3 epos = transform.position;
+			Vector3 epos = _cachedTransform.position;
             epos.x += m_Radius;
             epos.y += 0.01f;
             Gizmos.color = new Color(64, 255, 0);
             Gizmos.DrawLine(spos, epos);
 
-            spos = transform.position;
+			spos = _cachedTransform.position;
             spos.z -= m_Radius;
             spos.y += 0.01f;
-            epos = transform.position;
+			epos = _cachedTransform.position;
             epos.z += m_Radius;
             epos.y += 0.01f;
             Gizmos.DrawLine(spos, epos);
@@ -102,7 +103,7 @@ public class TalkGizmos : MonoBehaviour, IUpdateSub
         //    }
         //}
 
-        if ((_talker.pos - transform.position).magnitude <= m_Radius)
+		if ((_talker.pos - _cachedTransform.position).magnitude <= m_Radius)
         {
             mInInterestRegion = true;
         }
@@ -167,12 +168,12 @@ public class TalkGizmos : MonoBehaviour, IUpdateSub
 
     private void DrawGizmosCircle(float yOff)
     {
-        if (transform == null) return;
+		if (_cachedTransform == null) return;
         if (m_Theta < 0.0001f) m_Theta = 0.0001f;
 
         // 设置矩阵
         Matrix4x4 defaultMatrix = Gizmos.matrix;
-        Gizmos.matrix = transform.localToWorldMatrix;
+		Gizmos.matrix = _cachedTransform.localToWorldMatrix;
 
         // 设置颜色
         Color defaultColor = Gizmos.color;
