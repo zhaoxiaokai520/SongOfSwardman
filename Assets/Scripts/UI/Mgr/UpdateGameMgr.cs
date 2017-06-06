@@ -18,6 +18,7 @@ namespace Assets.Scripts.UI.Mgr
         {
 			base.Awake ();
             Init();
+            DontDestroyOnLoad(gameObject);
         }
 
         void Start()

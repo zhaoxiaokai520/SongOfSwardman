@@ -14,7 +14,7 @@ namespace Assets.Scripts.Role
         Vector3 movement;
         Animator anim;
         Vector2 moveOffset;
-        Rigidbody playerRigidbody;
+        //Rigidbody playerRigidbody;
 		Transform _cachedTransform;
         bool virtualEvent = false;
         int floorMask;
@@ -25,7 +25,7 @@ namespace Assets.Scripts.Role
         {
             floorMask = LayerMask.GetMask("Floor");
             anim = GetComponent<Animator>();
-            playerRigidbody = GetComponent<Rigidbody>();
+            //playerRigidbody = GetComponent<Rigidbody>();
 
             //TODO: temporary code put here
             TalkSystem.instance.LoadTalkData();
@@ -86,16 +86,48 @@ namespace Assets.Scripts.Role
 			_actorData.pos = _cachedTransform.position;
 			_actorData.rot = _cachedTransform.rotation;
 			_actorData.fwd = _cachedTransform.forward;
+
+            ProcessWalk();
         }
 
-        void Move(float h, float v)
+        public string GetRoleId()
+        {
+            return roleId;
+        }
+
+        private void ProcessWalk()
+        {
+            if (InputMgr.GetInstance().GetLevel() > _inputLevel)
+            {
+                return;
+            }
+
+            if (virtualEvent)
+            {
+                Move(moveOffset.x, moveOffset.y);
+                Turning();
+                Animating(moveOffset.x, moveOffset.y);
+                virtualEvent = false;
+            }
+            else
+            {
+                float h = Input.GetAxisRaw("Horizontal");
+                float v = Input.GetAxisRaw("Vertical");
+                Move(h, v);
+                Turning();
+                Animating(h, v);
+            }
+        }
+
+        private void Move(float h, float v)
         {
             movement.Set(h, 0f, v);
             movement = movement.normalized * speed * Time.deltaTime;
-			playerRigidbody.MovePosition(_cachedTransform.position + movement);
+            //playerRigidbody.MovePosition(_cachedTransform.position + movement);
+            _cachedTransform.position = _cachedTransform.position + movement;
         }
 
-        void Turning()
+        private void Turning()
         {
             Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit floorHit;
@@ -105,19 +137,15 @@ namespace Assets.Scripts.Role
                 Vector3 playerToMouse = floorHit.point - transform.position;
                 playerToMouse.y = 0f;
                 Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
-                playerRigidbody.MoveRotation(newRotation);
+                //playerRigidbody.MoveRotation(newRotation);
+                _cachedTransform.rotation = newRotation;
             }
         }
 
-        void Animating(float h, float v)
+        private void Animating(float h, float v)
         {
             bool walking = h != 0f || v != 0f;
             anim.SetBool("IsWalking", walking);
-        }
-
-        public string GetRoleId()
-        {
-            return roleId;
         }
 
         private bool OnRecvMoveEvent(SosObject sender, SosEventArgs args)
