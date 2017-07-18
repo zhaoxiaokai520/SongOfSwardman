@@ -5,13 +5,14 @@ using System.Text;
 
 namespace Assets.Scripts.Sys.AI.StateMachine
 {
-    //public delegate void OnEnter();
-    //public delegate void OnExit();
-    //public delegate void OnUpdate();
+    public delegate void OnEnter();
+    public delegate void OnExit();
+    public delegate void OnUpdate();
 
-    class HState
+    public enum Status { IDLE, WALK, RUN, TELEPORT, JUMP, CLAMP };
+
+    class FState
     {
-        HState m_parent;
         bool m_isRunning;
         string m_name;
 
@@ -19,10 +20,9 @@ namespace Assets.Scripts.Sys.AI.StateMachine
         public OnExit ExitCallback;
         public OnUpdate UpdateCallback;
 
-        public HState(string name, HState parent)
+        public FState(string name)
         {
             m_name = name;
-            m_parent = parent;
         }
     }
 }

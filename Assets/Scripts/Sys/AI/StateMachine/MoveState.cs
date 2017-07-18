@@ -7,6 +7,6 @@ namespace Assets.Scripts.Sys.AI.StateMachine
 {
     class MoveState
     {
-        public enum Status{ IDLE, WALK, RUN, TELEPORT, JUMP, CLAMP};
+        
     }
 }

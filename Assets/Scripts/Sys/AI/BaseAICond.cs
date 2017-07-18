@@ -7,5 +7,6 @@ namespace Assets.Scripts.Sys.AI
 {
     class BaseAICond
     {
+
     }
 }
