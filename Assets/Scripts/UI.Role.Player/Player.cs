@@ -5,11 +5,69 @@ using Assets.Scripts.UI.Base;
 using UnityEngine;
 using Assets.Scripts.Utility;
 using Assets.Scripts.UI.Mgr;
+using bbv.Common.StateMachine;
+using bbv.Common.StateMachine.Extensions;
 
 namespace Assets.Scripts.Role
 {
     public class Player : SosObject, IUpdateSub, IFixedUpdateSub
     {
+        private enum States
+        {
+            /// <summary>stand and do nothing</summary>
+            Idle,
+
+            /// <summary>The player is moving (either up or down)</summary>
+            Moving,
+
+            /// <summary>The player is moving down.</summary>
+            MovingTo,
+
+            /// <summary>The player is teleporting to some far place.</summary>
+            Teleporting,
+
+            /// <summary>The player is blinking to some near place.</summary>
+            Blinking,
+
+            /// <summary>The player is fast moving along a line</summary>
+            Forwarding,
+
+            /// <summary>The player is jumping to across some barrier</summary>
+            Jumping,
+
+            /// <summary>The player is towarding a target</summary>
+            Tracing,
+
+            /// <summary>The player is escaping from a target</summary>
+            Escaping
+        }
+
+        /// <summary>
+        /// Some test events for the elevator
+        /// </summary>
+        private enum Events
+        {
+            /// <summary>An error occurred.</summary>
+            GainVelocity,
+
+            /// <summary>Reset after error.</summary>
+            Reset,
+
+            /// <summary>Open the door.</summary>
+            OpenDoor,
+
+            /// <summary>Close the door.</summary>
+            CloseDoor,
+
+            /// <summary>Move elevator up.</summary>
+            GoUp,
+
+            /// <summary>Move elevator down.</summary>
+            MoveTo,
+
+            /// <summary>Stop the elevator.</summary>
+            Stop
+        }
         public float speed = 6f;
         Vector3 movement;
         Animator anim;
@@ -20,6 +78,8 @@ namespace Assets.Scripts.Role
         int floorMask;
         float camRayLength = 100f;
         string roleId = "99";
+        PassiveStateMachine<States, Events> mFSM;
+
 
         void Awake()
         {
@@ -28,13 +88,20 @@ namespace Assets.Scripts.Role
             //playerRigidbody = GetComponent<Rigidbody>();
 
             //TODO: temporary code put here
-            TalkSystem.instance.LoadTalkData();
+            TalkSystem.instance.LoadTalkData(); 
             ActorMgr.instance.LoadActorConfigs();
 
 			_cachedTransform = transform;
 
 			_actorData = ActorRoot.Create(_cachedTransform.position, _cachedTransform.rotation, _cachedTransform.forward, Camp.Ally, gameId);
             ActorMgr.instance.AddActor(_actorData);
+
+            CreateFSM();
+
+            if (null != mFSM)
+            {
+                mFSM.Start();
+            }
         }
 
         void Start()
@@ -50,6 +117,11 @@ namespace Assets.Scripts.Role
 			//TODO OPTIONAL:UpdateGameMgr instance is null when stop editor running, 
 			//Object.FindObjectByType failed of MonoSingleton
 			UpdateGameMgr.instance.Unregister(this);
+
+            if (null != mFSM)
+            {
+                mFSM.Stop();
+            }
         }
 
 		public void FixedUpdateSub(float delta)
@@ -88,6 +160,36 @@ namespace Assets.Scripts.Role
 			_actorData.fwd = _cachedTransform.forward;
 
             ProcessWalk();
+        }
+
+        private void CreateFSM()
+        {
+            mFSM = new PassiveStateMachine<States, Events>("Player");
+            mFSM.AddExtension(new Log4NetExtension<States, Events>("Player"));
+
+            mFSM.DefineHierarchyOn(States.Moving, States.MovingTo, HistoryType.Deep, States.MovingTo, States.Teleporting, States.Blinking, States.Jumping, States.Tracing, States.Escaping);
+
+            mFSM.In(States.Idle)
+                .On(Events.GainVelocity).Goto(States.Moving);
+
+            mFSM.In(States.Moving)
+                .ExecuteOnEntry(OnEnterMoving)
+                .ExecuteOnExit(OnExitMoving)
+                .On(Events.Stop).Goto(States.Idle);                
+
+            mFSM.Initialize(States.Idle);
+
+            mFSM.Fire(Events.MoveTo);
+        }
+
+        private void OnEnterMoving()
+        {
+            DebugHelper.Log("OnEnterMoving");
+        }
+
+        private void OnExitMoving()
+        {
+            DebugHelper.Log("OnExitMoving");
         }
 
         public string GetRoleId()

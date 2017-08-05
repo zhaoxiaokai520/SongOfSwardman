@@ -189,8 +189,9 @@ namespace Assets.Scripts.UI.Role
             elevator.Fire(Events.CloseDoor);
             elevator.Fire(Events.GoUp);
             elevator.Fire(Events.Stop);
-            _elevatorPersonCount++;
             elevator.Fire(Events.OpenDoor);
+            _elevatorPersonCount++;
+            elevator.Fire(Events.CloseDoor);
             elevator.Fire(Events.GoDown);
             elevator.Fire(Events.GoUp);
 
@@ -227,7 +228,7 @@ namespace Assets.Scripts.UI.Role
         private bool CheckOverload(object[] arguments)
         {
             DebugHelper.Log("CheckOverload");
-            return _elevatorPersonCount >=2;
+            return _elevatorPersonCount <2;
         }
     }
 }
