@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <BbvCommonProjectName>bbv.Common.AsyncModule</BbvCommonProjectName>
+    <BbvCommonProjectType>Source</BbvCommonProjectType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ProjectGuid>{1344A2AC-AAC2-4D09-BA91-D98C2835A742}</ProjectGuid>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\bbv.Common.AsyncModule\lib\Net40\</OutputPath>
+    <DocumentationFile>bin\Release\bbv.Common.AsyncModule\lib\Net40\bbv.Common.AsyncModule.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EmptyAsyncModuleLogExtension.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Events\AfterConsumeMessageEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Events\BeforeConsumeMessageEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Events\ConsumeMessageEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Events\ConsumeMessageExceptionEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Events\EnqueueMessageEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Events\UnhandledModuleExceptionEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\ConsumePendingMessagesBeforeStopExtension.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\IModuleExtension.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\ModuleExtensionCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\SkipIfDuplicateInQueueModuleExtension.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="IAsyncModuleLogExtension.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IModuleController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MessageConsumerAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ModuleController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bbv.Common.AsyncModule.nuspec" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Modules\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Version.txt" />
+  </ItemGroup>
+  <Import Project="$(SolutionDir)bbv.Common.msbuild" />
+</Project>
