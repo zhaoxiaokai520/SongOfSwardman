@@ -7,5 +7,7 @@ Library/
 *.log.meta
 .DS_Store
 .vs
+*.sln
+*.csproj
 /bin/
 .idea/
