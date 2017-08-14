@@ -10,12 +10,28 @@ using bbv.Common.StateMachine.Extensions;
 
 namespace Assets.Scripts.Role
 {
-    public class Player : SosObject, IUpdateSub, IFixedUpdateSub
+    public class Player : SosObject, IUpdateSub, ILateUpdateSub
     {
+        private enum InputMode
+        {
+            Keyboard, Joystick, NoInput
+        }
         private enum States
         {
+            /// <summary>no move</summary>
+            Motionless,
+
             /// <summary>stand and do nothing</summary>
             Idle,
+
+            /// <summary>stun status</summary>
+            Stun,
+
+            /// <summary>stone status</summary>
+            Stone,
+
+            /// <summary>confuse status</summary>
+            Confuse,
 
             /// <summary>The player is moving (either up or down)</summary>
             Moving,
@@ -48,7 +64,7 @@ namespace Assets.Scripts.Role
         private enum Events
         {
             /// <summary>An error occurred.</summary>
-            GainVelocity,
+            Move,
 
             /// <summary>Reset after error.</summary>
             Reset,
@@ -68,16 +84,18 @@ namespace Assets.Scripts.Role
             /// <summary>Stop the elevator.</summary>
             Stop
         }
-        public float speed = 6f;
+        public int speed = 6;
+        private Vector2 direction = Vector2.zero;
         Vector3 movement;
         Animator anim;
         Vector2 moveOffset;
+        private Vector2 velocity = Vector2.zero;
         //Rigidbody playerRigidbody;
 		Transform _cachedTransform;
-        bool virtualEvent = false;
         int floorMask;
         float camRayLength = 100f;
         string roleId = "99";
+        InputMode inputMode = InputMode.NoInput;
         PassiveStateMachine<States, Events> mFSM;
 
 
@@ -108,15 +126,17 @@ namespace Assets.Scripts.Role
         {
             //SosEventMgr.GetInstance().RegisterEvent(SosEventMgr.SosEventType.TALK, roleId, this);
             SosEventMgr.instance.Subscribe(UIEventId.move, OnRecvMoveEvent);
-			UpdateGameMgr.instance.Register(this);
+            SosEventMgr.instance.Subscribe(UIEventId.stop, OnRecvStopEvent);
+            UpdateGameMgr.instance.Register(this);
         }
 
         private void OnDestroy()
         {
 			SosEventMgr.instance.Unsubscribe(UIEventId.move, OnRecvMoveEvent);
-			//TODO OPTIONAL:UpdateGameMgr instance is null when stop editor running, 
-			//Object.FindObjectByType failed of MonoSingleton
-			UpdateGameMgr.instance.Unregister(this);
+            SosEventMgr.instance.Unsubscribe(UIEventId.stop, OnRecvStopEvent);
+            //TODO OPTIONAL:UpdateGameMgr instance is null when stop editor running, 
+            //Object.FindObjectByType failed of MonoSingleton
+            UpdateGameMgr.instance.Unregister(this);
 
             if (null != mFSM)
             {
@@ -124,28 +144,28 @@ namespace Assets.Scripts.Role
             }
         }
 
-		public void FixedUpdateSub(float delta)
+		public void LateUpdateSub(float delta)
         {
-            if (InputMgr.GetInstance().GetLevel() > _inputLevel)
-            {
-                return;
-            }
+            //if (InputMgr.GetInstance().GetLevel() > _inputLevel)
+            //{
+            //    return;
+            //}
 
-            if (virtualEvent)
-            {
-                Move(moveOffset.x, moveOffset.y);
-                Turning();
-                Animating(moveOffset.x, moveOffset.y);
-                virtualEvent = false;
-            }
-            else
-            {
-                float h = Input.GetAxisRaw("Horizontal");
-                float v = Input.GetAxisRaw("Vertical");
-                Move(h, v);
-                Turning();
-                Animating(h, v);
-            }
+            //if (virtualEvent)
+            //{
+            //    Move(moveOffset.x, moveOffset.y);
+            //    Turning();
+            //    Animating(moveOffset.x, moveOffset.y);
+            //    virtualEvent = false;
+            //}
+            //else
+            //{
+            //    float h = Input.GetAxisRaw("Horizontal");
+            //    float v = Input.GetAxisRaw("Vertical");
+            //    Move(h, v);
+            //    Turning();
+            //    Animating(h, v);
+            //}
         }
 
 		public void UpdateSub(float delta)
@@ -155,11 +175,56 @@ namespace Assets.Scripts.Role
                 SosEventMgr.instance.Publish(MapEventId.action, this, SosEventArgs.EmptyEvt);
             }
 
-			_actorData.pos = _cachedTransform.position;
-			_actorData.rot = _cachedTransform.rotation;
-			_actorData.fwd = _cachedTransform.forward;
+            //_actorData.pos = _cachedTransform.position;
+            //_actorData.rot = _cachedTransform.rotation;
+            //_actorData.fwd = _cachedTransform.forward;
 
-            ProcessWalk();
+            //get key input
+            if (inputMode != InputMode.Joystick)
+            {
+                if (InputMgr.GetInstance().GetLevel() <= _inputLevel)
+                {
+                    if (Input.anyKey)
+                    {
+                        float x = Input.GetAxisRaw("Horizontal");
+                        float y = Input.GetAxisRaw("Vertical");
+                        moveOffset.x = x;
+                        moveOffset.y = y;
+                        if (System.Math.Abs(x) > 0 || System.Math.Abs(y) > 0)
+                        {
+                            inputMode = InputMode.Keyboard;
+                            ProcessMove();
+                        }
+                        else
+                        {
+                            inputMode = InputMode.NoInput;
+                            Animating(0, 0);
+                        }
+                    }
+                    else
+                    {
+                        inputMode = InputMode.NoInput;
+                        Animating(0, 0);
+                    }
+                }
+            }
+
+
+            if (inputMode != InputMode.Keyboard)
+            {
+                if (Vector2.zero != velocity)
+                {
+                    moveOffset.x = velocity.x * Time.deltaTime;
+                    moveOffset.y = velocity.y * Time.deltaTime;
+                    inputMode = InputMode.Joystick;
+                    ProcessMove();
+                }
+                else
+                {
+                    inputMode = InputMode.NoInput;
+                    Animating(0, 0);
+                }
+            }
         }
 
         private void CreateFSM()
@@ -170,7 +235,7 @@ namespace Assets.Scripts.Role
             mFSM.DefineHierarchyOn(States.Moving, States.MovingTo, HistoryType.Deep, States.MovingTo, States.Teleporting, States.Blinking, States.Jumping, States.Tracing, States.Escaping);
 
             mFSM.In(States.Idle)
-                .On(Events.GainVelocity).Goto(States.Moving);
+                .On(Events.Move).Goto(States.Moving);
 
             mFSM.In(States.Moving)
                 .ExecuteOnEntry(OnEnterMoving)
@@ -183,7 +248,7 @@ namespace Assets.Scripts.Role
         }
 
         private void OnEnterMoving()
-        {
+        {  
             DebugHelper.Log("OnEnterMoving");
         }
 
@@ -197,28 +262,11 @@ namespace Assets.Scripts.Role
             return roleId;
         }
 
-        private void ProcessWalk()
+        private void ProcessMove()
         {
-            if (InputMgr.GetInstance().GetLevel() > _inputLevel)
-            {
-                return;
-            }
-
-            if (virtualEvent)
-            {
-                Move(moveOffset.x, moveOffset.y);
-                Turning();
-                Animating(moveOffset.x, moveOffset.y);
-                virtualEvent = false;
-            }
-            else
-            {
-                float h = Input.GetAxisRaw("Horizontal");
-                float v = Input.GetAxisRaw("Vertical");
-                Move(h, v);
-                Turning();
-                Animating(h, v);
-            }
+            Move(moveOffset.x, moveOffset.y);
+            Turning();
+            Animating(moveOffset.x, moveOffset.y);
         }
 
         private void Move(float h, float v)
@@ -231,22 +279,37 @@ namespace Assets.Scripts.Role
 
         private void Turning()
         {
-            Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit floorHit;
+            //Vector3 worldpos = _cachedTransform.TransformPoint(_cachedTransform.position);
+            //Vector2 dir = new Vector2(worldpos.x, worldpos.z);
+            //dir.x += moveOffset.x;
+            //dir.y += moveOffset.y;
+            //Vector3 finalDir = UIUtils.ScreenToWorldPoint(Camera.main, dir, 0);
 
-            if (Physics.Raycast(camRay, out floorHit, camRayLength, floorMask))
-            {
-                Vector3 playerToMouse = floorHit.point - transform.position;
-                playerToMouse.y = 0f;
-                Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
-                //playerRigidbody.MoveRotation(newRotation);
-                _cachedTransform.rotation = newRotation;
-            }
+            ////Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            //Ray camRay = Camera.main.ScreenPointToRay(finalDir);
+            //RaycastHit floorHit;
+
+            //if (Physics.Raycast(camRay, out floorHit, camRayLength, floorMask))
+            //{
+            //    Vector3 playerToMouse = floorHit.point - transform.position;
+            //    playerToMouse.y = 0f;
+            //    Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
+            //    //playerRigidbody.MoveRotation(newRotation);
+            //    _cachedTransform.rotation = newRotation;
+            //}
+
+            //Vector3 playerToMouse = floorHit.point - transform.position;
+            //playerToMouse.y = 0f;
+            Vector3 dir = new Vector3(moveOffset.x, 0, moveOffset.y);
+            Quaternion newRotation = Quaternion.LookRotation(dir);
+            //playerRigidbody.MoveRotation(newRotation);
+            _cachedTransform.rotation = newRotation;
         }
 
         private void Animating(float h, float v)
         {
-            bool walking = h != 0f || v != 0f;
+            bool walking = System.Math.Abs(h) >= 0.000001f || System.Math.Abs(v) >= 0.000001f;
+            DebugHelper.Log("Animating " + h + " " + v + " iswalking " + walking);
             anim.SetBool("IsWalking", walking);
         }
 
@@ -256,7 +319,21 @@ namespace Assets.Scripts.Role
             DebugHelper.Log("OnRecvMoveEvent " + tearg.movePos);
             //Move(tearg.movePos.x, tearg.movePos.y);
             moveOffset.Set(tearg.movePos.x, tearg.movePos.y);
-            virtualEvent = true;
+            velocity.x = moveOffset.x;
+            velocity.y = moveOffset.y;
+            velocity = velocity.normalized * speed;
+            mFSM.Fire(Events.Move);
+            return true;
+        }
+
+        private bool OnRecvStopEvent(SosObject sender, SosEventArgs args)
+        {
+            DebugHelper.Log("OnRecvStopEvent");
+            mFSM.Fire(Events.Stop);
+            moveOffset.x = 0;
+            moveOffset.y = 0;
+            Animating(0, 0);
+            velocity = Vector2.zero;
             return true;
         }
     }

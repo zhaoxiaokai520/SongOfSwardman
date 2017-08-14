@@ -68,6 +68,7 @@ namespace Assets.Scripts.Core.Event
     public enum UIEventId
     {
         move = 1,
+        stop,
         showMenu,
         itemChanged,
     };

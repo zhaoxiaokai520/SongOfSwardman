@@ -144,6 +144,7 @@ namespace Assets.SGUI
         public void OnEndDrag(PointerEventData eventData)
         {
             //_playResetCursorAnim(eventData.position);
+            SosEventMgr.instance.Publish(UIEventId.stop, this, null);
         }
 
         public void OnPointerUp(PointerEventData eventData)
