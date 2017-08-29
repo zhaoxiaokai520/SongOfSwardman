@@ -69,8 +69,7 @@ namespace Assets.Scripts.Core.Event
     {
         move = 1,
         stop,
-        showMenu,
-        itemChanged,
+        move_step,//role move one grid
     };
 
     public enum CoreEventId

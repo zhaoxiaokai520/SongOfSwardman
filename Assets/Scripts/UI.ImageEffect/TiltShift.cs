@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace UnitySampleAssets.ImageEffects
+namespace UnityStandardAssets.ImageEffects
 {
     [RequireComponent (typeof(Camera))]
     [AddComponentMenu ("Image Effects/Camera/Tilt Shift (Lens Blur)")]

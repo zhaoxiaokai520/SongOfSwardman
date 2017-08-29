@@ -38,6 +38,7 @@ namespace Assets.Scripts.Core.Event
         }
 
         //UI event
+        //TODO:change to template for avoiding packing and unpacking
         public void Subscribe(UIEventId evt, ConsumableEvent listener)
         {
             _uiEventWorker.Subscribe(evt, listener);
