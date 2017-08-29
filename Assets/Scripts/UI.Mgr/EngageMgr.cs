@@ -1,7 +1,9 @@
 ﻿using Assets.Scripts.Core.Event;
 using Assets.Scripts.UI.Base;
+using Prime31.TransitionKit;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.UI.Mgr
 {
@@ -15,6 +17,7 @@ namespace Assets.Scripts.UI.Mgr
         private void Awake()
         {
             m_step = 0;
+            SetEncounterRate(EncounterRate.VeryHigh);
             addListener();
         }
         // Use this for initialization
@@ -37,7 +40,6 @@ namespace Assets.Scripts.UI.Mgr
         public void SetEncounterRate(EncounterRate erate)
         {
             System.Random ran = new System.Random();
-            int RandKey = 0;
             switch (erate)
             {
                 case EncounterRate.Avoid:
@@ -46,22 +48,22 @@ namespace Assets.Scripts.UI.Mgr
                     } break;
                 case EncounterRate.Low:
                     {
-                        RandKey = ran.Next(21, 40);
+                        m_threshold = ran.Next(21, 40);
                     }
                     break;
                 case EncounterRate.Normal:
                     {
-                        RandKey = ran.Next(11, 20);
+                        m_threshold = ran.Next(11, 20);
                     }
                     break;
                 case EncounterRate.High:
                     {
-                        RandKey = ran.Next(6, 10);
+                        m_threshold = ran.Next(6, 10);
                     }
                     break;
                 case EncounterRate.VeryHigh:
                     {
-                        RandKey = ran.Next(3, 5);
+                        m_threshold = ran.Next(3, 5);
                     }
                     break;
             }
@@ -82,6 +84,40 @@ namespace Assets.Scripts.UI.Mgr
 
         bool OnRecvStepEvent(SosObject sender, SosEventArgs args)
         {
+            m_step++;
+            if (m_step >= m_threshold)
+            {
+                m_step = 0;
+
+                //clean listeners
+                UpdateGameMgr.GetInstance().UnregisterAll();
+
+                var enumValues = System.Enum.GetValues(typeof(PixelateTransition.PixelateFinalScaleEffect));
+                var randomScaleEffect = (PixelateTransition.PixelateFinalScaleEffect)enumValues.GetValue(UnityEngine.Random.Range(0, enumValues.Length));
+
+                int nScene = -1;
+                for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+                {
+                    Scene tempScene = SceneManager.GetSceneByBuildIndex(i);
+                    if (null != tempScene.name && tempScene.name.Equals("BattleSmall"))
+                    {
+                        nScene = i;
+                        break;
+                    }
+                }
+                var pixelater = new PixelateTransition()
+                {
+                    nextScene = nScene,
+                    //nextScene = UnityEngine.SceneManagement.SceneManager.GetSceneByPath("Scenes/BattleSmall").buildIndex,
+                    //nextScene = UnityEngine.SceneManagement.SceneManager.GetSceneByName("BattleSmall").buildIndex,
+                    finalScaleEffect = randomScaleEffect,
+                    duration = 1.0f,
+                    nextSceneName = "BattleSmall"
+                };
+                TransitionKit.instance.transitionWithDelegate(pixelater);
+                //change scene to battle
+                //UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Scenes/BattleSmall");
+            }
             return false;
         }
     }

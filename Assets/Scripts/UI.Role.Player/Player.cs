@@ -97,12 +97,13 @@ namespace Assets.Scripts.Role
         string roleId = "99";
         InputMode inputMode = InputMode.NoInput;
         PassiveStateMachine<States, Events> mFSM;
-
+        Vector2 mStepOffset;
 
         void Awake()
         {
             floorMask = LayerMask.GetMask("Floor");
             anim = GetComponent<Animator>();
+            mStepOffset = Vector2.zero;
             //playerRigidbody = GetComponent<Rigidbody>();
 
             //TODO: temporary code put here
@@ -197,14 +198,20 @@ namespace Assets.Scripts.Role
                         }
                         else
                         {
-                            inputMode = InputMode.NoInput;
-                            Animating(0, 0);
+                            if (InputMode.NoInput != inputMode)
+                            {
+                                inputMode = InputMode.NoInput;
+                                Animating(0, 0);
+                            }
                         }
                     }
                     else
                     {
-                        inputMode = InputMode.NoInput;
-                        Animating(0, 0);
+                        if (InputMode.NoInput != inputMode)
+                        {
+                            inputMode = InputMode.NoInput;
+                            Animating(0, 0);
+                        }
                     }
                 }
             }
@@ -221,8 +228,11 @@ namespace Assets.Scripts.Role
                 }
                 else
                 {
-                    inputMode = InputMode.NoInput;
-                    Animating(0, 0);
+                    if (InputMode.NoInput != inputMode)
+                    {
+                        inputMode = InputMode.NoInput;
+                        Animating(0, 0);
+                    }
                 }
             }
         }
@@ -273,6 +283,15 @@ namespace Assets.Scripts.Role
         {
             movement.Set(h, 0f, v);
             movement = movement.normalized * speed * Time.deltaTime;
+            //TODO:height change(y axis) can also add step
+            mStepOffset.x += movement.x;
+            mStepOffset.y += movement.z;
+            if (Mathf.Abs(mStepOffset.x) > 1 || Mathf.Abs(mStepOffset.y) > 1)
+            {
+                SosEventMgr.GetInstance().Publish(UIEventId.move_step, this, SosEventArgs.EmptyEvt);
+                mStepOffset = Vector2.zero;
+            }
+
             //playerRigidbody.MovePosition(_cachedTransform.position + movement);
             _cachedTransform.position = _cachedTransform.position + movement;
         }

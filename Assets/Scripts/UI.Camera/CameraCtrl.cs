@@ -75,6 +75,12 @@ public class CameraCtrl : MonoBehaviour, IUpdateSub, IFixedUpdateSub {
 
 	public void UpdateSub(float delta)
     {
+        if (null == gameObject)
+        {
+            Assets.Scripts.Utility.DebugHelper.LogError("CameraCtrl.UpdasteSub null gameobject");
+            return;
+        }
+
         if (0 < mTrailMove.Count)
         {
             _updatePosition();

@@ -18,7 +18,7 @@ namespace Assets.Scripts.UI.Mgr
         {
 			base.Awake ();
             Init();
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject.transform.parent.gameObject);//static obj
         }
 
         void Start()
@@ -112,13 +112,6 @@ namespace Assets.Scripts.UI.Mgr
 		{
 			if (null != ilife as IFixedUpdateSub) 
 			{
-//				for (int i = 0; i < _fixedUpdateObjectList.Count; i++) 
-//				{
-//					if (ilife == _fixedUpdateObjectList [i]) 
-//					{
-//						_fixedUpdateObjectList.re
-//					}
-//				}
 				_fixedUpdateObjectList.Remove(ilife as IFixedUpdateSub);
 			}
 
@@ -132,5 +125,32 @@ namespace Assets.Scripts.UI.Mgr
 				_lateUpdateObjectList.Remove(ilife as ILateUpdateSub);
 			}
 		}
+
+        public void UnregisterAll()
+        {
+            for (int i = 0; i < _updateObjectList.Count; i++)
+            {
+                if (null != _updateObjectList[i])
+                {
+                    _updateObjectList[i] = null;
+                }
+            }
+
+            for (int i = 0; i < _lateUpdateObjectList.Count; i++)
+            {
+                if (null != _lateUpdateObjectList[i])
+                {
+                    _lateUpdateObjectList[i] = null;
+                }
+            }
+
+            for (int i = 0; i < _fixedUpdateObjectList.Count; i++)
+            {
+                if (null != _fixedUpdateObjectList[i])
+                {
+                    _fixedUpdateObjectList[i] = null;
+                }
+            }
+        }
     }
 }
