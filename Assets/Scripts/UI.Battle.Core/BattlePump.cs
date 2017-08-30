@@ -9,7 +9,7 @@ namespace Assets.Scripts.Core
 {
     //game director, game framework, drive game loop to run
     // the lowest level of game application hierarchy
-    class BattlePump : IUpdateSub, ILateUpdateSub
+    class BattlePump : MonoBehaviour, IUpdateSub, ILateUpdateSub
     {
         private static BattlePump _sInstance = null;
         private bool _initialized = false;
