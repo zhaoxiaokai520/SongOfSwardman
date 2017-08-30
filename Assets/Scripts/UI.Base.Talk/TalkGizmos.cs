@@ -27,13 +27,13 @@ public class TalkGizmos : MonoBehaviour, IUpdateSub
     private void Start()
     {
         _talker = ActorMgr.instance.GetAvatar();
-		UpdateGameMgr.instance.Register (this);
+		GameUpdateMgr.GetInstance().Register (this);
 		_cachedTransform = transform;
     }
 
 	void OnDestory()
 	{
-		UpdateGameMgr.instance.Unregister (this);
+		GameUpdateMgr.instance.Unregister (this);
 	}
 
     //    public void OnDrawGizmos()

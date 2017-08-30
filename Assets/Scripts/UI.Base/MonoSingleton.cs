@@ -41,7 +41,7 @@ public class MonoSingleton<T> : MonoBehaviour where T : Component
 		return MonoSingleton<T>._instance;
 	}
 
-	public static void DestroyInstance()
+    public static void DestroyInstance()
 	{
 		if (MonoSingleton<T>._instance != null)
 		{

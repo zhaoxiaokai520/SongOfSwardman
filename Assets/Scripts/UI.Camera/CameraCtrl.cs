@@ -56,12 +56,12 @@ public class CameraCtrl : MonoBehaviour, IUpdateSub, IFixedUpdateSub {
         mTrailRotate.Clear();
         mTrailShake.Clear();
 
-		UpdateGameMgr.instance.Register(this);
+		GameUpdateMgr.GetInstance().Register(this);
     }
 
 	void OnDestory()
 	{
-		UpdateGameMgr.instance.Unregister(this);
+		GameUpdateMgr.instance.Unregister(this);
 	}
 	
 	// Update is called once per frame

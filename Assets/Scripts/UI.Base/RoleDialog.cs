@@ -20,12 +20,12 @@ public class RoleDialog : MonoBehaviour, IUpdateSub {
     void Start () {
         mClickAudio = DialogGroup.GetComponent<AudioSource>();
 
-		UpdateGameMgr.instance.Register(this);
+		GameUpdateMgr.GetInstance().Register(this);
     }
 
 	void OnDestory()
 	{
-		UpdateGameMgr.instance.Unregister(this);
+		GameUpdateMgr.instance.Unregister(this);
 	}
 	
 	// Update is called once per frame

@@ -16,12 +16,12 @@ namespace Assets.Scripts.UI.Base
 
         void Start()
         {
-			UpdateGameMgr.instance.Register (this);
+			GameUpdateMgr.GetInstance().Register (this);
         }
 
         void OnDestory()
         {
-			UpdateGameMgr.instance.Unregister (this);
+			GameUpdateMgr.instance.Unregister (this);
         }
 
         public void Move(Vector3 delta)

@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.UI.Mgr
 {
-	class UpdateGameMgr : MonoSingleton<UpdateGameMgr>
+	class GameUpdateMgr : MonoSingleton<GameUpdateMgr>
     {
         List<IFixedUpdateSub> _fixedUpdateObjectList;
         List<IUpdateSub> _updateObjectList;
@@ -16,9 +16,18 @@ namespace Assets.Scripts.UI.Mgr
 
         protected override void Awake()
         {
-			base.Awake ();
+            //if (!GameObject.Find("StaticObjects"))
+            //{
+            //    GameObject staticObj = new GameObject("StaticObjects");
+            //    GameObject gamemgrObj = new GameObject("GameMgr");
+            //    gamemgrObj.transform.parent = staticObj.transform;
+            //    gamemgrObj.AddComponent<GameUpdateMgr>();
+
+            //    MonoSingleton<GameUpdateMgr>.GetInstance();
+            //}
+            base.Awake();
             Init();
-            DontDestroyOnLoad(gameObject.transform.parent.gameObject);//static obj
+            //DontDestroyOnLoad(gameObject.transform.parent.gameObject);//static obj
         }
 
         void Start()
@@ -34,7 +43,27 @@ namespace Assets.Scripts.UI.Mgr
 			_lateUpdateObjectList.Clear();
 		}
 
-		protected override void Init()
+        new public static GameUpdateMgr GetInstance()
+        {
+            GameUpdateMgr inst = MonoSingleton<GameUpdateMgr>.GetInstance();
+            if (null == inst)
+            {
+                if (!GameObject.Find("StaticObjects"))
+                {
+                    GameObject staticObj = new GameObject("StaticObjects");
+                    GameObject gamemgrObj = new GameObject("GameMgr");
+                    gamemgrObj.transform.parent = staticObj.transform;
+                    gamemgrObj.AddComponent<GameUpdateMgr>();
+
+                    UnityEngine.Object.DontDestroyOnLoad(staticObj);
+                    inst = MonoSingleton<GameUpdateMgr>.GetInstance();
+                }
+            }
+
+            return inst;
+        }
+
+        protected override void Init()
         {
 			base.Init ();
             _fixedUpdateObjectList = new List<IFixedUpdateSub>();

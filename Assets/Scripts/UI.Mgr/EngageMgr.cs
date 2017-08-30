@@ -23,13 +23,13 @@ namespace Assets.Scripts.UI.Mgr
         // Use this for initialization
         void Start()
         {
-            UpdateGameMgr.instance.Register(this);
+            GameUpdateMgr.GetInstance().Register(this);
         }
 
         private void OnDestroy()
         {
             rmvListener();
-            UpdateGameMgr.instance.Unregister(this);
+            GameUpdateMgr.instance.Unregister(this);
         }
 
         public void LateUpdateSub(float delta)
@@ -90,7 +90,7 @@ namespace Assets.Scripts.UI.Mgr
                 m_step = 0;
 
                 //clean listeners
-                UpdateGameMgr.GetInstance().UnregisterAll();
+                GameUpdateMgr.GetInstance().UnregisterAll();
 
                 var enumValues = System.Enum.GetValues(typeof(PixelateTransition.PixelateFinalScaleEffect));
                 var randomScaleEffect = (PixelateTransition.PixelateFinalScaleEffect)enumValues.GetValue(UnityEngine.Random.Range(0, enumValues.Length));

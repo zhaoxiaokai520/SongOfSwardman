@@ -20,14 +20,14 @@ namespace Assets.Scripts.Battle.Actor
         {
             _actorData = ActorRoot.Create(transform.position, transform.rotation, transform.forward, Camp.Ally, gameId);
             ActorMgr.instance.AddActor(_actorData);
-			UpdateGameMgr.instance.Register(this);
+			GameUpdateMgr.GetInstance().Register(this);
 
             StartFight();
         }
 
 		void OnDestory()
 		{
-			UpdateGameMgr.instance.Unregister(this);
+			GameUpdateMgr.instance.Unregister(this);
 		}
 
         void StartFight()

@@ -128,16 +128,16 @@ namespace Assets.Scripts.Role
             //SosEventMgr.GetInstance().RegisterEvent(SosEventMgr.SosEventType.TALK, roleId, this);
             SosEventMgr.instance.Subscribe(UIEventId.move, OnRecvMoveEvent);
             SosEventMgr.instance.Subscribe(UIEventId.stop, OnRecvStopEvent);
-            UpdateGameMgr.instance.Register(this);
+            GameUpdateMgr.GetInstance().Register(this);
         }
 
         private void OnDestroy()
         {
 			SosEventMgr.instance.Unsubscribe(UIEventId.move, OnRecvMoveEvent);
             SosEventMgr.instance.Unsubscribe(UIEventId.stop, OnRecvStopEvent);
-            //TODO OPTIONAL:UpdateGameMgr instance is null when stop editor running, 
+            //TODO OPTIONAL:GameUpdateMgr instance is null when stop editor running, 
             //Object.FindObjectByType failed of MonoSingleton
-            UpdateGameMgr.instance.Unregister(this);
+            GameUpdateMgr.instance.Unregister(this);
 
             if (null != mFSM)
             {
