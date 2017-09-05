@@ -4,8 +4,6 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using Assets.Scripts.Data;
 using Assets.Scripts.Mgr;
-using Assets.Scripts.Utility;
-using Assets.Scripts.Mgr;
 
 public class TalkDialog : MonoSingleton<TalkDialog>
 {

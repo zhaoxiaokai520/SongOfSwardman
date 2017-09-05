@@ -5,12 +5,22 @@ using System.Text;
 
 namespace Assets.Scripts.Battle.Command
 {
-    //use for drive role action or ui action
-    //independ what action source is
-    class SosCmd
+    //Concerete Command
+    //Spell command, take magic power as fuel
+    class SpellCmd : ICmd
     {
         int cmd_id;
         byte[] data;
         int len;//data length
+
+        public void Do()
+        {
+            
+        }
+
+        public void Undo()
+        {
+            
+        }
     }
 }

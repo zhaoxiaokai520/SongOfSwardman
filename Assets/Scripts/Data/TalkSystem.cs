@@ -32,7 +32,7 @@ namespace Assets.Scripts.Data
 
         private void _loadTalk(string name)
         {
-            string editorPath = Application.dataPath + "/RawRes/" + name + ".xml";
+            string editorPath = Application.dataPath + "/RawRes/Config/" + name + ".xml";
             if (System.IO.File.Exists(editorPath))
             {
                 TalkInfo info = new TalkInfo();
