@@ -6,19 +6,15 @@ using System.Text;
 namespace Assets.Scripts.Battle.Command
 {
     //Concerete Command
-    //Skill command, take genuine as fuel
-    class SkillCmd : ICmd
+    //Skill command, take genuine(气？真气？) as fuel
+    class SkillCmd : BatCmd
     {
-        int cmd_id;
-        byte[] data;
-        int len;//data length
-
-        public void Do()
+        public override void Do()
         {
             
         }
 
-        public void Undo()
+        public override void Undo()
         {
             
         }

@@ -7,7 +7,9 @@ using Assets.Scripts.UI.Mgr;
 
 namespace Assets.Scripts.UI.Base
 {
-    class ActorMover : MonoBehaviour, IUpdateSub
+    //attack, defend, cast something, use item
+    //front shake, back shake
+    class BaseAbility : MonoBehaviour, IUpdateSub
     {
         void Awake()
         {

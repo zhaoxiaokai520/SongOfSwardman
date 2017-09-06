@@ -8,18 +8,14 @@ namespace Assets.Scripts.Battle.Command
     //Concerete Command
     //Marvelous command, take spirit as fuel
     //Also include incantation, Ninjitsu
-    class MavlCmd : ICmd
+    class MavlCmd : BatCmd
     {
-        int cmd_id;
-        byte[] data;
-        int len;//data length
-
-        public void Do()
+        public override void Do()
         {
             
         }
 
-        public void Undo()
+        public override void Undo()
         {
             
         }

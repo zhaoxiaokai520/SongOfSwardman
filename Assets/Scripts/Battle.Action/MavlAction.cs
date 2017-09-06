@@ -5,8 +5,11 @@ using System.Text;
 
 namespace Assets.Scripts.Battle.Action
 {
+    //command design pattern
+    //MavlCmd receiver
+    //divine
     //black, white magic
-    class DivineAction
+    class MavlAction
     {
     }
 }

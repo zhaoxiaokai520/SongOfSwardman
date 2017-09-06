@@ -7,18 +7,14 @@ namespace Assets.Scripts.Battle.Command
 {
     //Concerete Command
     //Spell command, take magic power as fuel
-    class SpellCmd : ICmd
+    class SpellCmd : BatCmd
     {
-        int cmd_id;
-        byte[] data;
-        int len;//data length
-
-        public void Do()
+        public override void Do()
         {
             
         }
 
-        public void Undo()
+        public override void Undo()
         {
             
         }

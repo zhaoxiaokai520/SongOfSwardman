@@ -5,9 +5,7 @@ using System.Text;
 
 namespace Assets.Scripts.Battle.Action
 {
-    //command design pattern
-    //MoveCmd receiver
-    class MacroAction
+    class NinjistuAction
     {
 
     }

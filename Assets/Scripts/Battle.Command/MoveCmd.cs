@@ -8,18 +8,14 @@ namespace Assets.Scripts.Battle.Command
     //Concerete Command
     //use for drive role action or ui action
     //independ what action source is
-    class MoveCmd : ICmd
+    class MoveCmd : MacroCmd
     {
-        int cmd_id;
-        byte[] data;
-        int len;//data length
-
-        public void Do()
+        public override void Do()
         {
             
         }
 
-        public void Undo()
+        public override void Undo()
         {
             
         }

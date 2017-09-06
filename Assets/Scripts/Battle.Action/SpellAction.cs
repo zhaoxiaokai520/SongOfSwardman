@@ -6,8 +6,8 @@ using System.Text;
 namespace Assets.Scripts.Battle.Action
 {
     //command design pattern
-    //MoveCmd receiver
-    class MacroAction
+    //SpellCmd receiver
+    class SpellAction
     {
 
     }

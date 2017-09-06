@@ -7,18 +7,14 @@ namespace Assets.Scripts.Battle.Command
 {
     //Concerete Command
     //defend command
-    class DefCmd : ICmd
+    class DefCmd : BatCmd
     {
-        int cmd_id;
-        byte[] data;
-        int len;//data length
-
-        public void Do()
+        public override void Do()
         {
             
         }
 
-        public void Undo()
+        public override void Undo()
         {
             
         }

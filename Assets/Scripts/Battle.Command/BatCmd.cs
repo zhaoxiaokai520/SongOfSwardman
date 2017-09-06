@@ -6,12 +6,9 @@ using System.Text;
 namespace Assets.Scripts.Battle.Command
 {
     //battle command interface
-    interface ICmd
+    abstract class BatCmd
     {
-        //int cmd_id;
-        //byte[] data;
-        //int len;//data length
-        void Do();
-        void Undo();
+        public abstract void Do();
+        public abstract void Undo();
     }
 }
