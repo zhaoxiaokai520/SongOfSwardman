@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Assets.Scripts.Battle.Action;
 
 namespace Assets.Scripts.Battle.Command
 {
-    //battle command interface
-    abstract class BatCmd
+    //battle command interface, base class
+    class BatCmd
     {
-        public abstract void Do();
-        public abstract void Undo();
+        private BaseAction mCmdReceiver;
+
+        public virtual void Do() { }
+        public virtual void Undo() { }
     }
 }

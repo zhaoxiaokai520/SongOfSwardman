@@ -7,8 +7,16 @@ namespace Assets.Scripts.Battle.Action
 {
     //command design pattern
     //SpellCmd receiver
-    class SpellAction
+    class SpellAction : BaseAction
     {
+        public override void DoAction()
+        {
 
+        }
+
+        public override void UndoAction()
+        {
+
+        }
     }
 }

@@ -7,8 +7,16 @@ namespace Assets.Scripts.Battle.Action
 {
     //command design pattern
     //DefCmd receiver
-    class DefendAction
+    class DefendAction : BaseAction
     {
+        public override void DoAction()
+        {
 
+        }
+
+        public override void UndoAction()
+        {
+
+        }
     }
 }

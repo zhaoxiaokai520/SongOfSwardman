@@ -15,7 +15,6 @@ namespace Assets.Scripts.Battle.Command
         {
             mCmds.Add(cmd);
         }
-
         
         public void RmvCmd(int idx)
         {

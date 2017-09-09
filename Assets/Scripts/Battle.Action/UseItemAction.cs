@@ -5,9 +5,7 @@ using System.Text;
 
 namespace Assets.Scripts.Battle.Action
 {
-    //command design pattern
-    //SkillCmd receiver
-    class SkillAction : BaseAction
+    class UseItemAction : BaseAction
     {
         public override void DoAction()
         {

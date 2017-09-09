@@ -7,8 +7,16 @@ namespace Assets.Scripts.Battle.Action
 {
     //command design pattern
     //MoveCmd receiver internal one
-    class PathToAction
+    class PathToAction : BaseAction
     {
+        public override void DoAction()
+        {
 
+        }
+
+        public override void UndoAction()
+        {
+
+        }
     }
 }

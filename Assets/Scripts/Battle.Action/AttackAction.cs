@@ -7,8 +7,17 @@ namespace Assets.Scripts.Battle.Action
 {
     //command design pattern
     //AtkCmd receiver
-    class AttackAction
+    //
+    class AttackAction : BaseAction
     {
+        public override void DoAction()
+        {
 
+        }
+
+        public override void UndoAction()
+        {
+
+        }
     }
 }

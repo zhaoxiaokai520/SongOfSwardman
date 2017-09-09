@@ -5,7 +5,16 @@ using System.Text;
 
 namespace Assets.Scripts.Battle.Action
 {
-    class WitchAction
+    class WitchAction : BaseAction
     {
+        public override void DoAction()
+        {
+
+        }
+
+        public override void UndoAction()
+        {
+
+        }
     }
 }

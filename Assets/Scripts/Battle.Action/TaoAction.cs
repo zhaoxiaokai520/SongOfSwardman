@@ -7,7 +7,16 @@ namespace Assets.Scripts.Battle.Action
 {
     //Taoism action, like Ninjutsu
     //奇门遁甲，遁术（找不到翻译）
-    class TaoAction
+    class TaoAction : BaseAction
     {
+        public override void DoAction()
+        {
+
+        }
+
+        public override void UndoAction()
+        {
+
+        }
     }
 }

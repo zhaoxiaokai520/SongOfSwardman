@@ -2,6 +2,11 @@
 {
     class InputMgr : Singleton<InputMgr>
     {
+        public enum InputMode
+        {
+            Keyboard, Joystick, NoInput
+        }
+
         int mCurrLevel;//current input level
         int mPrevLevel = -1;// negative level is no meanings
 

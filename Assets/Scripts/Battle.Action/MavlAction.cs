@@ -9,7 +9,16 @@ namespace Assets.Scripts.Battle.Action
     //MavlCmd receiver
     //divine
     //black, white magic
-    class MavlAction
+    class MavlAction : BaseAction
     {
+        public override void DoAction()
+        {
+
+        }
+
+        public override void UndoAction()
+        {
+
+        }
     }
 }
