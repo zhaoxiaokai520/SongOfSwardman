@@ -144,12 +144,14 @@ namespace Mgr.Memory
         public override void Cleanup()
         {
             System.Collections.IDictionaryEnumerator iter = monitor.GetEnumerator();
+            int cnt;
             while (iter != null && iter.MoveNext())
             {
                 List<T> lst = (List<T>)iter.Value;
                 if ( lst != null )
                 {
-                    for(int ii = 0; ii < lst.Count; ++ii)
+                    cnt = lst.Count;
+                    for(int ii = 0; ii < cnt; ++ii)
                     {
                         Release(lst[ii]);
                     }

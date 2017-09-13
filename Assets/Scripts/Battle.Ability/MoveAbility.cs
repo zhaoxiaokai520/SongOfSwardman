@@ -4,6 +4,9 @@ using Assets.Scripts.Core.Event;
 using Assets.Scripts.Mgr;
 using Assets.Scripts.Utility;
 using Mgr.Memory;
+using Assets.Scripts.Battle.Action;
+using Assets.Scripts.Battle.Command;
+using Assets.Scripts.Battle.Mgr;
 
 namespace Assets.Scripts.UI.Base
 {
@@ -19,6 +22,18 @@ namespace Assets.Scripts.UI.Base
         Transform _cachedTransform;
         float camRayLength = 100f;
         Vector2 mStepOffset = Vector2.zero;
+        private MoveAction mMoveAction;
+
+        public void Init()
+        {
+            mMoveAction = new MoveAction();
+        }
+
+        private void IssueMoveCommand()
+        {
+            MoveCmd mc = new MoveCmd(mMoveAction);
+            BatCmdMgr.instance.StoreCmd(mc);
+        }
 
         public void AddListener()
         {
