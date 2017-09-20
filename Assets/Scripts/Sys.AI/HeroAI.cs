@@ -5,7 +5,9 @@ using System.Text;
 
 namespace Assets.Scripts.Sys.AI
 {
-    class AISkillCmd
+    //impl is a behaviour tree!!
+    class HeroAI
     {
+
     }
 }

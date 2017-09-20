@@ -5,7 +5,8 @@ using System.Text;
 
 namespace Assets.Scripts.Sys.AI
 {
-    class AICmd
+    class NPCAI
     {
+
     }
 }
