@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
+using System.Runtime.InteropServices;
 
 namespace GameCore
 {
     public class test
     {
-        [MethodImpl(MethodImplOptions.InternalCall)]
-        public extern bool testInterface([DefaultValue(0.0f)]float p);
+        [DllImport("GameCoreCpp.dll", EntryPoint = "testInterface", CharSet = CharSet.Auto, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int testInterface();
+
+        public bool testDummy([DefaultValue(0.0f)]float p)
+        {
+            testInterface();
+            return false;
+        }
     }
 }

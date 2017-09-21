@@ -76,7 +76,7 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <PostBuildEvent>
-      <Command>copy  "$(TargetPath)"  "$(ProjectDir)\..\..\..\Assets\Plugins\SOSKernel\"</Command>
+      <Command>copy  "$(TargetPath)"  "$(ProjectDir)\..\..\..\Assets\Plugins\x86\"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -99,7 +99,7 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>copy  "$(TargetPath)"  "$(ProjectDir)\..\..\..\Assets\Plugins\SOSKernel\"</Command>
+      <Command>copy  "$(TargetPath)"  "$(ProjectDir)\..\..\..\Assets\Plugins\x86\"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

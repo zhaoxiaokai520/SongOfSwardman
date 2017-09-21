@@ -121,6 +121,9 @@ namespace Assets.Scripts.Role
             {
                 mFSM.Start();
             }
+
+            GameCore.test tst = new GameCore.test();
+            tst.testDummy(0.0f);
         }
 
         void Start()
