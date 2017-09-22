@@ -7,8 +7,9 @@ extern "C" {
 
  __declspec(dllexport) int testInterface()
 {
+     printf("test c log");
     std::cout << "c style testInterface called" << std::endl;
-    return 0;
+    return 9999;
 }
 
 #ifdef __cplusplus

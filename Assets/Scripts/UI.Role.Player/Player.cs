@@ -7,6 +7,8 @@ using Assets.Scripts.Utility;
 using Assets.Scripts.UI.Mgr;
 using bbv.Common.StateMachine;
 using bbv.Common.StateMachine.Extensions;
+using System;
+using System.IO;
 
 namespace Assets.Scripts.Role
 {
@@ -122,8 +124,30 @@ namespace Assets.Scripts.Role
                 mFSM.Start();
             }
 
-            GameCore.test tst = new GameCore.test();
-            tst.testDummy(0.0f);
+            AddDllPath();
+        }
+
+        void AddDllPath()
+        {
+            var currentPath = Environment.GetEnvironmentVariable("PATH", EnvironmentVariableTarget.Process);
+#if UNITY_EDITOR_32
+            var dllPath = Application.dataPath
+                + Path.DirectorySeparatorChar + "Plugins"
+                + Path.DirectorySeparatorChar + "x86";
+#elif UNITY_EDITOR_64
+            var dllPath = Application.dataPath
+                + Path.DirectorySeparatorChar + "Plugins"
+                + Path.DirectorySeparatorChar + "x86_64";
+#else // Player
+            var dllPath = Application.dataPath
+                + Path.DirectorySeparatorChar + "Plugins";
+
+#endif
+            if (currentPath != null && currentPath.Contains(dllPath) == false)
+            {
+                Environment.SetEnvironmentVariable("PATH", currentPath + Path.PathSeparator
+                    + dllPath, EnvironmentVariableTarget.Process);
+            }
         }
 
         void Start()
@@ -132,6 +156,10 @@ namespace Assets.Scripts.Role
             SosEventMgr.instance.Subscribe(UIEventId.move, OnRecvMoveEvent);
             SosEventMgr.instance.Subscribe(UIEventId.stop, OnRecvStopEvent);
             GameUpdateMgr.GetInstance().Register(this);
+
+
+            GameCore.test tst = new GameCore.test();
+            DebugHelper.Log("dummy = " + tst.testDummy(0.0f));
         }
 
         private void OnDestroy()
