@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 namespace Assets.Scripts.Battle.Ability
 {
@@ -11,7 +12,12 @@ namespace Assets.Scripts.Battle.Ability
     {
         public void UpdateSub(float delta)
         {
-            
+
+        }
+
+        public void RequestLongPath(Vector2 a)
+        {
+
         }
     }
 }

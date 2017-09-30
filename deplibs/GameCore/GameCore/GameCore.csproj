@@ -39,6 +39,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IntMath\AcosTable.cs" />
+    <Compile Include="IntMath\Atan2Table.cs" />
+    <Compile Include="IntMath\IntFactor.cs" />
+    <Compile Include="IntMath\IntLine.cs" />
+    <Compile Include="IntMath\IntMath.cs" />
+    <Compile Include="IntMath\RECT.cs" />
+    <Compile Include="IntMath\RectInt.cs" />
+    <Compile Include="IntMath\SinCosTable.cs" />
+    <Compile Include="IntMath\VecInt.cs" />
+    <Compile Include="IntMath\VecInt2.cs" />
+    <Compile Include="IntMath\VecInt3.cs" />
     <Compile Include="test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
