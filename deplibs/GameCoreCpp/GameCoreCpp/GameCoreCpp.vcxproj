@@ -88,6 +88,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <PostBuildEvent>
       <Command>copy "$(TargetPath)"  "$(ProjectDir)\..\..\..\Assets\Plugins\x86_64\"</Command>
@@ -121,6 +122,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -132,10 +134,56 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Defines\types.h" />
+    <ClInclude Include="src\Libs.posix\posix.h" />
+    <ClInclude Include="src\Libs.posix\posix_aio.h" />
+    <ClInclude Include="src\Libs.posix\posix_dlfcn.h" />
+    <ClInclude Include="src\Libs.posix\posix_errno.h" />
+    <ClInclude Include="src\Libs.posix\posix_filesystem.h" />
+    <ClInclude Include="src\Libs.posix\posix_mman.h" />
+    <ClInclude Include="src\Libs.posix\posix_pthread.h" />
+    <ClInclude Include="src\Libs.posix\posix_time.h" />
+    <ClInclude Include="src\Libs.posix\posix_types.h" />
+    <ClInclude Include="src\Libs.posix\posix_utsname.h" />
+    <ClInclude Include="src\Libs\precompiled.h" />
+    <ClInclude Include="src\PathFinding\CCmpPathfinder.h" />
+    <ClInclude Include="src\PathFinding\Component.h" />
+    <ClInclude Include="src\PathFinding\HierarchicalPathfinder.h" />
+    <ClInclude Include="src\PathFinding\ICmpObstruct.h" />
+    <ClInclude Include="src\PathFinding\ICmpObstructMgr.h" />
+    <ClInclude Include="src\PathFinding\ICmpPathfinder.h" />
+    <ClInclude Include="src\PathFinding\LongPathfinder.h" />
+    <ClInclude Include="src\PathFinding\Pathfinding.h" />
+    <ClInclude Include="src\PathFinding\PathGoal.h" />
+    <ClInclude Include="src\RVO2\Agent.h" />
+    <ClInclude Include="src\RVO2\Definitions.h" />
+    <ClInclude Include="src\RVO2\KdTree.h" />
+    <ClInclude Include="src\RVO2\Obstacle.h" />
+    <ClInclude Include="src\RVO2\RVO.h" />
+    <ClInclude Include="src\RVO2\RVOSimulator.h" />
+    <ClInclude Include="src\RVO2\Vector2.h" />
     <ClInclude Include="test.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Libs.posix\posix.cpp" />
+    <ClCompile Include="src\PathFinding\CCmpObstruct.cpp" />
+    <ClCompile Include="src\PathFinding\CCmpObstructMgr.cpp" />
+    <ClCompile Include="src\PathFinding\CCmpPathfinder.cpp" />
+    <ClCompile Include="src\PathFinding\CCmpUnitMotion.cpp" />
+    <ClCompile Include="src\PathFinding\HierarchicalPathfinder.cpp" />
+    <ClCompile Include="src\PathFinding\ICmpObstructMgr.cpp" />
+    <ClCompile Include="src\PathFinding\ICmpPathfinder.cpp" />
+    <ClCompile Include="src\PathFinding\LongPathfinder.cpp" />
+    <ClCompile Include="src\PathFinding\PathGoal.cpp" />
+    <ClCompile Include="src\PathFinding\ShortPathfinder.cpp" />
+    <ClCompile Include="src\RVO2\Agent.cpp" />
+    <ClCompile Include="src\RVO2\KdTree.cpp" />
+    <ClCompile Include="src\RVO2\Obstacle.cpp" />
+    <ClCompile Include="src\RVO2\RVOSimulator.cpp" />
     <ClCompile Include="test.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\PathFinding\ICmpObstructcpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

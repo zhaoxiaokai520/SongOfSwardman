@@ -27,7 +27,7 @@
  * The long-range pathfinding is done by a LongPathfinder object.
  */
 #include <vector>
-#include "types.h"
+#include "Defines/types.h"
 
 struct AsyncLongPathRequest
 {

@@ -13,15 +13,176 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Defines">
+      <UniqueIdentifier>{73841953-704c-4b91-9fbb-5b6b5a375560}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Libs">
+      <UniqueIdentifier>{94e86f8b-fbbd-4236-9cf4-5d29941517a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\PathFinding">
+      <UniqueIdentifier>{eed01ff9-9f3d-4fee-9f32-673222345ddb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\RVO2">
+      <UniqueIdentifier>{c567dc33-3959-4cc1-a16a-3dbb04506670}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Libs">
+      <UniqueIdentifier>{eb5b8c82-2682-4359-8979-b50344ff0ef1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\RVO2">
+      <UniqueIdentifier>{f8c0fecc-42e9-4531-a71c-2e78e44d0a3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\PathFinding">
+      <UniqueIdentifier>{07c4ab0a-97dd-4ecf-9a05-86bd696585a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Libs.posix">
+      <UniqueIdentifier>{f760864d-53ae-46a0-b2df-1b0415bdbcfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Libs.posix">
+      <UniqueIdentifier>{09fadb3b-1a6c-44a3-b26f-1a1fb529eca6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="test.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Defines\types.h">
+      <Filter>Header Files\Defines</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs\precompiled.h">
+      <Filter>Header Files\Libs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PathFinding\CCmpPathfinder.h">
+      <Filter>Header Files\PathFinding</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PathFinding\Component.h">
+      <Filter>Header Files\PathFinding</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PathFinding\HierarchicalPathfinder.h">
+      <Filter>Header Files\PathFinding</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PathFinding\ICmpObstruct.h">
+      <Filter>Header Files\PathFinding</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PathFinding\ICmpObstructMgr.h">
+      <Filter>Header Files\PathFinding</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PathFinding\ICmpPathfinder.h">
+      <Filter>Header Files\PathFinding</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PathFinding\LongPathfinder.h">
+      <Filter>Header Files\PathFinding</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PathFinding\Pathfinding.h">
+      <Filter>Header Files\PathFinding</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PathFinding\PathGoal.h">
+      <Filter>Header Files\PathFinding</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RVO2\RVO.h">
+      <Filter>Header Files\RVO2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RVO2\RVOSimulator.h">
+      <Filter>Header Files\RVO2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RVO2\Vector2.h">
+      <Filter>Header Files\RVO2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RVO2\Agent.h">
+      <Filter>Header Files\RVO2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RVO2\Definitions.h">
+      <Filter>Header Files\RVO2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RVO2\KdTree.h">
+      <Filter>Header Files\RVO2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RVO2\Obstacle.h">
+      <Filter>Header Files\RVO2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.posix\posix.h">
+      <Filter>Header Files\Libs.posix</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.posix\posix_aio.h">
+      <Filter>Header Files\Libs.posix</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.posix\posix_dlfcn.h">
+      <Filter>Header Files\Libs.posix</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.posix\posix_errno.h">
+      <Filter>Header Files\Libs.posix</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.posix\posix_filesystem.h">
+      <Filter>Header Files\Libs.posix</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.posix\posix_mman.h">
+      <Filter>Header Files\Libs.posix</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.posix\posix_pthread.h">
+      <Filter>Header Files\Libs.posix</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.posix\posix_time.h">
+      <Filter>Header Files\Libs.posix</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.posix\posix_types.h">
+      <Filter>Header Files\Libs.posix</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.posix\posix_utsname.h">
+      <Filter>Header Files\Libs.posix</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\PathFinding\ICmpPathfinder.cpp">
+      <Filter>Source Files\PathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PathFinding\LongPathfinder.cpp">
+      <Filter>Source Files\PathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PathFinding\PathGoal.cpp">
+      <Filter>Source Files\PathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PathFinding\ShortPathfinder.cpp">
+      <Filter>Source Files\PathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PathFinding\CCmpObstruct.cpp">
+      <Filter>Source Files\PathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PathFinding\CCmpObstructMgr.cpp">
+      <Filter>Source Files\PathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PathFinding\CCmpPathfinder.cpp">
+      <Filter>Source Files\PathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PathFinding\CCmpUnitMotion.cpp">
+      <Filter>Source Files\PathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PathFinding\HierarchicalPathfinder.cpp">
+      <Filter>Source Files\PathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PathFinding\ICmpObstructMgr.cpp">
+      <Filter>Source Files\PathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RVO2\Obstacle.cpp">
+      <Filter>Source Files\RVO2</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RVO2\RVOSimulator.cpp">
+      <Filter>Source Files\RVO2</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RVO2\Agent.cpp">
+      <Filter>Source Files\RVO2</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RVO2\KdTree.cpp">
+      <Filter>Source Files\RVO2</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Libs.posix\posix.cpp">
+      <Filter>Source Files\Libs.posix</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\PathFinding\ICmpObstructcpp">
+      <Filter>Source Files\PathFinding</Filter>
+    </None>
   </ItemGroup>
 </Project>
