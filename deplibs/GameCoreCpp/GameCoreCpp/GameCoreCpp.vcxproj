@@ -151,6 +151,7 @@
     <ClInclude Include="src\Libs.math\Plane.h" />
     <ClInclude Include="src\Libs.math\Quaternion.h" />
     <ClInclude Include="src\Libs.math\Random.h" />
+    <ClInclude Include="src\Libs.math\RECT.h" />
     <ClInclude Include="src\Libs.math\Sqrt.h" />
     <ClInclude Include="src\Libs.math\Vector2D.h" />
     <ClInclude Include="src\Libs.math\Vector3D.h" />
@@ -200,7 +201,7 @@
     <ClCompile Include="src\Libs.posix\posix.cpp" />
     <ClCompile Include="src\PathFinding\CCmpObstruct.cpp" />
     <ClCompile Include="src\PathFinding\CCmpObstructMgr.cpp" />
-    <ClCompile Include="src\PathFinding\CCmpPathfinder.cpp" />
+    <ClCompile Include="src\PathFinding\CCmpPathFinder.cpp" />
     <ClCompile Include="src\PathFinding\CCmpUnitMotion.cpp" />
     <ClCompile Include="src\PathFinding\HierarchicalPathfinder.cpp" />
     <ClCompile Include="src\PathFinding\ICmpObstructMgr.cpp" />

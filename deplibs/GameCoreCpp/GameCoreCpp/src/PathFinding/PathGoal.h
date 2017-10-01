@@ -18,7 +18,6 @@
 #ifndef INCLUDED_PATHGOAL
 #define INCLUDED_PATHGOAL
 
-#include ""
 
 /**
  * Pathfinder goal.
@@ -42,10 +41,22 @@ public:
 	int cx;//center x
 	int cy;//center y
 
-	union PathGoalData {
-		int radius;//circle series
+    union t_spec
+    {
+        int radius;
+        struct t_square
+        {
+            int u_x;
+            int u_y;
+            int v_x;
+            int v_y;
+            //TODO_VERIFY:can be calculated by u,v
+            //int hw;//half width
+            //int hh;//half height
+        } square;
+    } spec;
 
-	};
+    int maxdist;
 };
 
 #endif // INCLUDED_PATHGOAL

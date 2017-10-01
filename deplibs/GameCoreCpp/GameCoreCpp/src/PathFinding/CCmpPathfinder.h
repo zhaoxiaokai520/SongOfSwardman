@@ -24,6 +24,7 @@
  * but the short-range (vertex) pathfinding is done in CCmpPathfinder_Vertex.cpp.
  * This file provides common code needed for both files.
  *
+ * Interact with c# code as bridge
  * The long-range pathfinding is done by a LongPathfinder object.
  */
 #include <vector>
@@ -53,7 +54,7 @@ struct AsyncShortPathRequest
 	//entity_id_t notify;
 };
 
-class CCmpPathfinder
+class CCmpPathFinder
 {
 public:
 	void RequestLongPath();

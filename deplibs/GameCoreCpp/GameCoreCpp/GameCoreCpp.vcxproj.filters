@@ -195,6 +195,9 @@
     <ClInclude Include="src\Libs.math\Sqrt.h">
       <Filter>Header Files\Libs.math</Filter>
     </ClInclude>
+    <ClInclude Include="src\Libs.math\RECT.h">
+      <Filter>Header Files\Libs.math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test.cpp">
@@ -216,9 +219,6 @@
       <Filter>Source Files\PathFinding</Filter>
     </ClCompile>
     <ClCompile Include="src\PathFinding\CCmpObstructMgr.cpp">
-      <Filter>Source Files\PathFinding</Filter>
-    </ClCompile>
-    <ClCompile Include="src\PathFinding\CCmpPathfinder.cpp">
       <Filter>Source Files\PathFinding</Filter>
     </ClCompile>
     <ClCompile Include="src\PathFinding\CCmpUnitMotion.cpp">
@@ -280,6 +280,9 @@
     </ClCompile>
     <ClCompile Include="src\Libs.math\BoundingBoxAligned.cpp">
       <Filter>Source Files\Libs.math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PathFinding\CCmpPathFinder.cpp">
+      <Filter>Source Files\PathFinding</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

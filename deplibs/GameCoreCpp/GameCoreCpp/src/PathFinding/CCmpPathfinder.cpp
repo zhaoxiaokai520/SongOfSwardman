@@ -18,12 +18,45 @@
 /**
  * @file
  * Common code and setup code for CCmpPathfinder.
- * Interact with c# wrapper code
+ * Interact with c# code as bridge
  */
 
 #include "CCmpPathfinder.h"
+#include "Libs.math/Vector2D.h"
+#include "Libs.math/RECT.h"
+#include <iostream>
 
-void CCmpPathfinder::RequestLongPath()
+DLL void ReqPath(CVector2D from, CVector2D goal)
+{
+    printf("ReqPath c log");
+    std::cout << "c++ style ReqPath called" << std::endl;
+}
+
+DLL void ReqPath(CVector2D from, CVector2D center, int radius)
+{
+    printf("ReqPath c log");
+    std::cout << "c++ style ReqPath called" << std::endl;
+}
+
+DLL void ReqPath(CVector2D from, CRECT goal)
+{
+    printf("ReqPath c log");
+    std::cout << "c++ style ReqPath called" << std::endl;
+}
+
+DLL void ReqPathInvert(CVector2D from, CVector2D center, int radius)
+{
+    printf("ReqPath c log");
+    std::cout << "c++ style ReqPath called" << std::endl;
+}
+
+DLL void ReqPathInvert(CVector2D from, CRECT goal)
+{
+    printf("ReqPath c log");
+    std::cout << "c++ style ReqPath called" << std::endl;
+}
+
+void CCmpPathFinder::RequestLongPath()
 {
 
 }

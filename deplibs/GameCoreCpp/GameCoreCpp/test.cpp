@@ -1,11 +1,12 @@
 #include "test.h"
+#include "Defines/types.h"
 #include <iostream>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
- __declspec(dllexport) int testInterface()
+DLL int testInterface()
 {
      printf("test c log");
     std::cout << "c style testInterface called" << std::endl;

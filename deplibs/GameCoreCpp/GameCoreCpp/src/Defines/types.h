@@ -41,4 +41,6 @@ typedef uint64_t u64;
 
 typedef unsigned int uint;
 
+#define DLL __declspec(dllexport)
+
 #endif // #ifndef INCLUDED_TYPES
