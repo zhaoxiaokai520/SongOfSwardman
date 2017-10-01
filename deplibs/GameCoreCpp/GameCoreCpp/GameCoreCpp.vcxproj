@@ -135,6 +135,26 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Defines\types.h" />
+    <ClInclude Include="src\Libs.math\BoundingBoxAligned.h" />
+    <ClInclude Include="src\Libs.math\BoundingBoxOriented.h" />
+    <ClInclude Include="src\Libs.math\BoundingSphere.h" />
+    <ClInclude Include="src\Libs.math\Brush.h" />
+    <ClInclude Include="src\Libs.math\Ease.h" />
+    <ClInclude Include="src\Libs.math\Fixed.h" />
+    <ClInclude Include="src\Libs.math\FixedVector2D.h" />
+    <ClInclude Include="src\Libs.math\FixedVector3D.h" />
+    <ClInclude Include="src\Libs.math\MathUtil.h" />
+    <ClInclude Include="src\Libs.math\Matrix3D.h" />
+    <ClInclude Include="src\Libs.math\MD5.h" />
+    <ClInclude Include="src\Libs.math\Noise.h" />
+    <ClInclude Include="src\Libs.math\NUSpline.h" />
+    <ClInclude Include="src\Libs.math\Plane.h" />
+    <ClInclude Include="src\Libs.math\Quaternion.h" />
+    <ClInclude Include="src\Libs.math\Random.h" />
+    <ClInclude Include="src\Libs.math\Sqrt.h" />
+    <ClInclude Include="src\Libs.math\Vector2D.h" />
+    <ClInclude Include="src\Libs.math\Vector3D.h" />
+    <ClInclude Include="src\Libs.math\Vector4D.h" />
     <ClInclude Include="src\Libs.posix\posix.h" />
     <ClInclude Include="src\Libs.posix\posix_aio.h" />
     <ClInclude Include="src\Libs.posix\posix_dlfcn.h" />
@@ -165,6 +185,18 @@
     <ClInclude Include="test.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Libs.math\BoundingBoxAligned.cpp" />
+    <ClCompile Include="src\Libs.math\BoundingBoxOriented.cpp" />
+    <ClCompile Include="src\Libs.math\Brush.cpp" />
+    <ClCompile Include="src\Libs.math\Fixed.cpp" />
+    <ClCompile Include="src\Libs.math\Matrix3D.cpp" />
+    <ClCompile Include="src\Libs.math\MD5.cpp" />
+    <ClCompile Include="src\Libs.math\Noise.cpp" />
+    <ClCompile Include="src\Libs.math\NUSpline.cpp" />
+    <ClCompile Include="src\Libs.math\Plane.cpp" />
+    <ClCompile Include="src\Libs.math\Quaternion.cpp" />
+    <ClCompile Include="src\Libs.math\Sqrt.cpp" />
+    <ClCompile Include="src\Libs.math\Vector3D.cpp" />
     <ClCompile Include="src\Libs.posix\posix.cpp" />
     <ClCompile Include="src\PathFinding\CCmpObstruct.cpp" />
     <ClCompile Include="src\PathFinding\CCmpObstructMgr.cpp" />

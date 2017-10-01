@@ -50,6 +50,7 @@
     <Compile Include="IntMath\VecInt.cs" />
     <Compile Include="IntMath\VecInt2.cs" />
     <Compile Include="IntMath\VecInt3.cs" />
+    <Compile Include="PathFinding\PathFinder.cs" />
     <Compile Include="test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

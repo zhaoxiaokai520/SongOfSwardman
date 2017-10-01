@@ -40,6 +40,12 @@
     <Filter Include="Source Files\Libs.posix">
       <UniqueIdentifier>{09fadb3b-1a6c-44a3-b26f-1a1fb529eca6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Libs.math">
+      <UniqueIdentifier>{fe590f43-4baf-46a1-9ead-89b75d775f7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Libs.math">
+      <UniqueIdentifier>{a79b2db2-640d-4535-a308-b33e6bec6a31}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="test.h">
@@ -129,6 +135,66 @@
     <ClInclude Include="src\Libs.posix\posix_utsname.h">
       <Filter>Header Files\Libs.posix</Filter>
     </ClInclude>
+    <ClInclude Include="src\Libs.math\Vector2D.h">
+      <Filter>Header Files\Libs.math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.math\Vector3D.h">
+      <Filter>Header Files\Libs.math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.math\Vector4D.h">
+      <Filter>Header Files\Libs.math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.math\BoundingBoxAligned.h">
+      <Filter>Header Files\Libs.math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.math\BoundingBoxOriented.h">
+      <Filter>Header Files\Libs.math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.math\BoundingSphere.h">
+      <Filter>Header Files\Libs.math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.math\Brush.h">
+      <Filter>Header Files\Libs.math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.math\Ease.h">
+      <Filter>Header Files\Libs.math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.math\Fixed.h">
+      <Filter>Header Files\Libs.math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.math\FixedVector2D.h">
+      <Filter>Header Files\Libs.math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.math\FixedVector3D.h">
+      <Filter>Header Files\Libs.math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.math\MathUtil.h">
+      <Filter>Header Files\Libs.math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.math\Matrix3D.h">
+      <Filter>Header Files\Libs.math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.math\MD5.h">
+      <Filter>Header Files\Libs.math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.math\Noise.h">
+      <Filter>Header Files\Libs.math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.math\NUSpline.h">
+      <Filter>Header Files\Libs.math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.math\Plane.h">
+      <Filter>Header Files\Libs.math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.math\Quaternion.h">
+      <Filter>Header Files\Libs.math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.math\Random.h">
+      <Filter>Header Files\Libs.math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.math\Sqrt.h">
+      <Filter>Header Files\Libs.math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test.cpp">
@@ -178,6 +244,42 @@
     </ClCompile>
     <ClCompile Include="src\Libs.posix\posix.cpp">
       <Filter>Source Files\Libs.posix</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Libs.math\BoundingBoxOriented.cpp">
+      <Filter>Source Files\Libs.math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Libs.math\Brush.cpp">
+      <Filter>Source Files\Libs.math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Libs.math\Fixed.cpp">
+      <Filter>Source Files\Libs.math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Libs.math\Matrix3D.cpp">
+      <Filter>Source Files\Libs.math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Libs.math\MD5.cpp">
+      <Filter>Source Files\Libs.math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Libs.math\Noise.cpp">
+      <Filter>Source Files\Libs.math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Libs.math\NUSpline.cpp">
+      <Filter>Source Files\Libs.math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Libs.math\Plane.cpp">
+      <Filter>Source Files\Libs.math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Libs.math\Quaternion.cpp">
+      <Filter>Source Files\Libs.math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Libs.math\Sqrt.cpp">
+      <Filter>Source Files\Libs.math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Libs.math\Vector3D.cpp">
+      <Filter>Source Files\Libs.math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Libs.math\BoundingBoxAligned.cpp">
+      <Filter>Source Files\Libs.math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

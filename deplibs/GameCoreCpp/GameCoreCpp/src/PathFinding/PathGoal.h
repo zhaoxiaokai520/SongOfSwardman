@@ -18,6 +18,7 @@
 #ifndef INCLUDED_PATHGOAL
 #define INCLUDED_PATHGOAL
 
+#include ""
 
 /**
  * Pathfinder goal.
@@ -38,7 +39,13 @@ public:
 		INVERTED_SQUARE  // the area outside a square
 	} type;
 
-	
+	int cx;//center x
+	int cy;//center y
+
+	union PathGoalData {
+		int radius;//circle series
+
+	};
 };
 
 #endif // INCLUDED_PATHGOAL
