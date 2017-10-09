@@ -198,6 +198,9 @@
     <ClInclude Include="src\Libs.math\RECT.h">
       <Filter>Header Files\Libs.math</Filter>
     </ClInclude>
+    <ClInclude Include="EfficiencyNativeCppDll.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test.cpp">
@@ -283,6 +286,9 @@
     </ClCompile>
     <ClCompile Include="src\PathFinding\CCmpPathFinder.cpp">
       <Filter>Source Files\PathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="EfficiencyNativeCppDll.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

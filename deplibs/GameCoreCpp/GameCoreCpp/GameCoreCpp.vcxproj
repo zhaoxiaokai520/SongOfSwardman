@@ -68,7 +68,12 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -76,7 +81,7 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <PostBuildEvent>
-      <Command>copy  "$(TargetPath)"  "$(ProjectDir)\..\..\..\Assets\Plugins\x86\"</Command>
+      <Command>xcopy  "$(TargetPath)"  "$(ProjectDir)\..\..\..\Assets\Plugins\"</Command>
     </PostBuildEvent>
     <Link>
       <AdditionalDependencies>
@@ -91,7 +96,7 @@
       <AdditionalIncludeDirectories>$(ProjectDir)\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <PostBuildEvent>
-      <Command>copy "$(TargetPath)"  "$(ProjectDir)\..\..\..\Assets\Plugins\x86_64\"</Command>
+      <Command>xcopy  "$(TargetPath)"  "$(ProjectDir)\..\..\..\Assets\Plugins\"</Command>
     </PostBuildEvent>
     <Link>
       <AdditionalDependencies />
@@ -112,7 +117,7 @@
       </AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy  "$(TargetPath)"  "$(ProjectDir)\..\..\..\Assets\Plugins\x86\"</Command>
+      <Command>xcopy  "$(TargetPath)"  "$(ProjectDir)\..\..\..\Assets\Plugins\"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -130,10 +135,11 @@
       <AdditionalDependencies />
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(TargetPath)"  "$(ProjectDir)\..\..\..\Assets\Plugins\x86_64\"</Command>
+      <Command>xcopy  "$(TargetPath)"  "$(ProjectDir)\..\..\..\Assets\Plugins\"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="EfficiencyNativeCppDll.h" />
     <ClInclude Include="src\Defines\types.h" />
     <ClInclude Include="src\Libs.math\BoundingBoxAligned.h" />
     <ClInclude Include="src\Libs.math\BoundingBoxOriented.h" />
@@ -186,6 +192,7 @@
     <ClInclude Include="test.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="EfficiencyNativeCppDll.cpp" />
     <ClCompile Include="src\Libs.math\BoundingBoxAligned.cpp" />
     <ClCompile Include="src\Libs.math\BoundingBoxOriented.cpp" />
     <ClCompile Include="src\Libs.math\Brush.cpp" />

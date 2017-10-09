@@ -1,11 +1,18 @@
 #ifndef INCLUDED_TEST_INTERFACE
 #define INCLUDED_TEST_INTERFACE
 
+#include "Defines/types.h"
+
+typedef void(*CallBack)();
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-    extern __declspec(dllexport) int testInterface();
+    extern DLL int testInterface();
+    extern DLL void AddCallback(int code, CallBack cb);
+    extern DLL void RmvCallback(int code, CallBack cb);
+    extern DLL void UpdateNative(int turnLength);
 
 #ifdef __cplusplus
 }

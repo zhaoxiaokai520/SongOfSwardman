@@ -37,8 +37,13 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\Library\UnityAssemblies\UnityEngine.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EfficiencyCLRWrapper.cs" />
+    <Compile Include="Glue.cs" />
     <Compile Include="IntMath\AcosTable.cs" />
     <Compile Include="IntMath\Atan2Table.cs" />
     <Compile Include="IntMath\IntFactor.cs" />
@@ -51,12 +56,13 @@
     <Compile Include="IntMath\VecInt2.cs" />
     <Compile Include="IntMath\VecInt3.cs" />
     <Compile Include="PathFinding\PathFinder.cs" />
+    <Compile Include="Singleton.cs" />
     <Compile Include="test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy  "$(TargetPath)"  "$(ProjectDir)\..\..\..\Assets\scripts\Kernel\"</PostBuildEvent>
+    <PostBuildEvent>copy  "$(TargetPath)"  "$(ProjectDir)\..\..\..\Assets\Plugins\"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
