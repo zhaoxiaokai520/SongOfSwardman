@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.UI.Mgr;
+using Assets.Scripts.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,13 @@ namespace Assets.Scripts.Core
                 _sInstance = this;
                 //GameObject.DontDestroyOnLoad(s_instance);
             }
+            InvokeRepeating("UpdateNative", 0.0f, 1f);
+        }
+
+        private void UpdateNative()
+        {
+            DebugHelper.Log("UpdateNative");
+            GameCore.Glue.GetInstance().UpdateSub(0);
         }
 
         private void Start()

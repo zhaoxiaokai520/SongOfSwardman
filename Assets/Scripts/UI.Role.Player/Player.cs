@@ -157,9 +157,17 @@ namespace Assets.Scripts.Role
             SosEventMgr.instance.Subscribe(UIEventId.stop, OnRecvStopEvent);
             GameUpdateMgr.GetInstance().Register(this);
 
-
             GameCore.test tst = new GameCore.test();
-            DebugHelper.Log("dummy = " + tst.testDummy(0.0f));
+            GameCore.Glue glue = GameCore.Glue.GetInstance();
+            //glue.AddListener(0, NativeCallback);
+            //glue.RemoveListener(0, NativeCallback);
+            //DebugHelper.Log("dummy = " + tst.testDummy(0.0f));
+            //DebugHelper.Log("dummy 2 = " + GameCore.test.testInterface());
+        }
+
+        void NativeCallback()
+        {
+
         }
 
         private void OnDestroy()
@@ -202,6 +210,8 @@ namespace Assets.Scripts.Role
 
 		public void UpdateSub(float delta)
         {
+            GameCore.Glue.GetInstance().UpdateSub(0);
+
             if (Input.GetKeyUp(KeyCode.Space))
             {
                 SosEventMgr.instance.Publish(MapEventId.action, this, SosEventArgs.EmptyEvt);
