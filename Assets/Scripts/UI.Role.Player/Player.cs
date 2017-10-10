@@ -100,9 +100,23 @@ namespace Assets.Scripts.Role
         InputMode inputMode = InputMode.NoInput;
         PassiveStateMachine<States, Events> mFSM;
         Vector2 mStepOffset;
+#if UNITY_EDITOR 
+        static IntPtr nativeLibraryPtr;
 
+        delegate int MultiplyFloat(float number, float multiplyBy);
+        delegate void DoSomething(string words);
+#endif
         void Awake()
         {
+#if UNITY_EDITOR
+            if (nativeLibraryPtr != IntPtr.Zero) return;
+
+            nativeLibraryPtr = NativePluginHelper.LoadLibrary("MyNativeLibraryName");
+            if (nativeLibraryPtr == IntPtr.Zero)
+            {
+                Debug.LogError("Failed to load native library");
+            }
+#endif
             floorMask = LayerMask.GetMask("Floor");
             anim = GetComponent<Animator>();
             mStepOffset = Vector2.zero;
@@ -184,7 +198,18 @@ namespace Assets.Scripts.Role
             }
         }
 
-		public void LateUpdateSub(float delta)
+        void OnApplicationQuit()
+        {
+#if UNITY_EDITOR
+            if (nativeLibraryPtr == IntPtr.Zero) return;
+
+            Debug.Log(NativePluginHelper.FreeLibrary(nativeLibraryPtr)
+                          ? "Native library successfully unloaded."
+                          : "Native library could not be unloaded.");
+#endif
+        }
+
+        public void LateUpdateSub(float delta)
         {
             //if (InputMgr.GetInstance().GetLevel() > _inputLevel)
             //{
@@ -210,7 +235,11 @@ namespace Assets.Scripts.Role
 
 		public void UpdateSub(float delta)
         {
+#if UNITY_EDITOR
             GameCore.Glue.GetInstance().UpdateSub(0);
+            NativePluginHelper.Invoke<DoSomething>(nativeLibraryPtr, "Hello, World!");
+            int result = NativePluginHelper.Invoke<int, MultiplyFloat>(nativeLibraryPtr, 10, 5);
+#endif
 
             if (Input.GetKeyUp(KeyCode.Space))
             {

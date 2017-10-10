@@ -101,6 +101,9 @@
     <Link>
       <AdditionalDependencies />
     </Link>
+    <PreBuildEvent>
+      <Command>del/f/s/q  "$(ProjectDir)\..\..\..\Assets\Plugins\$(TargetFileName)"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
