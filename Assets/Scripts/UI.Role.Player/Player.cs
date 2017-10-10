@@ -100,23 +100,11 @@ namespace Assets.Scripts.Role
         InputMode inputMode = InputMode.NoInput;
         PassiveStateMachine<States, Events> mFSM;
         Vector2 mStepOffset;
-#if UNITY_EDITOR 
-        static IntPtr nativeLibraryPtr;
 
-        delegate int MultiplyFloat(float number, float multiplyBy);
-        delegate void DoSomething(string words);
-#endif
         void Awake()
         {
-#if UNITY_EDITOR
-            if (nativeLibraryPtr != IntPtr.Zero) return;
+            NativePluginHelper.LoadNativeDll();
 
-            nativeLibraryPtr = NativePluginHelper.LoadLibrary("MyNativeLibraryName");
-            if (nativeLibraryPtr == IntPtr.Zero)
-            {
-                Debug.LogError("Failed to load native library");
-            }
-#endif
             floorMask = LayerMask.GetMask("Floor");
             anim = GetComponent<Animator>();
             mStepOffset = Vector2.zero;
@@ -138,7 +126,7 @@ namespace Assets.Scripts.Role
                 mFSM.Start();
             }
 
-            AddDllPath();
+            //AddDllPath();
         }
 
         void AddDllPath()
@@ -173,9 +161,9 @@ namespace Assets.Scripts.Role
 
             GameCore.test tst = new GameCore.test();
             GameCore.Glue glue = GameCore.Glue.GetInstance();
-            //glue.AddListener(0, NativeCallback);
-            //glue.RemoveListener(0, NativeCallback);
-            //DebugHelper.Log("dummy = " + tst.testDummy(0.0f));
+            glue.AddListener(0, NativeCallback);
+            glue.RemoveListener(0, NativeCallback);
+            DebugHelper.Log("dummy = " + tst.testDummy(0.0f));
             //DebugHelper.Log("dummy 2 = " + GameCore.test.testInterface());
         }
 
@@ -200,13 +188,7 @@ namespace Assets.Scripts.Role
 
         void OnApplicationQuit()
         {
-#if UNITY_EDITOR
-            if (nativeLibraryPtr == IntPtr.Zero) return;
-
-            Debug.Log(NativePluginHelper.FreeLibrary(nativeLibraryPtr)
-                          ? "Native library successfully unloaded."
-                          : "Native library could not be unloaded.");
-#endif
+            NativePluginHelper.OnAppQuit();
         }
 
         public void LateUpdateSub(float delta)
@@ -235,11 +217,7 @@ namespace Assets.Scripts.Role
 
 		public void UpdateSub(float delta)
         {
-#if UNITY_EDITOR
-            GameCore.Glue.GetInstance().UpdateSub(0);
-            NativePluginHelper.Invoke<DoSomething>(nativeLibraryPtr, "Hello, World!");
-            int result = NativePluginHelper.Invoke<int, MultiplyFloat>(nativeLibraryPtr, 10, 5);
-#endif
+            NativePluginHelper.OnUpdate();
 
             if (Input.GetKeyUp(KeyCode.Space))
             {

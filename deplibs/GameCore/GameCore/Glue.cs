@@ -15,12 +15,19 @@ namespace GameCore
             public int b;
         }
 
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        delegate void AddCallback(int code, CallBack cb);
+        delegate void RmvCallback(int code, CallBack cb);
+        delegate void UpdateNative(int turnLength);
+#else
         [DllImport("GameCoreCpp")]
         static extern void AddCallback(int code, CallBack cb);
         [DllImport("GameCoreCpp")]
         static extern void RmvCallback(int code, CallBack cb);
         [DllImport("GameCoreCpp")]
         static extern void UpdateNative(int turnLength);
+#endif
+
 
         public delegate void CallBack();
 
@@ -51,23 +58,37 @@ namespace GameCore
 
         public void AddListener(int code, CallBack l)
         {
+            Debug.Log("AddListener=========");
             //List<IListener> slot = FetchOrCreateSlot(code);
             //if (l != null && !slot.Contains(l))
             //    slot.Add(l);
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+            NativePluginHelper.Invoke<AddCallback>(NativePluginHelper.nativeLibraryPtr, code, l);
+#else
             AddCallback(code, l);
+#endif
         }
 
         public void RemoveListener(int code, CallBack l)
         {
+            Debug.Log("RemoveListener============");
             //List<IListener> slot = FetchOrCreateSlot(code);
             //if (slot.Contains(l))
             //    slot.Remove(l);
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+            NativePluginHelper.Invoke<RmvCallback>(NativePluginHelper.nativeLibraryPtr, code, l);
+#else
             RmvCallback(code, l);
+#endif
         }
 
         public void UpdateSub(int turnLength)
         {
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+            NativePluginHelper.Invoke<UpdateNative>(NativePluginHelper.nativeLibraryPtr, turnLength);
+#else
             UpdateNative(turnLength);
+#endif
         }
     }
 }

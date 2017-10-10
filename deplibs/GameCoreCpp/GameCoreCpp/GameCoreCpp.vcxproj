@@ -96,13 +96,14 @@
       <AdditionalIncludeDirectories>$(ProjectDir)\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <PostBuildEvent>
-      <Command>xcopy  "$(TargetPath)"  "$(ProjectDir)\..\..\..\Assets\Plugins\"</Command>
+      <Command>copy  "$(TargetPath)"  "$(ProjectDir)\..\..\..\ReloadableNativeDll\"</Command>
     </PostBuildEvent>
     <Link>
       <AdditionalDependencies />
     </Link>
     <PreBuildEvent>
-      <Command>del/f/s/q  "$(ProjectDir)\..\..\..\Assets\Plugins\$(TargetFileName)"</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -138,7 +139,7 @@
       <AdditionalDependencies />
     </Link>
     <PostBuildEvent>
-      <Command>xcopy  "$(TargetPath)"  "$(ProjectDir)\..\..\..\Assets\Plugins\"</Command>
+      <Command>copy  "$(TargetPath)"  "$(ProjectDir)\..\..\..\ReloadableNativeDll\"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

@@ -11,7 +11,7 @@ DLL int testInterface()
 {
      printf("test c log");
     std::cout << "c style testInterface called" << std::endl;
-    assert(false);
+    //assert(false);
     return 1111;
 }
 
