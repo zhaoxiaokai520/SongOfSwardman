@@ -177,13 +177,13 @@
     <ClInclude Include="src\Libs.posix\posix_types.h" />
     <ClInclude Include="src\Libs.posix\posix_utsname.h" />
     <ClInclude Include="src\Libs\precompiled.h" />
-    <ClInclude Include="src\PathFinding\CCmpPathfinder.h" />
     <ClInclude Include="src\PathFinding\Component.h" />
     <ClInclude Include="src\PathFinding\HierarchicalPathfinder.h" />
     <ClInclude Include="src\PathFinding\ICmpObstruct.h" />
     <ClInclude Include="src\PathFinding\ICmpObstructMgr.h" />
     <ClInclude Include="src\PathFinding\ICmpPathfinder.h" />
     <ClInclude Include="src\PathFinding\LongPathfinder.h" />
+    <ClInclude Include="src\PathFinding\PathFinder.h" />
     <ClInclude Include="src\PathFinding\Pathfinding.h" />
     <ClInclude Include="src\PathFinding\PathGoal.h" />
     <ClInclude Include="src\RVO2\Agent.h" />
@@ -212,7 +212,7 @@
     <ClCompile Include="src\Libs.posix\posix.cpp" />
     <ClCompile Include="src\PathFinding\CCmpObstruct.cpp" />
     <ClCompile Include="src\PathFinding\CCmpObstructMgr.cpp" />
-    <ClCompile Include="src\PathFinding\CCmpPathFinder.cpp" />
+    <ClCompile Include="src\PathFinding\PathFinder.cpp" />
     <ClCompile Include="src\PathFinding\CCmpUnitMotion.cpp" />
     <ClCompile Include="src\PathFinding\HierarchicalPathfinder.cpp" />
     <ClCompile Include="src\PathFinding\ICmpObstructMgr.cpp" />

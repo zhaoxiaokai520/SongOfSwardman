@@ -9,12 +9,12 @@ namespace Assets.Scripts.Role
         // Use this for initialization
 		void Start()
 		{
-			GameUpdateMgr.GetInstance().Register (this);
+			GameUpdateMgr.Register (this);
 		}
 
 		void OnDestory()
 		{
-			GameUpdateMgr.instance.Unregister (this);
+			GameUpdateMgr.Unregister (this);
 		}
 
         // Update is called once per frame

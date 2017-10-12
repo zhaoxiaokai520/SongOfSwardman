@@ -11,19 +11,19 @@ public class PathFinder
     delegate void ReqPathInvertC(VecInt2 from, VecInt2 center, int radius);
     delegate void ReqPathInvertR(VecInt2 from, RECT goal);
 #else
-    [DllImport("GameCoreCpp.dll", EntryPoint = "ReqPathP", CharSet = CharSet.Auto, CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("GameCoreCpp", EntryPoint = "ReqPathP", CharSet = CharSet.Auto, CallingConvention = CallingConvention.Cdecl)]
     public static extern void ReqPathP(VecInt2 from, VecInt2 goal);
 
-    [DllImport("GameCoreCpp.dll", EntryPoint = "ReqPathC", CharSet = CharSet.Auto, CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("GameCoreCpp", EntryPoint = "ReqPathC", CharSet = CharSet.Auto, CallingConvention = CallingConvention.Cdecl)]
     public static extern void ReqPathC(VecInt2 from, VecInt2 center, int radius);
 
-    [DllImport("GameCoreCpp.dll", EntryPoint = "ReqPathR", CharSet = CharSet.Auto, CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("GameCoreCpp", EntryPoint = "ReqPathR", CharSet = CharSet.Auto, CallingConvention = CallingConvention.Cdecl)]
     public static extern void ReqPathR(VecInt2 from, RECT goal);
 
-    [DllImport("GameCoreCpp.dll", EntryPoint = "ReqPathInvertC", CharSet = CharSet.Auto, CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("GameCoreCpp", EntryPoint = "ReqPathInvertC", CharSet = CharSet.Auto, CallingConvention = CallingConvention.Cdecl)]
     public static extern void ReqPathInvertC(VecInt2 from, VecInt2 center, int radius);
 
-    [DllImport("GameCoreCpp.dll", EntryPoint = "ReqPathInvertR", CharSet = CharSet.Auto, CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("GameCoreCpp", EntryPoint = "ReqPathInvertR", CharSet = CharSet.Auto, CallingConvention = CallingConvention.Cdecl)]
     public static extern void ReqPathInvertR(VecInt2 from, RECT goal);
 #endif
     #endregion

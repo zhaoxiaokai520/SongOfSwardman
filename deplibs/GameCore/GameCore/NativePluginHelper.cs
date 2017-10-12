@@ -4,15 +4,16 @@ using UnityEngine;
 
 public static class NativePluginHelper
 {
-//#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
     public static IntPtr nativeLibraryPtr;
 
     delegate int MultiplyFloat(float number, float multiplyBy);
     delegate void DoSomething(string words);
-//#endif
+#endif
 
     public static T Invoke<T, T2>(IntPtr library, params object[] pars)
     {
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
         IntPtr funcPtr = GetProcAddress(library, typeof(T2).Name);
         if (funcPtr == IntPtr.Zero)
         {
@@ -22,10 +23,15 @@ public static class NativePluginHelper
 
         var func = Marshal.GetDelegateForFunctionPointer(GetProcAddress(library, typeof(T2).Name), typeof(T2));
         return (T)func.DynamicInvoke(pars);
+#else
+        T t;
+        return t;
+#endif
     }
 
     public static void Invoke<T>(IntPtr library, params object[] pars)
     {
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
         IntPtr funcPtr = GetProcAddress(library, typeof(T).Name);
         if (funcPtr == IntPtr.Zero)
         {
@@ -35,12 +41,13 @@ public static class NativePluginHelper
 
         var func = Marshal.GetDelegateForFunctionPointer(funcPtr, typeof(T));
         func.DynamicInvoke(pars);
+#endif
     }
 
     public static void LoadNativeDll()
     {
         Debug.Log("LoadNativeDll==========");
-//#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
         if (nativeLibraryPtr != IntPtr.Zero) return;
 
         nativeLibraryPtr = NativePluginHelper.LoadLibrary("ReloadableNativeDll/GameCoreCpp");
@@ -48,31 +55,31 @@ public static class NativePluginHelper
         {
             Debug.LogError("Failed to load native library");
         }
-//#endif
+#endif
     }
 
     public static void OnUpdate()
     {
         //Debug.Log("OnUpdate==========");
-//#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
         GameCore.Glue.GetInstance().UpdateSub(0);
 
         //NativePluginHelper.Invoke<DoSomething>(nativeLibraryPtr, "Hello, World!");
         //int result = NativePluginHelper.Invoke<int, MultiplyFloat>(nativeLibraryPtr, 10, 5);
-//#endif
+#endif
     }
 
     public static void OnAppQuit()
     {
         Debug.Log("OnAppQuit==========");
-//#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
         if (nativeLibraryPtr == IntPtr.Zero) return;
 
         bool free = NativePluginHelper.FreeLibrary(nativeLibraryPtr);
         Debug.Log(free
                       ? "Native library successfully unloaded."
                       : "Native library could not be unloaded.");
-//#endif
+#endif
     }
 
     [DllImport("kernel32", SetLastError = true)]

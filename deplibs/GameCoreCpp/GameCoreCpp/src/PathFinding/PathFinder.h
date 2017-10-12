@@ -54,7 +54,7 @@ struct AsyncShortPathRequest
 	//entity_id_t notify;
 };
 
-class CCmpPathFinder
+class PathFinder
 {
 public:
 	void RequestLongPath();

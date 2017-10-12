@@ -38,12 +38,12 @@ namespace Assets.Scripts.Battle.Mgr
 
         public void AddListener()
         {
-            GameUpdateMgr.GetInstance().Register(this);
+            GameUpdateMgr.Register(this);
         }
 
         public void RmvListener()
         {
-            GameUpdateMgr.instance.Unregister(this);
+            GameUpdateMgr.Unregister(this);
         }
 
         public void UpdateSub(float delta)

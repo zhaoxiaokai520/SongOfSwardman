@@ -54,13 +54,13 @@ namespace Assets.SGUI
             canvasScaler = this.transform.parent.gameObject.GetComponent<CanvasScaler>();
             AKeyAudioSrc = AKey.GetComponent<AudioSource>();
             BKeyAudioSrc = BKey.GetComponent<AudioSource>();
-			GameUpdateMgr.GetInstance().Register(this);
+			GameUpdateMgr.Register(this);
         }
 
         private void OnDestroy()
         {
             rmvListener();
-			GameUpdateMgr.instance.Unregister(this);
+			GameUpdateMgr.Unregister(this);
         }
 
 		public void UpdateSub(float delta)

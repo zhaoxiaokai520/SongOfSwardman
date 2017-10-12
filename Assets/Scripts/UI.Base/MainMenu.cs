@@ -29,13 +29,13 @@ public class MainMenu : MonoBehaviour, IUpdateSub {
         //default show scroll hide menu
         mClickAudio = GetComponent<AudioSource>();
         UICamera.cullingMask |= LayerMask.GetMask("UI_Menu");
-		GameUpdateMgr.GetInstance().Register(this);
+		GameUpdateMgr.Register(this);
     }
 
     private void OnDestroy()
     {
         rmvListener();
-		GameUpdateMgr.instance.Unregister(this);
+		GameUpdateMgr.Unregister(this);
     }
 
     // Update is called once per frame

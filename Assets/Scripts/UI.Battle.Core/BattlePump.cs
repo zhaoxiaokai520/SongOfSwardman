@@ -38,12 +38,12 @@ namespace Assets.Scripts.Core
 
         private void Start()
         {
-			GameUpdateMgr.GetInstance().Register(this);
+			GameUpdateMgr.Register(this);
         }
 
 		void OnDestory()
 		{
-			GameUpdateMgr.instance.Unregister(this);
+			GameUpdateMgr.Unregister(this);
 		}
 
 		public void FixedUpdateSub(float delta)

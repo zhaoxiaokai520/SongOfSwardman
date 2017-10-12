@@ -18,12 +18,12 @@ namespace CompleteProject
             // Calculate the initial offset.
 			_cachedTransform = transform;
 			offset = _cachedTransform.position - target.position;
-			GameUpdateMgr.GetInstance().Register(this);
+			GameUpdateMgr.Register(this);
         }
 
 		void OnDestory()
 		{
-			GameUpdateMgr.instance.Unregister(this);
+			GameUpdateMgr.Unregister(this);
 		}
 
 		public void FixedUpdateSub (float delta)

@@ -107,53 +107,21 @@ namespace Assets.Scripts.UI.Mgr
             }
         }
 
-		public void Register(System.Object ilife)
-		{
-			IFixedUpdateSub ifus = ilife as IFixedUpdateSub;
-			if (null != ifus) 
-			{
-				if (!_fixedUpdateObjectList.Contains(ifus)) 
-				{
-					_fixedUpdateObjectList.Add(ifus);
-				}
-			}
+        public static void Register(System.Object ilife)
+        {
+            if (null != instance)
+            {
+                instance._register(ilife);
+            }
+        }
 
-			IUpdateSub ius = ilife as IUpdateSub;
-			if (null != ius) 
-			{
-				if (!_updateObjectList.Contains(ius))
-				{
-					_updateObjectList.Add(ius);
-				}
-			}
-
-			ILateUpdateSub ilus = ilife as ILateUpdateSub;
-			if (null != ilus) 
-			{
-				if (!_lateUpdateObjectList.Contains(ilus)) 
-				{
-					_lateUpdateObjectList.Add(ilus);
-				}
-			}
-		}
-
-		public void Unregister(System.Object ilife)
-		{
-			if (null != ilife as IFixedUpdateSub) 
-			{
-				_fixedUpdateObjectList.Remove(ilife as IFixedUpdateSub);
-			}
-
-			if (null != ilife as IUpdateSub) 
-			{
-				_updateObjectList.Remove(ilife as IUpdateSub);
-			}
-
-			if (null != ilife as ILateUpdateSub) 
-			{
-				_lateUpdateObjectList.Remove(ilife as ILateUpdateSub);
-			}
-		}
+        public static void Unregister(System.Object ilife)
+        {
+            if (null != instance)
+            {
+                instance._unregister(ilife);
+            }
+        }
 
         public void UnregisterAll()
         {
@@ -179,6 +147,54 @@ namespace Assets.Scripts.UI.Mgr
                 {
                     _fixedUpdateObjectList[i] = null;
                 }
+            }
+        }
+
+        private void _register(System.Object ilife)
+        {
+            IFixedUpdateSub ifus = ilife as IFixedUpdateSub;
+            if (null != ifus)
+            {
+                if (!_fixedUpdateObjectList.Contains(ifus))
+                {
+                    _fixedUpdateObjectList.Add(ifus);
+                }
+            }
+
+            IUpdateSub ius = ilife as IUpdateSub;
+            if (null != ius)
+            {
+                if (!_updateObjectList.Contains(ius))
+                {
+                    _updateObjectList.Add(ius);
+                }
+            }
+
+            ILateUpdateSub ilus = ilife as ILateUpdateSub;
+            if (null != ilus)
+            {
+                if (!_lateUpdateObjectList.Contains(ilus))
+                {
+                    _lateUpdateObjectList.Add(ilus);
+                }
+            }
+        }
+
+        public void _unregister(System.Object ilife)
+        {
+            if (null != ilife as IFixedUpdateSub)
+            {
+                _fixedUpdateObjectList.Remove(ilife as IFixedUpdateSub);
+            }
+
+            if (null != ilife as IUpdateSub)
+            {
+                _updateObjectList.Remove(ilife as IUpdateSub);
+            }
+
+            if (null != ilife as ILateUpdateSub)
+            {
+                _lateUpdateObjectList.Remove(ilife as ILateUpdateSub);
             }
         }
     }

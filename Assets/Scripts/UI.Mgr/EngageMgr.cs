@@ -23,13 +23,13 @@ namespace Assets.Scripts.UI.Mgr
         // Use this for initialization
         void Start()
         {
-            GameUpdateMgr.GetInstance().Register(this);
+            GameUpdateMgr.Register(this);
         }
 
         private void OnDestroy()
         {
             rmvListener();
-            GameUpdateMgr.instance.Unregister(this);
+            GameUpdateMgr.Unregister(this);
         }
 
         public void LateUpdateSub(float delta)

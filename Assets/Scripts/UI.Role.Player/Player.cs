@@ -157,7 +157,7 @@ namespace Assets.Scripts.Role
             //SosEventMgr.GetInstance().RegisterEvent(SosEventMgr.SosEventType.TALK, roleId, this);
             SosEventMgr.instance.Subscribe(UIEventId.move, OnRecvMoveEvent);
             SosEventMgr.instance.Subscribe(UIEventId.stop, OnRecvStopEvent);
-            GameUpdateMgr.GetInstance().Register(this);
+            GameUpdateMgr.Register(this);
 
             GameCore.test tst = new GameCore.test();
             GameCore.Glue glue = GameCore.Glue.GetInstance();
@@ -178,7 +178,7 @@ namespace Assets.Scripts.Role
             SosEventMgr.instance.Unsubscribe(UIEventId.stop, OnRecvStopEvent);
             //TODO OPTIONAL:GameUpdateMgr instance is null when stop editor running, 
             //Object.FindObjectByType failed of MonoSingleton
-            GameUpdateMgr.instance.Unregister(this);
+            GameUpdateMgr.Unregister(this);
 
             if (null != mFSM)
             {

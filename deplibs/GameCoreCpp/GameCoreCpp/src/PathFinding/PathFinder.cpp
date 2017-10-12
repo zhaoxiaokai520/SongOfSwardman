@@ -21,42 +21,42 @@
  * Interact with c# code as bridge
  */
 
-#include "CCmpPathfinder.h"
+#include "Pathfinder.h"
 #include "Libs.math/Vector2D.h"
 #include "Libs.math/RECT.h"
 #include <iostream>
 
-DLL void ReqPath(CVector2D from, CVector2D goal)
+DLL void ReqPathP(CVector2D from, CVector2D goal)
 {
     printf("ReqPath c log");
     std::cout << "c++ style ReqPath called" << std::endl;
 }
 
-DLL void ReqPath(CVector2D from, CVector2D center, int radius)
+DLL void ReqPathC(CVector2D from, CVector2D center, int radius)
 {
     printf("ReqPath c log");
     std::cout << "c++ style ReqPath called" << std::endl;
 }
 
-DLL void ReqPath(CVector2D from, CRECT goal)
+DLL void ReqPathR(CVector2D from, CRECT goal)
 {
     printf("ReqPath c log");
     std::cout << "c++ style ReqPath called" << std::endl;
 }
 
-DLL void ReqPathInvert(CVector2D from, CVector2D center, int radius)
+DLL void ReqPathInvertC(CVector2D from, CVector2D center, int radius)
 {
     printf("ReqPath c log");
     std::cout << "c++ style ReqPath called" << std::endl;
 }
 
-DLL void ReqPathInvert(CVector2D from, CRECT goal)
+DLL void ReqPathInvertR(CVector2D from, CRECT goal)
 {
     printf("ReqPath c log");
     std::cout << "c++ style ReqPath called" << std::endl;
 }
 
-void CCmpPathFinder::RequestLongPath()
+void PathFinder::RequestLongPath()
 {
 
 }

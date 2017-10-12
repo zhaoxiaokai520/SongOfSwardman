@@ -39,7 +39,7 @@ namespace Assets.Scripts.UI.Base
         {
             SosEventMgr.instance.Subscribe(UIEventId.move, OnRecvMoveEvent);
             SosEventMgr.instance.Subscribe(UIEventId.stop, OnRecvStopEvent);
-            GameUpdateMgr.GetInstance().Register(this);
+            GameUpdateMgr.Register(this);
         }
 
         public void RmvListener()
@@ -48,7 +48,7 @@ namespace Assets.Scripts.UI.Base
             SosEventMgr.instance.Unsubscribe(UIEventId.stop, OnRecvStopEvent);
             //TODO OPTIONAL:GameUpdateMgr instance is null when stop editor running, 
             //Object.FindObjectByType failed of MonoSingleton
-            GameUpdateMgr.instance.Unregister(this);
+            GameUpdateMgr.Unregister(this);
         }
 
         public void LateUpdateSub(float delta)

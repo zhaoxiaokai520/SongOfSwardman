@@ -23,12 +23,12 @@ namespace Assets.Scripts.Battle.Actor
         {
             _actorData = ActorRoot.Create(transform.position, transform.rotation, transform.forward, Camp.Enemy, gameId);
             ActorMgr.instance.AddActor(_actorData);
-			GameUpdateMgr.GetInstance().Register(this);
+			GameUpdateMgr.Register(this);
         }
 
 		void OnDestory()
 		{
-			GameUpdateMgr.instance.Unregister(this);
+			GameUpdateMgr.Unregister(this);
 		}
 
 		public void UpdateSub(float delta)

@@ -74,8 +74,15 @@ public class MonoSingleton<T> : MonoBehaviour where T : Component
 		{
 			MonoSingleton<T>._instance = base.GetComponent<T>();
 		}
-		UnityEngine.Object.DontDestroyOnLoad(base.gameObject);
-		Init();
+
+        Transform tmp = base.transform;
+        while (null != tmp && null != tmp.parent)
+        {
+            tmp = base.transform.parent;
+        }
+		//UnityEngine.Object.DontDestroyOnLoad(base.gameObject);
+        UnityEngine.Object.DontDestroyOnLoad(tmp.gameObject);
+        Init();
 	}
 
 	protected virtual void OnDestroy()

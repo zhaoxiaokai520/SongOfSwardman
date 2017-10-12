@@ -9,7 +9,7 @@ namespace GameCore
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
         delegate int testInterface();
 #else
-        [DllImport("GameCoreCpp.dll", EntryPoint = "testInterface", CharSet = CharSet.Auto, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("GameCoreCpp", EntryPoint = "testInterface", CharSet = CharSet.Auto, CallingConvention = CallingConvention.Cdecl)]
         public static extern int testInterface();
 #endif
         
