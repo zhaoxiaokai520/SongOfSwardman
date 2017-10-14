@@ -4,19 +4,19 @@ using System.Diagnostics;
 [Serializable]
 public struct VecInt2
 {
-    public const int Precision = 1000;
+    //public const int Precision = 1000;
 
-    public const float FloatPrecision = 1000f;
+    //public const float FloatPrecision = 1000f;
 
-    public const float PrecisionFactor = 0.001f;
+    //public const float PrecisionFactor = 0.001f;
 
 	public int x;
 
 	public int y;
 
-    public float fx { get { return (float)x * PrecisionFactor; } set { x = (int)Math.Round(value * FloatPrecision); } }
+    //public float fx { get { return (float)x * PrecisionFactor; } set { x = (int)Math.Round(value * FloatPrecision); } }
 
-    public float fy { get { return (float)y * PrecisionFactor; } set { y = (int)Math.Round(value * FloatPrecision); } }
+    //public float fy { get { return (float)y * PrecisionFactor; } set { y = (int)Math.Round(value * FloatPrecision); } }
 
 	public static VecInt2 zero = default(VecInt2);
 

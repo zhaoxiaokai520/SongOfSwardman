@@ -28,7 +28,7 @@ public class PathFinder
 #endif
     #endregion
 
-    void RequestPath(VecInt2 from, VecInt2 goal)
+    public static void RequestPath(VecInt2 from, VecInt2 goal)
     {
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
         NativePluginHelper.Invoke<ReqPathP>(NativePluginHelper.nativeLibraryPtr, from, goal);
@@ -38,7 +38,7 @@ public class PathFinder
 
     }
     //in circle
-    void RequestPath(VecInt2 from, VecInt2 center, int radius)
+    public static void RequestPath(VecInt2 from, VecInt2 center, int radius)
     {
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
         NativePluginHelper.Invoke<ReqPathC>(NativePluginHelper.nativeLibraryPtr, from, center, radius);
@@ -48,7 +48,7 @@ public class PathFinder
 
     }
     //square
-    void RequestPath(VecInt2 from, RECT rect)
+    public static void RequestPath(VecInt2 from, RECT rect)
     {
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
         NativePluginHelper.Invoke<ReqPathR>(NativePluginHelper.nativeLibraryPtr, from, rect);
@@ -58,7 +58,7 @@ public class PathFinder
 
     }
     //inverted circle
-    void RequestPathInvert(VecInt2 from, VecInt2 center, int radius)
+    public static void RequestPathInvert(VecInt2 from, VecInt2 center, int radius)
     {
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
         NativePluginHelper.Invoke<ReqPathInvertC>(NativePluginHelper.nativeLibraryPtr, from, center, radius);
@@ -69,7 +69,7 @@ public class PathFinder
     }
 
     //inverted square
-    void RequestPathInvert(VecInt2 from, RECT rect)
+    public static void RequestPathInvert(VecInt2 from, RECT rect)
     {
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
         NativePluginHelper.Invoke<ReqPathInvertR>(NativePluginHelper.nativeLibraryPtr, from, rect);

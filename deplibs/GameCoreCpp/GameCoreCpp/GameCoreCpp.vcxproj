@@ -162,7 +162,11 @@
     <ClInclude Include="src\Libs.math\Quaternion.h" />
     <ClInclude Include="src\Libs.math\Random.h" />
     <ClInclude Include="src\Libs.math\RECT.h" />
+    <ClInclude Include="src\Libs.math\RectInt.h" />
     <ClInclude Include="src\Libs.math\Sqrt.h" />
+    <ClInclude Include="src\Libs.math\VecInt2.h" />
+    <ClInclude Include="src\Libs.math\VecInt3.h" />
+    <ClInclude Include="src\Libs.math\VecInt4.h" />
     <ClInclude Include="src\Libs.math\Vector2D.h" />
     <ClInclude Include="src\Libs.math\Vector3D.h" />
     <ClInclude Include="src\Libs.math\Vector4D.h" />
@@ -178,13 +182,13 @@
     <ClInclude Include="src\Libs.posix\posix_utsname.h" />
     <ClInclude Include="src\Libs\precompiled.h" />
     <ClInclude Include="src\PathFinding\Component.h" />
-    <ClInclude Include="src\PathFinding\HierarchicalPathfinder.h" />
-    <ClInclude Include="src\PathFinding\ICmpObstruct.h" />
-    <ClInclude Include="src\PathFinding\ICmpObstructMgr.h" />
-    <ClInclude Include="src\PathFinding\ICmpPathfinder.h" />
-    <ClInclude Include="src\PathFinding\LongPathfinder.h" />
+    <ClInclude Include="src\PathFinding\HierarchicalPathFinder.h" />
+    <ClInclude Include="src\PathFinding\IObstruct.h" />
+    <ClInclude Include="src\PathFinding\IObstructMgr.h" />
+    <ClInclude Include="src\PathFinding\IPathFinder.h" />
+    <ClInclude Include="src\PathFinding\LongPathFinder.h" />
     <ClInclude Include="src\PathFinding\PathFinder.h" />
-    <ClInclude Include="src\PathFinding\Pathfinding.h" />
+    <ClInclude Include="src\PathFinding\PathFinding.h" />
     <ClInclude Include="src\PathFinding\PathGoal.h" />
     <ClInclude Include="src\RVO2\Agent.h" />
     <ClInclude Include="src\RVO2\Definitions.h" />
@@ -210,24 +214,22 @@
     <ClCompile Include="src\Libs.math\Sqrt.cpp" />
     <ClCompile Include="src\Libs.math\Vector3D.cpp" />
     <ClCompile Include="src\Libs.posix\posix.cpp" />
-    <ClCompile Include="src\PathFinding\CCmpObstruct.cpp" />
-    <ClCompile Include="src\PathFinding\CCmpObstructMgr.cpp" />
+    <ClCompile Include="src\PathFinding\HierarchicalPathFinder.cpp" />
+    <ClCompile Include="src\PathFinding\IObstruct.cpp" />
+    <ClCompile Include="src\PathFinding\IObstructMgr.cpp" />
+    <ClCompile Include="src\PathFinding\IPathFinder.cpp" />
+    <ClCompile Include="src\PathFinding\LongPathFinder.cpp" />
+    <ClCompile Include="src\PathFinding\Obstruct.cpp" />
+    <ClCompile Include="src\PathFinding\ObstructMgr.cpp" />
     <ClCompile Include="src\PathFinding\PathFinder.cpp" />
-    <ClCompile Include="src\PathFinding\CCmpUnitMotion.cpp" />
-    <ClCompile Include="src\PathFinding\HierarchicalPathfinder.cpp" />
-    <ClCompile Include="src\PathFinding\ICmpObstructMgr.cpp" />
-    <ClCompile Include="src\PathFinding\ICmpPathfinder.cpp" />
-    <ClCompile Include="src\PathFinding\LongPathfinder.cpp" />
     <ClCompile Include="src\PathFinding\PathGoal.cpp" />
-    <ClCompile Include="src\PathFinding\ShortPathfinder.cpp" />
+    <ClCompile Include="src\PathFinding\ShortPathFinder.cpp" />
+    <ClCompile Include="src\PathFinding\UnitMotion.cpp" />
     <ClCompile Include="src\RVO2\Agent.cpp" />
     <ClCompile Include="src\RVO2\KdTree.cpp" />
     <ClCompile Include="src\RVO2\Obstacle.cpp" />
     <ClCompile Include="src\RVO2\RVOSimulator.cpp" />
     <ClCompile Include="test.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="src\PathFinding\ICmpObstructcpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

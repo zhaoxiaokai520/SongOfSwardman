@@ -17,4 +17,4 @@
 
 #include "Libs/precompiled.h"
 
-#include "ICmpPathfinder.h"
+#include "IPathFinder.h"

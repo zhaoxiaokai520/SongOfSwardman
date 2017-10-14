@@ -57,30 +57,6 @@
     <ClInclude Include="src\Libs\precompiled.h">
       <Filter>Header Files\Libs</Filter>
     </ClInclude>
-    <ClInclude Include="src\PathFinding\Component.h">
-      <Filter>Header Files\PathFinding</Filter>
-    </ClInclude>
-    <ClInclude Include="src\PathFinding\HierarchicalPathfinder.h">
-      <Filter>Header Files\PathFinding</Filter>
-    </ClInclude>
-    <ClInclude Include="src\PathFinding\ICmpObstruct.h">
-      <Filter>Header Files\PathFinding</Filter>
-    </ClInclude>
-    <ClInclude Include="src\PathFinding\ICmpObstructMgr.h">
-      <Filter>Header Files\PathFinding</Filter>
-    </ClInclude>
-    <ClInclude Include="src\PathFinding\ICmpPathfinder.h">
-      <Filter>Header Files\PathFinding</Filter>
-    </ClInclude>
-    <ClInclude Include="src\PathFinding\LongPathfinder.h">
-      <Filter>Header Files\PathFinding</Filter>
-    </ClInclude>
-    <ClInclude Include="src\PathFinding\Pathfinding.h">
-      <Filter>Header Files\PathFinding</Filter>
-    </ClInclude>
-    <ClInclude Include="src\PathFinding\PathGoal.h">
-      <Filter>Header Files\PathFinding</Filter>
-    </ClInclude>
     <ClInclude Include="src\RVO2\RVO.h">
       <Filter>Header Files\RVO2</Filter>
     </ClInclude>
@@ -198,40 +174,49 @@
     <ClInclude Include="EfficiencyNativeCppDll.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\PathFinding\Component.h">
+      <Filter>Header Files\PathFinding</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PathFinding\HierarchicalPathFinder.h">
+      <Filter>Header Files\PathFinding</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PathFinding\IObstruct.h">
+      <Filter>Header Files\PathFinding</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PathFinding\IObstructMgr.h">
+      <Filter>Header Files\PathFinding</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PathFinding\IPathFinder.h">
+      <Filter>Header Files\PathFinding</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PathFinding\LongPathFinder.h">
+      <Filter>Header Files\PathFinding</Filter>
+    </ClInclude>
     <ClInclude Include="src\PathFinding\PathFinder.h">
       <Filter>Header Files\PathFinding</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PathFinding\PathFinding.h">
+      <Filter>Header Files\PathFinding</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PathFinding\PathGoal.h">
+      <Filter>Header Files\PathFinding</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.math\RectInt.h">
+      <Filter>Header Files\Libs.math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.math\VecInt2.h">
+      <Filter>Header Files\Libs.math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.math\VecInt3.h">
+      <Filter>Header Files\Libs.math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Libs.math\VecInt4.h">
+      <Filter>Header Files\Libs.math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\PathFinding\ICmpPathfinder.cpp">
-      <Filter>Source Files\PathFinding</Filter>
-    </ClCompile>
-    <ClCompile Include="src\PathFinding\LongPathfinder.cpp">
-      <Filter>Source Files\PathFinding</Filter>
-    </ClCompile>
-    <ClCompile Include="src\PathFinding\PathGoal.cpp">
-      <Filter>Source Files\PathFinding</Filter>
-    </ClCompile>
-    <ClCompile Include="src\PathFinding\ShortPathfinder.cpp">
-      <Filter>Source Files\PathFinding</Filter>
-    </ClCompile>
-    <ClCompile Include="src\PathFinding\CCmpObstruct.cpp">
-      <Filter>Source Files\PathFinding</Filter>
-    </ClCompile>
-    <ClCompile Include="src\PathFinding\CCmpObstructMgr.cpp">
-      <Filter>Source Files\PathFinding</Filter>
-    </ClCompile>
-    <ClCompile Include="src\PathFinding\CCmpUnitMotion.cpp">
-      <Filter>Source Files\PathFinding</Filter>
-    </ClCompile>
-    <ClCompile Include="src\PathFinding\HierarchicalPathfinder.cpp">
-      <Filter>Source Files\PathFinding</Filter>
-    </ClCompile>
-    <ClCompile Include="src\PathFinding\ICmpObstructMgr.cpp">
-      <Filter>Source Files\PathFinding</Filter>
     </ClCompile>
     <ClCompile Include="src\RVO2\Obstacle.cpp">
       <Filter>Source Files\RVO2</Filter>
@@ -287,13 +272,38 @@
     <ClCompile Include="EfficiencyNativeCppDll.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\PathFinding\HierarchicalPathFinder.cpp">
+      <Filter>Source Files\PathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PathFinding\IObstruct.cpp">
+      <Filter>Source Files\PathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PathFinding\IObstructMgr.cpp">
+      <Filter>Source Files\PathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PathFinding\IPathFinder.cpp">
+      <Filter>Source Files\PathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PathFinding\LongPathFinder.cpp">
+      <Filter>Source Files\PathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PathFinding\Obstruct.cpp">
+      <Filter>Source Files\PathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PathFinding\ObstructMgr.cpp">
+      <Filter>Source Files\PathFinding</Filter>
+    </ClCompile>
     <ClCompile Include="src\PathFinding\PathFinder.cpp">
       <Filter>Source Files\PathFinding</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="src\PathFinding\ICmpObstructcpp">
+    <ClCompile Include="src\PathFinding\PathGoal.cpp">
       <Filter>Source Files\PathFinding</Filter>
-    </None>
+    </ClCompile>
+    <ClCompile Include="src\PathFinding\ShortPathFinder.cpp">
+      <Filter>Source Files\PathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PathFinding\UnitMotion.cpp">
+      <Filter>Source Files\PathFinding</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

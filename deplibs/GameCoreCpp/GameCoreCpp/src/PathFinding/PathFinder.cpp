@@ -21,36 +21,38 @@
  * Interact with c# code as bridge
  */
 
-#include "Pathfinder.h"
-#include "Libs.math/Vector2D.h"
-#include "Libs.math/RECT.h"
+#include "PathFinder.h"
+#include "Libs.math/VecInt2.h"
+#include "Libs.math/RectInt.h"
 #include <iostream>
+#include <assert.h>
 
-DLL void ReqPathP(CVector2D from, CVector2D goal)
+DLL void ReqPathP(VecInt2 from, VecInt2 goal)
+{
+    printf("ReqPath c log %d %d", from.x, from.y);
+    std::cout << "c++ style ReqPath called" << std::endl;
+    assert(false);
+}
+
+DLL void ReqPathC(VecInt2 from, VecInt2 center, int radius)
 {
     printf("ReqPath c log");
     std::cout << "c++ style ReqPath called" << std::endl;
 }
 
-DLL void ReqPathC(CVector2D from, CVector2D center, int radius)
+DLL void ReqPathR(VecInt2 from, CRECT goal)
 {
     printf("ReqPath c log");
     std::cout << "c++ style ReqPath called" << std::endl;
 }
 
-DLL void ReqPathR(CVector2D from, CRECT goal)
+DLL void ReqPathInvertC(VecInt2 from, VecInt2 center, int radius)
 {
     printf("ReqPath c log");
     std::cout << "c++ style ReqPath called" << std::endl;
 }
 
-DLL void ReqPathInvertC(CVector2D from, CVector2D center, int radius)
-{
-    printf("ReqPath c log");
-    std::cout << "c++ style ReqPath called" << std::endl;
-}
-
-DLL void ReqPathInvertR(CVector2D from, CRECT goal)
+DLL void ReqPathInvertR(VecInt2 from, CRECT goal)
 {
     printf("ReqPath c log");
     std::cout << "c++ style ReqPath called" << std::endl;
