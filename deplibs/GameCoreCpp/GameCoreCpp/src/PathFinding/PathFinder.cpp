@@ -22,16 +22,22 @@
  */
 
 #include "PathFinder.h"
-#include "Libs.math/VecInt2.h"
-#include "Libs.math/RectInt.h"
 #include <iostream>
 #include <assert.h>
+
+template<class PathFinder> PathFinder* Singleton<PathFinder>::m_pInstance = NULL;
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 DLL void ReqPathP(VecInt2 from, VecInt2 goal)
 {
     printf("ReqPath c log %d %d", from.x, from.y);
     std::cout << "c++ style ReqPath called" << std::endl;
-    assert(false);
+    //assert(false);
+    //assert(from.x == goal.x);
+    PathFinder::Instance()->RequestLongPath();
 }
 
 DLL void ReqPathC(VecInt2 from, VecInt2 center, int radius)
@@ -57,6 +63,10 @@ DLL void ReqPathInvertR(VecInt2 from, CRECT goal)
     printf("ReqPath c log");
     std::cout << "c++ style ReqPath called" << std::endl;
 }
+
+#ifdef __cplusplus
+}
+#endif
 
 void PathFinder::RequestLongPath()
 {

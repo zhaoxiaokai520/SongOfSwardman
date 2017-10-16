@@ -20,8 +20,8 @@
  * scalar operations on it
  */
 
-#ifndef INCLUDED_VECTOR4D
-#define INCLUDED_VECTOR4D
+#ifndef INCLUDED_VECINT4
+#define INCLUDED_VECINT4
 
 #include <math.h>
 

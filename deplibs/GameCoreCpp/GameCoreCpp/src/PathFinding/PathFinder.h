@@ -18,6 +18,10 @@
 #ifndef INCLUDED_CCMPPATHFINDER
 #define INCLUDED_CCMPPATHFINDER
 
+#include "Libs.math/VecInt2.h"
+#include "Libs.math/RectInt.h"
+#include "Singleton.h"
+
 /**
  * @file
  * Declares CCmpPathfinder. Its implementation is mainly done in CCmpPathfinder.cpp,
@@ -54,7 +58,21 @@ struct AsyncShortPathRequest
 	//entity_id_t notify;
 };
 
-class PathFinder
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+    extern DLL void ReqPathP(VecInt2 from, VecInt2 goal);
+    extern DLL void ReqPathC(VecInt2 from, VecInt2 center, int radius);
+    extern DLL void ReqPathR(VecInt2 from, CRECT goal);
+    extern DLL void ReqPathInvertC(VecInt2 from, VecInt2 center, int radius);
+    extern DLL void ReqPathInvertR(VecInt2 from, CRECT goal);
+
+#ifdef __cplusplus
+}
+#endif
+
+class PathFinder : public Singleton<PathFinder>
 {
 public:
 	void RequestLongPath();

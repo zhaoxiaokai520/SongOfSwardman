@@ -4,21 +4,21 @@ using System.Diagnostics;
 [Serializable]
 public struct VecInt2
 {
-    //public const int Precision = 1000;
+    public const int Precision = 1000;
 
-    //public const float FloatPrecision = 1000f;
+    public const float FloatPrecision = 1000f;
 
-    //public const float PrecisionFactor = 0.001f;
+    public const float PrecisionFactor = 0.001f;
 
-	public int x;
+    public int x;
 
 	public int y;
 
-    //public float fx { get { return (float)x * PrecisionFactor; } set { x = (int)Math.Round(value * FloatPrecision); } }
+    public float fx { get { return (float)x * PrecisionFactor; } set { x = (int)Math.Round(value * FloatPrecision); } }
 
-    //public float fy { get { return (float)y * PrecisionFactor; } set { y = (int)Math.Round(value * FloatPrecision); } }
+    public float fy { get { return (float)y * PrecisionFactor; } set { y = (int)Math.Round(value * FloatPrecision); } }
 
-	public static VecInt2 zero = default(VecInt2);
+    public static VecInt2 zero = default(VecInt2);
 
 	private static readonly int[] Rotations = new int[]
 	{
@@ -262,17 +262,17 @@ public struct VecInt2
 		return v;
 	}
 
-	//public static explicit operator Vector2(VecInt2 ob)
-	//{
-	//	return new Vector2((float)ob.x * 0.001f, (float)ob.y * 0.001f);
-	//}
+    //public static explicit operator Vector2(VecInt2 ob)
+    //{
+    //    return new Vector2((float)ob.x * 0.001f, (float)ob.y * 0.001f);
+    //}
 
-	//public static explicit operator VecInt2(Vector2 ob)
-	//{
-	//	return new VecInt2((int)Math.Round((double)(ob.x * 1000f)), (int)Math.Round((double)(ob.y * 1000f)));
-	//}
+    //public static explicit operator VecInt2(Vector2 ob)
+    //{
+    //    return new VecInt2((int)Math.Round((double)(ob.x * 1000f)), (int)Math.Round((double)(ob.y * 1000f)));
+    //}
 
-	public static VecInt2 operator +(VecInt2 a, VecInt2 b)
+    public static VecInt2 operator +(VecInt2 a, VecInt2 b)
 	{
 		return new VecInt2(a.x + b.x, a.y + b.y);
 	}

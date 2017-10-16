@@ -143,8 +143,8 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="EfficiencyNativeCppDll.h" />
     <ClInclude Include="src\Defines\types.h" />
+    <ClInclude Include="src\EfficiencyNativeCppDll.h" />
     <ClInclude Include="src\Libs.math\BoundingBoxAligned.h" />
     <ClInclude Include="src\Libs.math\BoundingBoxOriented.h" />
     <ClInclude Include="src\Libs.math\BoundingSphere.h" />
@@ -197,10 +197,11 @@
     <ClInclude Include="src\RVO2\RVO.h" />
     <ClInclude Include="src\RVO2\RVOSimulator.h" />
     <ClInclude Include="src\RVO2\Vector2.h" />
-    <ClInclude Include="test.h" />
+    <ClInclude Include="src\Singleton.h" />
+    <ClInclude Include="src\test.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EfficiencyNativeCppDll.cpp" />
+    <ClCompile Include="src\EfficiencyNativeCppDll.cpp" />
     <ClCompile Include="src\Libs.math\BoundingBoxAligned.cpp" />
     <ClCompile Include="src\Libs.math\BoundingBoxOriented.cpp" />
     <ClCompile Include="src\Libs.math\Brush.cpp" />
@@ -229,7 +230,8 @@
     <ClCompile Include="src\RVO2\KdTree.cpp" />
     <ClCompile Include="src\RVO2\Obstacle.cpp" />
     <ClCompile Include="src\RVO2\RVOSimulator.cpp" />
-    <ClCompile Include="test.cpp" />
+    <ClCompile Include="src\Singleton.cpp" />
+    <ClCompile Include="src\test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

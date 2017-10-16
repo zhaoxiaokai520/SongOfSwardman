@@ -20,8 +20,8 @@
  * scalar operations on it
  */
 
-#ifndef INCLUDED_VECTOR3D
-#define INCLUDED_VECTOR3D
+#ifndef INCLUDED_VECINT3
+#define INCLUDED_VECINT3
 
 class CFixedVector3D;
 

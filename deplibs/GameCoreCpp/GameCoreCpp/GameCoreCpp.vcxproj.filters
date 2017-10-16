@@ -48,9 +48,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="test.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\Defines\types.h">
       <Filter>Header Files\Defines</Filter>
     </ClInclude>
@@ -171,9 +168,6 @@
     <ClInclude Include="src\Libs.math\RECT.h">
       <Filter>Header Files\Libs.math</Filter>
     </ClInclude>
-    <ClInclude Include="EfficiencyNativeCppDll.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\PathFinding\Component.h">
       <Filter>Header Files\PathFinding</Filter>
     </ClInclude>
@@ -213,11 +207,17 @@
     <ClInclude Include="src\Libs.math\VecInt4.h">
       <Filter>Header Files\Libs.math</Filter>
     </ClInclude>
+    <ClInclude Include="src\EfficiencyNativeCppDll.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Singleton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\RVO2\Obstacle.cpp">
       <Filter>Source Files\RVO2</Filter>
     </ClCompile>
@@ -269,9 +269,6 @@
     <ClCompile Include="src\Libs.math\BoundingBoxAligned.cpp">
       <Filter>Source Files\Libs.math</Filter>
     </ClCompile>
-    <ClCompile Include="EfficiencyNativeCppDll.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\PathFinding\HierarchicalPathFinder.cpp">
       <Filter>Source Files\PathFinding</Filter>
     </ClCompile>
@@ -304,6 +301,15 @@
     </ClCompile>
     <ClCompile Include="src\PathFinding\UnitMotion.cpp">
       <Filter>Source Files\PathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EfficiencyNativeCppDll.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Singleton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

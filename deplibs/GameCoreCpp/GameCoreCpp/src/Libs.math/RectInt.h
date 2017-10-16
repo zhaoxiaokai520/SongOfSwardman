@@ -20,8 +20,8 @@
  * scalar operations on it
  */
 
-#ifndef INCLUDED_MATHS_RECT
-#define INCLUDED_MATHS_RECT
+#ifndef INCLUDED_MATHS_RECTINT
+#define INCLUDED_MATHS_RECTINT
 
 
 #include <math.h>
