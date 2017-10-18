@@ -31,13 +31,14 @@ template<class PathFinder> PathFinder* Singleton<PathFinder>::m_pInstance = NULL
 extern "C" {
 #endif
 
-DLL void ReqPathP(VecInt2 from, VecInt2 goal)
+DLL void ReqPathP(VecInt2 from, VecInt2 goal, int objectId)
 {
     printf("ReqPath c log %d %d", from.x, from.y);
     std::cout << "c++ style ReqPath called" << std::endl;
     //assert(false);
     //assert(from.x == goal.x);
-    PathFinder::Instance()->RequestLongPath();
+    //PathFinder::Instance()->RequestLongPath();
+	PathFinder::Instance()->ReqPathP(from, goal, objectId);
 }
 
 DLL void ReqPathC(VecInt2 from, VecInt2 center, int radius)
@@ -68,7 +69,29 @@ DLL void ReqPathInvertR(VecInt2 from, CRECT goal)
 }
 #endif
 
-void PathFinder::RequestLongPath()
+void PathFinder::ReqPathP(VecInt2 from, VecInt2 goal, int objectId)
+{
+	AsyncLongPathReq req = { from.x, from.y,{ PathGoal::POINT, goal.x, goal.y }, (passable_type)(1u), objectId };
+	m_AsyncLongPathReqs.push_back(req);
+	//assert(from.x == goal.x);
+}
+
+void PathFinder::ReqPathC(VecInt2 from, VecInt2 center, int radius)
+{
+
+}
+
+void PathFinder::ReqPathR(VecInt2 from, CRECT goal)
+{
+
+}
+
+void PathFinder::ReqPathInvertC(VecInt2 from, VecInt2 center, int radius)
+{
+
+}
+
+void PathFinder::ReqPathInvertR(VecInt2 from, CRECT goal)
 {
 
 }

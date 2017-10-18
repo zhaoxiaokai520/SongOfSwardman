@@ -11,12 +11,12 @@ namespace Assets.Scripts.UI.Base
         protected int _inputLevel = 0;
         protected ActorRoot _actorData;
 
-        public int GetId()
+        public int GetGameId()
         {
             return gameId;
         }
 
-        public void SetId(int gameid)
+        public void SetGameId(int gameid)
         {
             gameId = gameid;
         }

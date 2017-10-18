@@ -216,6 +216,9 @@
     <ClInclude Include="src\test.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Glue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\RVO2\Obstacle.cpp">
@@ -309,6 +312,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Glue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

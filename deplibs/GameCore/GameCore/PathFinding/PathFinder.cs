@@ -5,7 +5,7 @@ public class PathFinder
 {
     #region cpp bridge interface
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
-    delegate void ReqPathP(VecInt2 from, VecInt2 goal);
+    delegate void ReqPathP(VecInt2 from, VecInt2 goal, int objectId);
     delegate void ReqPathC(VecInt2 from, VecInt2 center, int radius);
     delegate void ReqPathR(VecInt2 from, RECT goal);
     delegate void ReqPathInvertC(VecInt2 from, VecInt2 center, int radius);
@@ -28,17 +28,17 @@ public class PathFinder
 #endif
     #endregion
 
-    public static void RequestPath(VecInt2 from, VecInt2 goal)
+    public static void RequestPath(VecInt2 from, VecInt2 goal, int objectId)
     {
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
-        NativePluginHelper.Invoke<ReqPathP>(NativePluginHelper.nativeLibraryPtr, from, goal);
+        NativePluginHelper.Invoke<ReqPathP>(NativePluginHelper.nativeLibraryPtr, from, goal, objectId);
 #else
-        ReqPathP(from, goal);
+        ReqPathP(from, goal, objectId);
 #endif
 
     }
     //in circle
-    public static void RequestPath(VecInt2 from, VecInt2 center, int radius)
+    public static void RequestPath(VecInt2 from, VecInt2 center, int objectId, int radius)
     {
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
         NativePluginHelper.Invoke<ReqPathC>(NativePluginHelper.nativeLibraryPtr, from, center, radius);

@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClInclude Include="src\Defines\types.h" />
     <ClInclude Include="src\EfficiencyNativeCppDll.h" />
+    <ClInclude Include="src\Glue.h" />
     <ClInclude Include="src\Libs.math\BoundingBoxAligned.h" />
     <ClInclude Include="src\Libs.math\BoundingBoxOriented.h" />
     <ClInclude Include="src\Libs.math\BoundingSphere.h" />
@@ -202,6 +203,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\EfficiencyNativeCppDll.cpp" />
+    <ClCompile Include="src\Glue.cpp" />
     <ClCompile Include="src\Libs.math\BoundingBoxAligned.cpp" />
     <ClCompile Include="src\Libs.math\BoundingBoxOriented.cpp" />
     <ClCompile Include="src\Libs.math\Brush.cpp" />

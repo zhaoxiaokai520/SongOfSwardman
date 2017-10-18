@@ -165,7 +165,7 @@ namespace Assets.Scripts.Role
             glue.RemoveListener(0, NativeCallback);
             DebugHelper.Log("dummy = " + tst.testDummy(0.0f));
             //DebugHelper.Log("dummy 2 = " + GameCore.test.testInterface());
-            PathFinder.RequestPath(new VecInt2(0, 0), new VecInt2(100, 100));
+            PathFinder.RequestPath(new VecInt2(0, 0), new VecInt2(100, 100), GetGameId());
         }
 
         void NativeCallback()

@@ -30,7 +30,7 @@
 class PathGoal
 {
 public:
-	enum Type {
+	enum GoalType {
 		POINT,           // single point
 		CIRCLE,          // the area inside a circle
 		INVERTED_CIRCLE, // the area outside a circle

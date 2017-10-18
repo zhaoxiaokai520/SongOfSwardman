@@ -102,7 +102,7 @@ namespace Assets.Scripts.UI.Role
             if ((sender.transform.position - transform.position).magnitude <= _configInfo.talk_radius)
             {
                 float angleOff = 0.0f;
-                int talkeeId = GetId();
+                int talkeeId = GetGameId();
 
                 SosObject player = sender;
                 DebugHelper.Log("NPC.Talk 1======================== " + transform.rotation.eulerAngles + " " + player.transform.rotation.eulerAngles);
@@ -121,7 +121,7 @@ namespace Assets.Scripts.UI.Role
                         //Quaternion newRotation = Quaternion.LookRotation(player.transform.position - transform.position);
                         //gameObject.GetComponent<Rigidbody>().MoveRotation(newRotation);
                         transform.DOLookAt(player.transform.position, 0.2f);
-                        _talkerId = player.GetId();
+                        _talkerId = player.GetGameId();
                         transform.DOLookAt(player.transform.position, 0.2f).OnComplete(OnLookAnimComplete);
                         //TalkDialog.GetInstance().ShowTalk(talkeeId, player.GetId());
                     }
@@ -137,7 +137,7 @@ namespace Assets.Scripts.UI.Role
                         DebugHelper.Log("NPC.Talk 3========================");
                         //Quaternion newRotation = Quaternion.LookRotation(player.transform.position - transform.position);
                         //gameObject.GetComponent<Rigidbody>().MoveRotation(newRotation);
-                        _talkerId = player.GetId();
+                        _talkerId = player.GetGameId();
                         transform.DOLookAt(player.transform.position, 0.2f).OnComplete(OnLookAnimComplete);
                         //TalkDialog.GetInstance().ShowTalk(talkeeId, player.GetId());
                     }
@@ -200,7 +200,7 @@ namespace Assets.Scripts.UI.Role
 
         void OnLookAnimComplete()
         {
-            TalkDialog.GetInstance().ShowTalk(GetId(), _talkerId);
+            TalkDialog.GetInstance().ShowTalk(GetGameId(), _talkerId);
         }
 
         /// <summary>
