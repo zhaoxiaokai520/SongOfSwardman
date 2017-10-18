@@ -8,17 +8,32 @@ extern "C" {
 	{
 		//std::thread t1(&myThread, this);//创建一个分支线程，回调到myThread函数里
 		//t1.join();
-		//assert(false);
+        Glue::Instance()->AddCallback(code, cb);
 	}
 	DLL void RmvCallback(int code, CallBack cb)
 	{
-		//assert(false);
+        Glue::Instance()->RmvCallback(code, cb);
 	}
 
 	DLL void UpdateNative(int turnLength)
 	{
-		//assert(false);
+        Glue::Instance()->UpdateNative(turnLength);
 	}
 #ifdef __cplusplus
 }
 #endif
+
+void Glue::AddCallback(int code, CallBack cb)
+{
+
+}
+
+void Glue::RmvCallback(int code, CallBack cb)
+{
+
+}
+
+void Glue::UpdateNative(int turnLength)
+{
+
+}
