@@ -1,4 +1,8 @@
 #include "Glue.h"
+#include<iostream>
+#include<string>
+
+template<class Glue> Glue* Singleton<Glue>::m_pInstance = NULL;
 
 #ifdef __cplusplus
 extern "C" {
@@ -8,32 +12,37 @@ extern "C" {
 	{
 		//std::thread t1(&myThread, this);//创建一个分支线程，回调到myThread函数里
 		//t1.join();
-        Glue::Instance()->AddCallback(code, cb);
+        Glue::Instance()->AddCB(code, cb);
 	}
 	DLL void RmvCallback(int code, CallBack cb)
 	{
-        Glue::Instance()->RmvCallback(code, cb);
+        Glue::Instance()->RmvCB(code, cb);
 	}
 
 	DLL void UpdateNative(int turnLength)
 	{
-        Glue::Instance()->UpdateNative(turnLength);
+        Glue::Instance()->UpdateNativeImpl(turnLength);
 	}
 #ifdef __cplusplus
 }
 #endif
 
-void Glue::AddCallback(int code, CallBack cb)
+void Glue::AddCB(int code, CallBack cb)
 {
-
+	m_callbackMap.insert(std::make_pair(code, cb));
 }
 
-void Glue::RmvCallback(int code, CallBack cb)
+void Glue::RmvCB(int code, CallBack cb)
 {
-
+	m_callbackMap.erase(code);
 }
 
-void Glue::UpdateNative(int turnLength)
+void Glue::UpdateNativeImpl(int turnLength)
 {
+	//std::map<int, CallBack>::iterator it = m_callbackMap.begin;
 
+	//if (it != m_callbackMap.end())
+	//{
+	//	it++;
+	//}
 }
