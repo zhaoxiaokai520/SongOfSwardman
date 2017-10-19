@@ -101,6 +101,9 @@ namespace Assets.Scripts.Role
         PassiveStateMachine<States, Events> mFSM;
         Vector2 mStepOffset;
 
+        //TOREMOVE:temp variable
+        GameCore.Glue glue;
+
         void Awake()
         {
             NativePluginHelper.LoadNativeDll();
@@ -154,33 +157,19 @@ namespace Assets.Scripts.Role
 
         void Start()
         {
-            //SosEventMgr.GetInstance().RegisterEvent(SosEventMgr.SosEventType.TALK, roleId, this);
-            SosEventMgr.instance.Subscribe(UIEventId.move, OnRecvMoveEvent);
-            SosEventMgr.instance.Subscribe(UIEventId.stop, OnRecvStopEvent);
-            GameUpdateMgr.Register(this);
+            AddListener();
 
             GameCore.test tst = new GameCore.test();
-            GameCore.Glue glue = GameCore.Glue.GetInstance();
-            glue.AddListener(0, NativeCallback);
-            glue.RemoveListener(0, NativeCallback);
+            
+            
             DebugHelper.Log("dummy = " + tst.testDummy(0.0f));
             //DebugHelper.Log("dummy 2 = " + GameCore.test.testInterface());
             PathFinder.RequestPath(new VecInt2(0, 0), new VecInt2(100, 100), GetGameId());
         }
 
-        void NativeCallback()
-        {
-
-        }
-
         private void OnDestroy()
         {
-			SosEventMgr.instance.Unsubscribe(UIEventId.move, OnRecvMoveEvent);
-            SosEventMgr.instance.Unsubscribe(UIEventId.stop, OnRecvStopEvent);
-            //TODO OPTIONAL:GameUpdateMgr instance is null when stop editor running, 
-            //Object.FindObjectByType failed of MonoSingleton
-            GameUpdateMgr.Unregister(this);
-
+            RmvListener();
             if (null != mFSM)
             {
                 mFSM.Stop();
@@ -284,6 +273,31 @@ namespace Assets.Scripts.Role
                     }
                 }
             }
+        }
+
+        void AddListener()
+        {
+            //SosEventMgr.GetInstance().RegisterEvent(SosEventMgr.SosEventType.TALK, roleId, this);
+            SosEventMgr.instance.Subscribe(UIEventId.move, OnRecvMoveEvent);
+            SosEventMgr.instance.Subscribe(UIEventId.stop, OnRecvStopEvent);
+            GameUpdateMgr.Register(this);
+            glue = GameCore.Glue.GetInstance();
+            glue.AddListener(0, NativeCallback);
+        }
+
+        void RmvListener()
+        {
+            SosEventMgr.instance.Unsubscribe(UIEventId.move, OnRecvMoveEvent);
+            SosEventMgr.instance.Unsubscribe(UIEventId.stop, OnRecvStopEvent);
+            //TODO OPTIONAL:GameUpdateMgr instance is null when stop editor running, 
+            //Object.FindObjectByType failed of MonoSingleton
+            GameUpdateMgr.Unregister(this);
+            glue.RemoveListener(0);
+        }
+
+        void NativeCallback(string data)
+        {
+            DebugHelper.Log("receive native log :" + data);
         }
 
         private void CreateFSM()

@@ -6,14 +6,14 @@
 #include <map>
 #include <iostream>
 
-typedef void(*CallBack)();
+typedef void(*CallBack)(const char * data);
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 	
 	extern DLL void AddCallback(int code, CallBack cb);
-	extern DLL void RmvCallback(int code, CallBack cb);
+	extern DLL void RmvCallback(int code);
 	extern DLL void UpdateNative(int turnLength);
 
 #ifdef __cplusplus
@@ -24,7 +24,7 @@ class Glue : public Singleton<Glue>
 {
 public:
     void AddCB(int code, CallBack cb);
-    void RmvCB(int code, CallBack cb);
+    void RmvCB(int code);
     void UpdateNativeImpl(int turnLength);
 	
 private:
