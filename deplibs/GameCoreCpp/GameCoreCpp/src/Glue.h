@@ -26,6 +26,7 @@ public:
     void AddCB(int code, CallBack cb);
     void RmvCB(int code);
     void UpdateNativeImpl(int turnLength);
+    void OnTimerNativeImpl();
 	
 private:
 	std::map<int,CallBack> m_callbackMap;

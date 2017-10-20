@@ -129,6 +129,8 @@ namespace Assets.Scripts.Role
                 mFSM.Start();
             }
 
+            InvokeRepeating("OnTimer", 0, 1.0f);
+
             //AddDllPath();
         }
 
@@ -160,8 +162,7 @@ namespace Assets.Scripts.Role
             AddListener();
 
             GameCore.test tst = new GameCore.test();
-            
-            
+
             DebugHelper.Log("dummy = " + tst.testDummy(0.0f));
             //DebugHelper.Log("dummy 2 = " + GameCore.test.testInterface());
             PathFinder.RequestPath(new VecInt2(0, 0), new VecInt2(100, 100), GetGameId());
@@ -207,7 +208,7 @@ namespace Assets.Scripts.Role
 
 		public void UpdateSub(float delta)
         {
-            NativePluginHelper.OnUpdate();
+            //NativePluginHelper.OnUpdate();
 
             if (Input.GetKeyUp(KeyCode.Space))
             {
@@ -328,6 +329,11 @@ namespace Assets.Scripts.Role
         private void OnExitMoving()
         {
             DebugHelper.Log("OnExitMoving");
+        }
+
+        private void OnTimer()
+        {
+            glue.OnTimer();
         }
 
         public string GetRoleId()

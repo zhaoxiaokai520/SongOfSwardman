@@ -19,6 +19,7 @@ namespace GameCore
         delegate void AddCallback(int code, CallBack cb);
         delegate void RmvCallback(int code);
         delegate void UpdateNative(int turnLength);
+        delegate void OnTimerNative();
 #else
         [DllImport("GameCoreCpp")]
         static extern void AddCallback(int code, CallBack cb);
@@ -26,6 +27,8 @@ namespace GameCore
         static extern void RmvCallback(int code);
         [DllImport("GameCoreCpp")]
         static extern void UpdateNative(int turnLength);
+        [DllImport("GameCoreCpp")]
+        static extern void OnTimerNative();
 #endif
 
 
@@ -88,6 +91,15 @@ namespace GameCore
             NativePluginHelper.Invoke<UpdateNative>(NativePluginHelper.nativeLibraryPtr, turnLength);
 #else
             UpdateNative(turnLength);
+#endif
+        }
+
+        public void OnTimer()
+        {
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+            NativePluginHelper.Invoke<OnTimerNative>(NativePluginHelper.nativeLibraryPtr);
+#else
+            OnTimerNative();
 #endif
         }
     }
