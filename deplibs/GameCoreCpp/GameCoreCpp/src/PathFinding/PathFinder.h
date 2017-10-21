@@ -87,6 +87,10 @@ public:
 	void ReqPathR(VecInt2 from, CRECT goal);
 	void ReqPathInvertC(VecInt2 from, VecInt2 center, int radius);
 	void ReqPathInvertR(VecInt2 from, CRECT goal);
+	void UpdateNative();
+
+private:
+	void ComputePath(const AsyncLongPathReq &req);
 
 private:
 	std::vector<AsyncLongPathReq> m_AsyncLongPathReqs;

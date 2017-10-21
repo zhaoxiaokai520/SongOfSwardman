@@ -95,3 +95,42 @@ void PathFinder::ReqPathInvertR(VecInt2 from, CRECT goal)
 {
 
 }
+
+void PathFinder::UpdateNative()
+{
+	// Figure out how many moves we can do this time
+	int moveCount = 50;
+
+	if (moveCount <= 0)
+		return;
+
+	// Copy the request elements we are going to process into a new array
+	// for solving add remove req sync problem
+	std::vector<AsyncLongPathReq> pathReqs;
+	if (m_AsyncLongPathReqs.size() >= 0 && m_AsyncLongPathReqs.size() <= 50)
+	{
+		m_AsyncLongPathReqs.swap(pathReqs);
+		moveCount = (i32)pathReqs.size();
+	}
+	else
+	{
+		pathReqs.resize(moveCount);
+		copy(m_AsyncLongPathReqs.begin(), m_AsyncLongPathReqs.begin() + moveCount, pathReqs.begin());
+		m_AsyncLongPathReqs.erase(m_AsyncLongPathReqs.begin(), m_AsyncLongPathReqs.begin() + moveCount);
+	}
+
+	for (size_t i = 0; i < pathReqs.size(); ++i)
+	{
+		const AsyncLongPathReq& req = pathReqs[i];
+		ComputePath(req);
+	}
+}
+
+void PathFinder::ComputePath(const AsyncLongPathReq &req)
+{
+	//case 1:distance is short and not way point between starter to dest
+	// then use Short-Path-Finder with RVO
+	//case 2:dist is long, then Long-Path-Finder with JPS is needed,
+	//each path in sequent two way points need to use Short-Path-Finder
+	//case 3:formation move as a single path finder starter
+}
