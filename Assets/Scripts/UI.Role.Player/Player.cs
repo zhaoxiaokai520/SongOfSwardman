@@ -9,11 +9,13 @@ using bbv.Common.StateMachine;
 using bbv.Common.StateMachine.Extensions;
 using System;
 using System.IO;
+using UnityEngine.EventSystems;
 
 namespace Assets.Scripts.Role
 {
     public class Player : SosObject, IUpdateSub, ILateUpdateSub
     {
+        public EventSystem evs;
         private enum InputMode
         {
             Keyboard, Joystick, NoInput
@@ -108,13 +110,15 @@ namespace Assets.Scripts.Role
         {
             NativePluginHelper.LoadNativeDll();
 
+            AddListener();
+
             floorMask = LayerMask.GetMask("Floor");
             anim = GetComponent<Animator>();
             mStepOffset = Vector2.zero;
             //playerRigidbody = GetComponent<Rigidbody>();
 
             //TODO: temporary code put here
-            TalkSystem.instance.LoadTalkData(); 
+            TalkSystem.instance.LoadTalkData();
             ActorMgr.instance.LoadActorConfigs();
 
 			_cachedTransform = transform;
@@ -159,13 +163,16 @@ namespace Assets.Scripts.Role
 
         void Start()
         {
-            AddListener();
+            DebugHelper.Log("begin count = " + GameCore.Glue.GetSysClock());
+            //DebugHelper.Log(" unity time =" + DateTime.Now.Ticks);
 
             GameCore.test tst = new GameCore.test();
 
             DebugHelper.Log("dummy = " + tst.testDummy(0.0f));
             //DebugHelper.Log("dummy 2 = " + GameCore.test.testInterface());
             PathFinder.RequestPath(new VecInt2(0, 0), new VecInt2(100, 100), GetGameId());
+            //DebugHelper.Log(" unity time =" + DateTime.Now.Ticks);
+            DebugHelper.Log("end count = " + GameCore.Glue.GetSysClock());
         }
 
         private void OnDestroy()
@@ -333,7 +340,10 @@ namespace Assets.Scripts.Role
 
         private void OnTimer()
         {
-            glue.OnTimer();
+            if (null != glue)
+            {
+                glue.OnTimer();
+            } 
         }
 
         public string GetRoleId()

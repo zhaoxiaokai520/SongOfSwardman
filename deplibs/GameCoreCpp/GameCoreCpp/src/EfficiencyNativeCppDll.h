@@ -1,5 +1,3 @@
-#pragma once  
-
 #ifndef GoWin_DLL_CLASS_EXPORTS  
 //该类可导出  
 #define GoWin_DLL_CLASS __declspec(dllexport)  

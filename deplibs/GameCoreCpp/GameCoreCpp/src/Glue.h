@@ -15,6 +15,9 @@ extern "C" {
 	extern DLL void AddCallback(int code, CallBack cb);
 	extern DLL void RmvCallback(int code);
 	extern DLL void UpdateNative(int turnLength);
+    extern DLL __int64 GetSystemClock();
+    extern DLL void LoadBattleNative();
+    extern DLL void UnloadBattleNative();
 
 #ifdef __cplusplus
 }
@@ -27,6 +30,12 @@ public:
     void RmvCB(int code);
     void UpdateNativeImpl(int turnLength);
     void OnTimerNativeImpl();
+    __int64 GetSystemClock();
+    void LoadBattleNative();
+    void UnloadBattleNative();
+
+private:
+    void InvokCallback(int protocolCode, const char *data);
 	
 private:
 	std::map<int,CallBack> m_callbackMap;

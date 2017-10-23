@@ -91,6 +91,7 @@ public:
 
 private:
 	void ComputePath(const AsyncLongPathReq &req);
+    bool PathFinder::IsShortPath(const AsyncLongPathReq &req);
 
 private:
 	std::vector<AsyncLongPathReq> m_AsyncLongPathReqs;

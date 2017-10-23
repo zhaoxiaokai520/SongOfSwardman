@@ -15,6 +15,8 @@ namespace Assets.Scripts.Core
         private static BattlePump _sInstance = null;
         private bool _initialized = false;
 
+        GameCore.Glue glue;
+
         public static BattlePump Instance()
         {
             return _sInstance;
@@ -33,20 +35,31 @@ namespace Assets.Scripts.Core
         private void UpdateNative()
         {
             DebugHelper.Log("UpdateNative");
-            GameCore.Glue.GetInstance().UpdateSub(0);
+            //GameCore.Glue.GetInstance().UpdateSub(0);
         }
 
         private void Start()
         {
-			GameUpdateMgr.Register(this);
+            NativePluginHelper.LoadNativeDll();
+            AddListener();
+            GameUpdateMgr.Register(this);
+            GameCore.Glue.LoadBattle();
         }
 
 		void OnDestory()
 		{
-			GameUpdateMgr.Unregister(this);
+            Debug.Log("BattlePump.OnDestory()");
+            GameCore.Glue.UnloadBattle();
+            GameUpdateMgr.Unregister(this);
+            RmvListener();
 		}
 
-		public void FixedUpdateSub(float delta)
+        void OnApplicationQuit()
+        {
+            NativePluginHelper.OnAppQuit();
+        }
+
+        public void FixedUpdateSub(float delta)
 		{
 			
 		}
@@ -64,5 +77,24 @@ namespace Assets.Scripts.Core
 
         }
 
+        void AddListener()
+        {
+            GameUpdateMgr.Register(this);
+            glue = GameCore.Glue.GetInstance();
+            glue.AddListener(1, NativeCallback);
+        }
+
+        void RmvListener()
+        {
+            //TODO OPTIONAL:GameUpdateMgr instance is null when stop editor running, 
+            //Object.FindObjectByType failed of MonoSingleton
+            GameUpdateMgr.Unregister(this);
+            glue.RemoveListener(1);
+        }
+
+        void NativeCallback(string data)
+        {
+            DebugHelper.Log("BattleBump receive native log :" + data);
+        }
     }
 }

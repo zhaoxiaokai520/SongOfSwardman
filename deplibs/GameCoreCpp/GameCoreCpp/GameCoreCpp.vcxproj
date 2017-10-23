@@ -182,6 +182,8 @@
     <ClInclude Include="src\Libs.posix\posix_types.h" />
     <ClInclude Include="src\Libs.posix\posix_utsname.h" />
     <ClInclude Include="src\Libs\precompiled.h" />
+    <ClInclude Include="src\Map\BattleMap.h" />
+    <ClInclude Include="src\Map\MapMgr.h" />
     <ClInclude Include="src\PathFinding\Component.h" />
     <ClInclude Include="src\PathFinding\HierarchicalPathFinder.h" />
     <ClInclude Include="src\PathFinding\IObstruct.h" />
@@ -217,6 +219,8 @@
     <ClCompile Include="src\Libs.math\Sqrt.cpp" />
     <ClCompile Include="src\Libs.math\Vector3D.cpp" />
     <ClCompile Include="src\Libs.posix\posix.cpp" />
+    <ClCompile Include="src\Map\BattleMap.cpp" />
+    <ClCompile Include="src\Map\MapMgr.cpp" />
     <ClCompile Include="src\PathFinding\HierarchicalPathFinder.cpp" />
     <ClCompile Include="src\PathFinding\IObstruct.cpp" />
     <ClCompile Include="src\PathFinding\IObstructMgr.cpp" />

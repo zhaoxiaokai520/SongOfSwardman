@@ -46,6 +46,12 @@
     <Filter Include="Source Files\Libs.math">
       <UniqueIdentifier>{a79b2db2-640d-4535-a308-b33e6bec6a31}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Map">
+      <UniqueIdentifier>{b2347e28-9fb0-4e1d-98c6-5b5b9e67e765}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Map">
+      <UniqueIdentifier>{aa11e6e1-b76c-47e7-bc93-bea3add35bb3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Defines\types.h">
@@ -219,6 +225,12 @@
     <ClInclude Include="src\Glue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Map\BattleMap.h">
+      <Filter>Header Files\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Map\MapMgr.h">
+      <Filter>Header Files\Map</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\RVO2\Obstacle.cpp">
@@ -316,6 +328,12 @@
     </ClCompile>
     <ClCompile Include="src\Glue.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Map\BattleMap.cpp">
+      <Filter>Source Files\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Map\MapMgr.cpp">
+      <Filter>Source Files\Map</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

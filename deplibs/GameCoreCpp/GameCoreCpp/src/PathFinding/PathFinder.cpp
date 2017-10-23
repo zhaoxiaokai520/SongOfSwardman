@@ -1,18 +1,8 @@
-/* Copyright (C) 2017 Wildfire Games.
- * This file is part of 0 A.D.
+/* Copyright (C) 2017 Zero Games.
+ * This file is part of Song of Swordman
  *
- * 0 A.D. is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 2 of the License, or
- * (at your option) any later version.
+ * SOS is commercial software.
  *
- * 0 A.D. is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with 0 A.D.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 /**
@@ -126,11 +116,23 @@ void PathFinder::UpdateNative()
 	}
 }
 
+//************************************
+//case 1:distance is short and not way point between starter to dest
+// then use Short-Path-Finder with RVO
+//case 2:dist is long, then Long-Path-Finder with JPS is needed,
+//each path in sequent two way points need to use Short-Path-Finder
+//case 3:formation move as a single path finder starter
+//************************************
 void PathFinder::ComputePath(const AsyncLongPathReq &req)
 {
-	//case 1:distance is short and not way point between starter to dest
-	// then use Short-Path-Finder with RVO
-	//case 2:dist is long, then Long-Path-Finder with JPS is needed,
-	//each path in sequent two way points need to use Short-Path-Finder
-	//case 3:formation move as a single path finder starter
+
+}
+
+
+//************************************
+// between starter point and end goal, there is no static map tile that can not passable
+//************************************
+bool PathFinder::IsShortPath(const AsyncLongPathReq &req)
+{
+    return false;
 }

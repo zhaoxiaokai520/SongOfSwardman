@@ -1,9 +1,13 @@
 #include "Glue.h"
 #include<iostream>
 #include<string>
-//#include <chrono>
+#include <chrono>
+#include <assert.h>
+using namespace std;
+using namespace chrono;
 
 template<class Glue> Glue* Singleton<Glue>::m_pInstance = NULL;
+system_clock::time_point baseTime = system_clock::now();
 
 #ifdef __cplusplus
 extern "C" {
@@ -28,6 +32,23 @@ extern "C" {
     DLL void OnTimerNative()
     {
         Glue::Instance()->OnTimerNativeImpl();
+    }
+
+    DLL __int64 GetSystemClock()
+    {
+        return Glue::Instance()->GetSystemClock();
+    }
+
+    DLL void LoadBattleNative()
+    {
+        //assert(false);
+        return Glue::Instance()->LoadBattleNative();
+    }
+
+    DLL void UnloadBattleNative()
+    {
+        //assert(false);
+        return Glue::Instance()->UnloadBattleNative();
     }
 #ifdef __cplusplus
 }
@@ -62,11 +83,7 @@ void Glue::RmvCB(int code)
 
 void Glue::UpdateNativeImpl(int turnLength)
 {
-	CallBack cb = m_callbackMap.at(0);
-	if (NULL != cb)
-	{
-		cb("cpp update called!!");
-	}
+    InvokCallback(0, "===cpp update called!!===");
 	//std::map<int, CallBack>::iterator it = m_callbackMap.begin;
 
 	//if (it != m_callbackMap.end())
@@ -77,6 +94,40 @@ void Glue::UpdateNativeImpl(int turnLength)
 
 void Glue::OnTimerNativeImpl()
 {
-    CallBack cb = m_callbackMap.at(0);
-    cb("===cpp per sec timer called!!===");
+    InvokCallback(0, "===cpp per sec timer called!!===");
+}
+
+__int64 Glue::GetSystemClock()
+{
+    auto time = std::chrono::system_clock::now();
+    
+    return std::chrono::duration_cast<std::chrono::microseconds>(time- baseTime).count();
+}
+
+//************************************
+// load roles, maps
+//************************************
+void Glue::LoadBattleNative()
+{
+    InvokCallback(1, "===cpp LoadBattleNative called!!===");
+}
+
+//************************************
+// unload roles, maps, release memory
+//************************************
+void Glue::UnloadBattleNative()
+{
+    InvokCallback(1, "===cpp UnloadBattleNative called!!===");
+}
+
+void Glue::InvokCallback(int protocolCode, const char *data)
+{
+    if (m_callbackMap.find(protocolCode) != m_callbackMap.end())
+    {
+        CallBack cb = m_callbackMap.at(protocolCode);
+        if (nullptr != cb)
+        {
+            cb(data);
+        }
+    }
 }

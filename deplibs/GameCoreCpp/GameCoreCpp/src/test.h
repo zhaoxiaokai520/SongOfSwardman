@@ -3,7 +3,6 @@
 
 #include "Defines/types.h"
 
-#pragma once
 class test
 {
 public:
