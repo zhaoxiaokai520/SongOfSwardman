@@ -13,13 +13,18 @@ class MapMgr;
 extern "C" {
 #endif
 	
+	//public begin
 	extern DLL void AddCallback(int code, CallBack cb);
 	extern DLL void RmvCallback(int code);
 	extern DLL void UpdateNative(int turnLength);
     extern DLL __int64 GetSystemClock();
+	//public end
+
+	//battle begin
     extern DLL void LoadBattleNative();
     extern DLL void UnloadBattleNative();
 	extern DLL void SetBattleMapNative(const char *mapPath);
+	//battle end
 
 #ifdef __cplusplus
 }

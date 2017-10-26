@@ -56,11 +56,14 @@
     <Compile Include="IntMath\VecInt.cs" />
     <Compile Include="IntMath\VecInt2.cs" />
     <Compile Include="IntMath\VecInt3.cs" />
+    <Compile Include="MonoXml\MiniParser.cs" />
+    <Compile Include="MonoXml\SecurityParser.cs" />
+    <Compile Include="MonoXml\SmallXmlParser.cs" />
     <Compile Include="NativePluginHelper.cs" />
     <Compile Include="PathFinding\PathFinder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Singleton.cs" />
     <Compile Include="test.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
