@@ -3,6 +3,8 @@
 #include<string>
 #include <chrono>
 #include <assert.h>
+#include "Map/MapMgr.h"
+
 using namespace std;
 using namespace chrono;
 
@@ -42,17 +44,33 @@ extern "C" {
     DLL void LoadBattleNative()
     {
         //assert(false);
-        return Glue::Instance()->LoadBattleNative();
+        return Glue::Instance()->LoadBattle();
     }
 
     DLL void UnloadBattleNative()
     {
         //assert(false);
-        return Glue::Instance()->UnloadBattleNative();
+        return Glue::Instance()->UnloadBattle();
     }
+
+	DLL void SetBattleMapNative(const char *mapPath)
+	{
+		Glue::Instance()->SetBattleMap(mapPath);
+	}
 #ifdef __cplusplus
 }
 #endif
+
+Glue::Glue()
+	:m_mapMgr(MapMgr::Instance())
+{
+
+}
+
+Glue::~Glue()
+{
+
+}
 
 void Glue::AddCB(int code, CallBack cb)
 {
@@ -107,17 +125,25 @@ __int64 Glue::GetSystemClock()
 //************************************
 // load roles, maps
 //************************************
-void Glue::LoadBattleNative()
+void Glue::LoadBattle()
 {
     InvokCallback(1, "===cpp LoadBattleNative called!!===");
+	m_mapMgr->LoadBatMap(m_mapMgr->GetMapPath());
 }
 
 //************************************
 // unload roles, maps, release memory
 //************************************
-void Glue::UnloadBattleNative()
+void Glue::UnloadBattle()
 {
     InvokCallback(1, "===cpp UnloadBattleNative called!!===");
+	m_mapMgr->UnloadBatMap(m_mapMgr->GetCurrBatMap());
+}
+
+void Glue::SetBattleMap(const char *mapPath)
+{
+	InvokCallback(1, "===cpp SetBattleMap called!!===");
+	m_mapMgr->SetMapPath(mapPath);
 }
 
 void Glue::InvokCallback(int protocolCode, const char *data)

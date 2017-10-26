@@ -11,7 +11,12 @@ MapMgr::~MapMgr()
 {
 }
 
-void MapMgr::LoadBatMap(std::string path_name)
+BattleMap * MapMgr::LoadBatMap(const std::string & path_name)
+{
+	return NULL;
+}
+
+void MapMgr::UnloadBatMap(BattleMap *map)
 {
 
 }

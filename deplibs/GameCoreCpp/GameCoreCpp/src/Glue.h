@@ -7,6 +7,7 @@
 #include <iostream>
 
 typedef void(*CallBack)(const char * data);
+class MapMgr;
 
 #ifdef __cplusplus
 extern "C" {
@@ -18,6 +19,7 @@ extern "C" {
     extern DLL __int64 GetSystemClock();
     extern DLL void LoadBattleNative();
     extern DLL void UnloadBattleNative();
+	extern DLL void SetBattleMapNative(const char *mapPath);
 
 #ifdef __cplusplus
 }
@@ -26,19 +28,23 @@ extern "C" {
 class Glue : public Singleton<Glue>
 {
 public:
+	Glue();
+	~Glue();
     void AddCB(int code, CallBack cb);
     void RmvCB(int code);
     void UpdateNativeImpl(int turnLength);
     void OnTimerNativeImpl();
     __int64 GetSystemClock();
-    void LoadBattleNative();
-    void UnloadBattleNative();
+    void LoadBattle();
+    void UnloadBattle();
+	void SetBattleMap(const char *mapPath);
 
 private:
     void InvokCallback(int protocolCode, const char *data);
 	
 private:
 	std::map<int,CallBack> m_callbackMap;
+	MapMgr *m_mapMgr;
 };
 
 #endif //INCLUDED_GLUE

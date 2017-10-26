@@ -32,24 +32,19 @@ namespace Assets.Scripts.Core
             InvokeRepeating("UpdateNative", 0.0f, 1f);
         }
 
-        private void UpdateNative()
-        {
-            DebugHelper.Log("UpdateNative");
-            //GameCore.Glue.GetInstance().UpdateSub(0);
-        }
-
         private void Start()
         {
             NativePluginHelper.LoadNativeDll();
             AddListener();
             GameUpdateMgr.Register(this);
-            GameCore.Glue.LoadBattle();
+            GameCore.GlueBattle.SetBattleMap("test_map.xml");
+            GameCore.GlueBattle.LoadBattle();
         }
 
 		void OnDestory()
 		{
             Debug.Log("BattlePump.OnDestory()");
-            GameCore.Glue.UnloadBattle();
+            GameCore.GlueBattle.UnloadBattle();
             GameUpdateMgr.Unregister(this);
             RmvListener();
 		}
@@ -63,6 +58,12 @@ namespace Assets.Scripts.Core
 		{
 			
 		}
+
+        private void UpdateNative()
+        {
+            DebugHelper.Log("UpdateNative");
+            //GameCore.Glue.GetInstance().UpdateSub(0);
+        }
 
         public void UpdateSub(float delta)
         {

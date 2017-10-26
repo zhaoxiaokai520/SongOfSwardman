@@ -21,8 +21,6 @@ namespace GameCore
         delegate void UpdateNative(int turnLength);
         delegate void OnTimerNative();
         delegate float GetSystemClock();//return microseconds
-        delegate void LoadBattleNative();
-        delegate void UnloadBattleNative();
 #else
         [DllImport("GameCoreCpp")]
         static extern void AddCallback(int code, CallBack cb);
@@ -34,10 +32,6 @@ namespace GameCore
         static extern void OnTimerNative();
         [DllImport("GameCoreCpp")]
         static extern float GetSystemClock();
-        [DllImport("GameCoreCpp")]
-        static extern void LoadBattleNative();
-        [DllImport("GameCoreCpp")]
-        static extern void UnloadBattleNative();
 #endif
 
 
@@ -118,24 +112,6 @@ namespace GameCore
             return NativePluginHelper.Invoke<float, GetSystemClock>(NativePluginHelper.nativeLibraryPtr);
 #else
             return GetSystemClock();
-#endif
-        }
-
-        public static void LoadBattle()
-        {
-#if UNITY_EDITOR || UNITY_STANDALONE_WIN
-            NativePluginHelper.Invoke<LoadBattleNative>(NativePluginHelper.nativeLibraryPtr);
-#else
-            LoadBattleNative();
-#endif
-        }
-
-        public static void UnloadBattle()
-        {
-#if UNITY_EDITOR || UNITY_STANDALONE_WIN
-            NativePluginHelper.Invoke<UnloadBattleNative>(NativePluginHelper.nativeLibraryPtr);
-#else
-            UnloadBattleNative();
 #endif
         }
     }

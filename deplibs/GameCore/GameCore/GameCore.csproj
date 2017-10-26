@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="EfficiencyCLRWrapper.cs" />
     <Compile Include="Glue.cs" />
+    <Compile Include="GlueBattle.cs" />
     <Compile Include="IntMath\AcosTable.cs" />
     <Compile Include="IntMath\Atan2Table.cs" />
     <Compile Include="IntMath\IntFactor.cs" />
