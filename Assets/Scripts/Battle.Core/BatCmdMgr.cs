@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
-namespace Assets.Scripts.Battle.Mgr
+namespace Assets.Scripts.Battle.Core
 {
     //command design pattern invoker
     //Store command for undo operation

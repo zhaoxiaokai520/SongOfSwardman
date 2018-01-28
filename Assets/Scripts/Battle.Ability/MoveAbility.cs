@@ -6,7 +6,7 @@ using Assets.Scripts.Utility;
 using Mgr.Memory;
 using Assets.Scripts.Battle.Action;
 using Assets.Scripts.Battle.Command;
-using Assets.Scripts.Battle.Mgr;
+using Assets.Scripts.Battle.Core;
 
 namespace Assets.Scripts.UI.Base
 {
