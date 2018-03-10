@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.UI.Mgr;
+﻿using Assets.Scripts.Battle.Core;
+using Assets.Scripts.UI.Mgr;
 using Assets.Scripts.Utility;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,7 @@ namespace Assets.Scripts.Core
             NativePluginHelper.LoadNativeDll();
             AddListener();
             GameUpdateMgr.Register(this);
+            BattleResMgr.GetInstance().LoadBatResAll();
             GameCore.GlueBattle.SetBattleMap("test_map.xml");
             GameCore.GlueBattle.LoadBattle();
         }
@@ -47,6 +49,7 @@ namespace Assets.Scripts.Core
             GameCore.GlueBattle.UnloadBattle();
             GameUpdateMgr.Unregister(this);
             RmvListener();
+            BattleResMgr.GetInstance().UnloadBatResAll();
 		}
 
         void OnApplicationQuit()
